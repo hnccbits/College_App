@@ -1,21 +1,17 @@
-package bitsindri.hncc.collegeapp;
+package bitsindri.hncc.collegeapp.Activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.CompositePageTransformer;
-import androidx.viewpager2.widget.MarginPageTransformer;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import bitsindri.hncc.collegeapp.Adapters.PageAdapter;
+import bitsindri.hncc.collegeapp.R;
+import bitsindri.hncc.collegeapp.Custom_Classes.UserList;
 import xute.storyview.StoryModel;
-import xute.storyview.StoryView;
 
 public class MainActivity extends AppCompatActivity {
     //StoryView storyView;   // get the object for StoryView

@@ -1,4 +1,4 @@
-package bitsindri.hncc.collegeapp;
+package bitsindri.hncc.collegeapp.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import bitsindri.hncc.collegeapp.R;
+import bitsindri.hncc.collegeapp.Custom_Classes.UserList;
 import xute.storyview.StoryView;
 
 public class PageAdapter extends RecyclerView.Adapter<PageAdapter.ViewHolder> {

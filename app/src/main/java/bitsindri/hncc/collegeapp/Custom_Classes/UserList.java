@@ -1,4 +1,4 @@
-package bitsindri.hncc.collegeapp;
+package bitsindri.hncc.collegeapp.Custom_Classes;
 
 import java.util.ArrayList;
 
