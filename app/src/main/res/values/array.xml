@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="id_activityScreenTitles">
+
+        <item></item>
+        <item>Dashboard</item>
+        <item>Profile</item>
+        <item>Near By AID</item>
+        <item>Settings</item>
+        <item>About Us</item>
+        <item/>
+        <item>Log Out</item>
+
+    </string-array>
+
+    <array name="id_activityScreenIcons">
+        <item>@drawable/ic_action_close</item>
+        <item>@drawable/ic_action_name</item>
+        <item>@drawable/ic_baseline_person_24</item>
+        <item>@drawable/ic_action_aid</item>
+        <item>@drawable/ic_action_settings</item>
+        <item>@drawable/ic_action_about</item>
+        <item>0</item>
+        <item>@drawable/ic_action_logout</item>
+    </array>
+
+</resources>
