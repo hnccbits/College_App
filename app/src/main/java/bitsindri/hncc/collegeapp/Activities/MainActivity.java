@@ -1,97 +1,59 @@
 package bitsindri.hncc.collegeapp.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
+import android.view.MenuItem;
 
-import java.util.ArrayList;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
-import bitsindri.hncc.collegeapp.Adapters.PageAdapter;
+import com.google.android.material.navigation.NavigationView;
+
 import bitsindri.hncc.collegeapp.R;
-import bitsindri.hncc.collegeapp.Custom_Classes.UserList;
-import xute.storyview.StoryModel;
 
 public class MainActivity extends AppCompatActivity {
-    //StoryView storyView;   // get the object for StoryView
 
-    RecyclerView recyclerView;
-    ArrayList<UserList> data=new ArrayList<UserList>();
-    //ViewPager2 viewpager;
-    PageAdapter pageAdapter;
-    ArrayList<ArrayList<StoryModel>> user_list=new ArrayList<ArrayList<StoryModel>>();
+    private DrawerLayout drawer;
+    private NavigationView navigationView;
+    private Toolbar toolbar;
+    private ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recyclerView=findViewById(R.id.revyclerview);
 
-        //viewpager=findViewById(R.id.viewpager2);
-//
-//        storyView = findViewById(R.id.storyView); // find the XML view using findViewById
-//        storyView.resetStoryVisits(); // reset the storyview
-//
-        ArrayList<StoryModel> StoriesList = new ArrayList<>();  // create a Array list of Stories
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        StoriesList.add(new StoryModel("https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80","Status 1","Yesterday"));
-        StoriesList.add(new StoryModel("https://www.bigstockphoto.com/images/homepage/module-6.jpg","Status 2","10:15 PM"));
-        StoriesList.add(new StoryModel("https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg","Satus 3","Today,2:31 PM"));
-//        storyView.setImageUris(StoriesList);  // finally set the stories to storyview
-        user_list.add(StoriesList);
-        data.add(new UserList(user_list,"User1","Today,11:00am"));
-        StoriesList.clear(); // claering previous data from arraylist.
+        navigationView = findViewById(R.id.navigation_drawer);
+        drawer = findViewById(R.id.drawer);
 
-        StoriesList.add(new StoryModel("https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80","Status 1","Yesterday"));
-        StoriesList.add(new StoryModel("https://www.bigstockphoto.com/images/homepage/module-6.jpg","Status 2","10:15 PM"));
-        StoriesList.add(new StoryModel("https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg","Satus 3","Today,2:31 PM"));
-        user_list.add(StoriesList);
-        data.add(new UserList(user_list,"User2","Today,12:00am"));
-        // StoriesList.clear(); // claering previous data from arraylist.
+        toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open, R.string.close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
 
-        user_list.add(StoriesList);
-        data.add(new UserList(user_list,"User3","Today,01:00pm"));
-        user_list.add(StoriesList);
-        data.add(new UserList(user_list,"User4","yestarday"));
-        user_list.add(StoriesList);
-        data.add(new UserList(user_list,"User5","Today,09:00am"));
-        user_list.add(StoriesList);
-        data.add(new UserList(user_list,"User6","yestarday"));
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
-
-
-        pageAdapter=new PageAdapter(data);
-
-//        viewpager.setClipToPadding(false);
-//        viewpager.setClipChildren(false);
-//        viewpager.setOffscreenPageLimit(3);
-//        viewpager.getChildAt(0).setOverScrollMode(viewpager.OVER_SCROLL_ALWAYS);
-////        viewpager.getChildAt(0).setOverScrollMode(viewpager.OVER_SCROLL_NEVER);
-//        viewpager.setAdapter(pageAdapter);
-//
-//        CompositePageTransformer transformer=new CompositePageTransformer();
-//        transformer.addTransformer(new MarginPageTransformer(0));
-//        transformer.addTransformer(new ViewPager2.PageTransformer() {
-//            @Override
-//            public void transformPage(@NonNull View page, float position) {
-//
-//                float r = 1 - Math.abs(position);
-//                //page.setScaleY(0.8f);
-//
-//                page.setScaleY(0.8f + r * 0.05f);
-//
-//            }
-//        });
-//        viewpager.setPageTransformer(transformer);
-
-
-        //RECYCLER VIEW
-        LinearLayoutManager manager = new LinearLayoutManager(this);
-        manager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        recyclerView.setLayoutManager(manager);
-        recyclerView.setAdapter(pageAdapter);
-
-
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                if(id == R.id.home) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+                }else if(id == R.id.marketplace) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MarketplaceFragment()).commit();
+                }
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
+        
     }
+
+
 }
