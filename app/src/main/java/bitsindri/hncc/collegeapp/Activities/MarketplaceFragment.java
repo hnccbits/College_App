@@ -1,66 +1,79 @@
 package bitsindri.hncc.collegeapp.Activities;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
+import bitsindri.hncc.collegeapp.Adapters.marketplaceAdapter;
+import bitsindri.hncc.collegeapp.GetterAndSetter.marketplace;
 import bitsindri.hncc.collegeapp.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MarketplaceFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class MarketplaceFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    ArrayList<marketplace> marketplaceArrayList;
+    private RecyclerView marketplaceRecyclerView;
+    marketplaceAdapter marketplaceRecyclerAdapter;
 
     public MarketplaceFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MarketplaceFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MarketplaceFragment newInstance(String param1, String param2) {
-        MarketplaceFragment fragment = new MarketplaceFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        //Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_marketplace, container, false);
+        View marketplaceFragmentView = inflater.inflate(R.layout.fragment_marketplace, container, false);
+
+        marketplaceArrayList = new ArrayList<>();
+
+        marketplaceArrayList.add(new marketplace("Book", 300));
+        marketplaceArrayList.add(new marketplace("Bicycle", 3000));
+        marketplaceArrayList.add(new marketplace("Laptop", 45000));
+        marketplaceArrayList.add(new marketplace("Plywood", 800));
+        marketplaceArrayList.add(new marketplace("Electric Iron", 200));
+        marketplaceArrayList.add(new marketplace("Bag", 900));
+        marketplaceArrayList.add(new marketplace("Phone", 8000));
+        marketplaceArrayList.add(new marketplace("Book", 550));
+        marketplaceArrayList.add(new marketplace("Bike", 50000));
+        marketplaceArrayList.add(new marketplace("Headphone", 800));
+
+        marketplaceRecyclerView = marketplaceFragmentView.findViewById(R.id.marketplaceRecyclerView);
+
+        int orientation = getResources().getConfiguration().orientation;
+        if(orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            marketplaceRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),4));
+        }else if (orientation == Configuration.ORIENTATION_PORTRAIT){
+            marketplaceRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        }
+        //marketplaceRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+
+        marketplaceRecyclerAdapter = new marketplaceAdapter(getContext(), marketplaceArrayList);
+        marketplaceRecyclerView.setAdapter(marketplaceRecyclerAdapter);
+
+
+        return marketplaceFragmentView;
     }
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            marketplaceRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),4));
+        }else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            marketplaceRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        }
+
+    }
+
 }
