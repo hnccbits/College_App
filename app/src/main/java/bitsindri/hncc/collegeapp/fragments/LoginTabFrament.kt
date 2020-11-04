@@ -9,8 +9,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.anjali.myapplication.activity.DashboardActivity
 import com.anjali.myapplication.R
+import com.anjali.myapplication.activity.SlidingNavigationDrawerActivity
 
 class LoginTabFrament:Fragment() {
 
@@ -51,8 +51,9 @@ class LoginTabFrament:Fragment() {
 
 
         btnLogin.setOnClickListener {
-            val intent = Intent(activity, DashboardActivity::class.java)
+            val intent = Intent(activity, SlidingNavigationDrawerActivity::class.java)
             startActivity(intent)
+            activity?.finish()
 
         }
 

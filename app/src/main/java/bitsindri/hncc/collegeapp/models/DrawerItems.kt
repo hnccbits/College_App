@@ -1,7 +1,7 @@
 package com.anjali.myapplication.models
 
 import android.view.ViewGroup
-import com.anjali.myapplication.adapter.DrawerAdapter
+import com.anjali.myapplication.Drawer.DrawerAdapter
 
 abstract class DrawerItems<T: DrawerAdapter>(val isChecked:Boolean){
 

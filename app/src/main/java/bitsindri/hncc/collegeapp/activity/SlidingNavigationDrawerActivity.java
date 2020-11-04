@@ -1,4 +1,8 @@
-package com.anjali.myjavaapplication.activity;
+package com.anjali.myapplication.activity;
+
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,26 +12,22 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-
-import com.anjali.myjavaapplication.Drawer.DrawerAdapter;
-import com.anjali.myjavaapplication.Drawer.DrawerItem;
-import com.anjali.myjavaapplication.Drawer.SimpleItem;
-import com.anjali.myjavaapplication.Drawer.SpaceItems;
-import com.anjali.myjavaapplication.R;
-import com.anjali.myjavaapplication.fragments.AboutUsFragment;
-import com.anjali.myjavaapplication.fragments.DashboardFragment;
-import com.anjali.myjavaapplication.fragments.NeraByAidFragment;
-import com.anjali.myjavaapplication.fragments.ProfileFragment;
-import com.anjali.myjavaapplication.fragments.SettingsFragment;
+import com.anjali.myapplication.Drawer.DrawerAdapter;
+import com.anjali.myapplication.Drawer.DrawerItem;
+import com.anjali.myapplication.Drawer.SimpleItem;
+import com.anjali.myapplication.Drawer.SpaceItems;
+import com.anjali.myapplication.R;
+import com.anjali.myapplication.fragments.AboutUsFragment;
+import com.anjali.myapplication.fragments.DashboardFragment;
+import com.anjali.myapplication.fragments.NeraByAidFragment;
+import com.anjali.myapplication.fragments.ProfileFragment;
+import com.anjali.myapplication.fragments.SettingsFragment;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
 import java.util.Arrays;
 
-public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnItemSelectedListener{
+public class SlidingNavigationDrawerActivity extends AppCompatActivity implements DrawerAdapter.OnItemSelectedListener{
 
     private static final  int POS_CLOSE=0;
     private static final  int POS_DASHBOARD=1;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sliding_navigation_drawer);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
        screenIcons = loadScreenIcon();
        screenTitles = loadScreenTitles();
 
-        DrawerAdapter adapter = new DrawerAdapter(Arrays.asList(
+       DrawerAdapter adapter = new DrawerAdapter(Arrays.asList(
                 createItemFor(POS_CLOSE),
                 createItemFor(POS_DASHBOARD).setChecked(true),
                 createItemFor(POS_MY_PROFILE),

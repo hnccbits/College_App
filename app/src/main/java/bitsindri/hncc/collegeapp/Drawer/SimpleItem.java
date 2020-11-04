@@ -1,4 +1,4 @@
-package com.anjali.myjavaapplication.Drawer;
+package com.anjali.myapplication.Drawer;
 
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -9,9 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.anjali.myjavaapplication.R;
-
-import java.util.List;
+import com.anjali.myapplication.R;
 
 public class SimpleItem extends  DrawerItem<SimpleItem.ViewHolder> {
 

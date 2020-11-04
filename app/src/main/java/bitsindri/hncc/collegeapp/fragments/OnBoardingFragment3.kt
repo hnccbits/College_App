@@ -25,6 +25,7 @@ class OnBoardingFragment3:Fragment() {
 
         floatingActionButton.setOnClickListener{
             startActivity(Intent(activity, LoginActivity::class.java))
+            activity?.finish()
         }
         return  view
 

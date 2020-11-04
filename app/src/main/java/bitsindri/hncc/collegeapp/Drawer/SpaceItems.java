@@ -1,9 +1,8 @@
-package com.anjali.myjavaapplication.Drawer;
+package com.anjali.myapplication.Drawer;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Space;
 
 import androidx.annotation.NonNull;
 

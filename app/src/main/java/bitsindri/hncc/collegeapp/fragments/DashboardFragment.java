@@ -1,23 +1,23 @@
-package com.anjali.myjavaapplication.fragments;
+package com.anjali.myapplication.fragments;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.anjali.myjavaapplication.Dashboard.DynamicRVAdapter;
-import com.anjali.myjavaapplication.Dashboard.DynamicRVInterface.LoadMore;
-import com.anjali.myjavaapplication.Dashboard.DynamicRVModel;
-import com.anjali.myjavaapplication.Dashboard.StaticRCViewModel;
-import com.anjali.myjavaapplication.Dashboard.StaticRVAdapter;
-import com.anjali.myjavaapplication.R;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+
+import com.anjali.myapplication.R;
+import com.anjali.myapplication.adapter.DynamicRVAdapter;
+import com.anjali.myapplication.adapter.DynamicRVInterface.LoadMore;
+import com.anjali.myapplication.adapter.StaticRVAdapter;
+import com.anjali.myapplication.models.DynamicRVModel;
+import com.anjali.myapplication.models.StaticRCViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +52,7 @@ public class DashboardFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.rv_1);
         staticRVAdapter = new StaticRVAdapter((item));
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false));
         recyclerView.setAdapter(staticRVAdapter);
 
         items.add(new DynamicRVModel("Newsfeed",R.drawable.ic_baseline_emoji_food_beverage_24));

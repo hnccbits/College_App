@@ -1,14 +1,14 @@
-package com.anjali.myjavaapplication.fragments;
+package com.anjali.myapplication.fragments;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.anjali.myjavaapplication.R;
+import androidx.fragment.app.Fragment;
+
+import com.anjali.myapplication.R;
+
 
 public class SettingsFragment extends Fragment {
 
