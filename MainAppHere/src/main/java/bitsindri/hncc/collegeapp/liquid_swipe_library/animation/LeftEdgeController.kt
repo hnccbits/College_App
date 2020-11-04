@@ -1,12 +1,11 @@
-package bitsindri.hncc.collegeapp.library.animation
+package bitsindri.hncc.collegeapp.liquid_swipe_library.animation
 
 import android.graphics.Canvas
 import android.view.MotionEvent
-import bitsindri.hncc.collegeapp.library.EdgeController
-import bitsindri.hncc.collegeapp.library.ViewI
-import bitsindri.hncc.collegeapp.library.animation.Direction.LEFT
-import bitsindri.hncc.collegeapp.library.animation.Direction.RIGHT
-import bitsindri.hncc.collegeapp.library.animation.WaveLayer
+import bitsindri.hncc.collegeapp.liquid_swipe_library.EdgeController
+import bitsindri.hncc.collegeapp.liquid_swipe_library.ViewI
+import bitsindri.hncc.collegeapp.liquid_swipe_library.animation.Direction.LEFT
+import bitsindri.hncc.collegeapp.liquid_swipe_library.animation.Direction.RIGHT
 import kotlin.math.max
 import kotlin.math.min
 

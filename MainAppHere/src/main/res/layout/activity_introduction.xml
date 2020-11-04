@@ -57,7 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_name" />
 
-    <bitsindri.hncc.collegeapp.library.LiquidPager
+    <bitsindri.hncc.collegeapp.liquid_swipe_library.LiquidPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StoryViewer">
-        <activity android:name=".activities.IntroActivity"></activity>
         <activity
             android:name=".activities.IntroductionActivity"
             android:configChanges="screenSize"

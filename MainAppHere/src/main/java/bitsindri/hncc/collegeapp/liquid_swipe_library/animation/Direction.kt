@@ -1,4 +1,4 @@
-package bitsindri.hncc.collegeapp.library.animation
+package bitsindri.hncc.collegeapp.liquid_swipe_library.animation
 
 object Direction {
     val NONE = -1

@@ -1,13 +1,13 @@
-package bitsindri.hncc.collegeapp.library
+package bitsindri.hncc.collegeapp.liquid_swipe_library
 
 import android.animation.ValueAnimator
 import android.graphics.*
 import android.view.MotionEvent
 import androidx.core.animation.doOnEnd
-import bitsindri.hncc.collegeapp.library.animation.AnimationHelper
-import bitsindri.hncc.collegeapp.library.animation.Direction.LEFT
-import bitsindri.hncc.collegeapp.library.animation.Direction.NONE
-import bitsindri.hncc.collegeapp.library.animation.Direction.RIGHT
+import bitsindri.hncc.collegeapp.liquid_swipe_library.animation.AnimationHelper
+import bitsindri.hncc.collegeapp.liquid_swipe_library.animation.Direction.LEFT
+import bitsindri.hncc.collegeapp.liquid_swipe_library.animation.Direction.NONE
+import bitsindri.hncc.collegeapp.liquid_swipe_library.animation.Direction.RIGHT
 
 abstract class EdgeController(
     protected var width: Int = 0,

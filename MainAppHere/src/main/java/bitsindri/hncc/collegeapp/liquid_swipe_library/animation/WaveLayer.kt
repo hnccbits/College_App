@@ -1,7 +1,7 @@
-package bitsindri.hncc.collegeapp.library.animation
+package bitsindri.hncc.collegeapp.liquid_swipe_library.animation
 
 import android.graphics.Path
-import bitsindri.hncc.collegeapp.library.animation.Direction.RIGHT
+import bitsindri.hncc.collegeapp.liquid_swipe_library.animation.Direction.RIGHT
 
 internal class WaveLayer(
     var waveCenterY: Float,

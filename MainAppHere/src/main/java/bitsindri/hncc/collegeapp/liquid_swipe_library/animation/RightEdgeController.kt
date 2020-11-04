@@ -1,4 +1,4 @@
-package bitsindri.hncc.collegeapp.library.animation
+package bitsindri.hncc.collegeapp.liquid_swipe_library.animation
 
 import android.animation.ValueAnimator
 import android.graphics.Canvas
@@ -6,10 +6,10 @@ import android.graphics.Matrix
 import android.graphics.drawable.Drawable
 import android.view.MotionEvent
 import androidx.core.animation.doOnEnd
-import bitsindri.hncc.collegeapp.library.EdgeController
-import bitsindri.hncc.collegeapp.library.ViewI
-import bitsindri.hncc.collegeapp.library.animation.Direction.LEFT
-import bitsindri.hncc.collegeapp.library.animation.Direction.RIGHT
+import bitsindri.hncc.collegeapp.liquid_swipe_library.EdgeController
+import bitsindri.hncc.collegeapp.liquid_swipe_library.ViewI
+import bitsindri.hncc.collegeapp.liquid_swipe_library.animation.Direction.LEFT
+import bitsindri.hncc.collegeapp.liquid_swipe_library.animation.Direction.RIGHT
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min

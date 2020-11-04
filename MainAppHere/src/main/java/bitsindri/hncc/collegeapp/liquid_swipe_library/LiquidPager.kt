@@ -1,4 +1,4 @@
-package bitsindri.hncc.collegeapp.library
+package bitsindri.hncc.collegeapp.liquid_swipe_library
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -12,9 +12,9 @@ import androidx.core.view.drawToBitmap
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import bitsindri.hncc.collegeapp.R
-import bitsindri.hncc.collegeapp.library.animation.Direction.LEFT
-import bitsindri.hncc.collegeapp.library.animation.LeftEdgeController
-import bitsindri.hncc.collegeapp.library.animation.RightEdgeController
+import bitsindri.hncc.collegeapp.liquid_swipe_library.animation.Direction.LEFT
+import bitsindri.hncc.collegeapp.liquid_swipe_library.animation.LeftEdgeController
+import bitsindri.hncc.collegeapp.liquid_swipe_library.animation.RightEdgeController
 
 
 class LiquidPager : ViewPager, ViewTreeObserver.OnDrawListener, ViewI {

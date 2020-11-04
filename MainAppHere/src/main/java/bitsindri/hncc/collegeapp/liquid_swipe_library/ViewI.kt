@@ -1,4 +1,4 @@
-package bitsindri.hncc.collegeapp.library
+package bitsindri.hncc.collegeapp.liquid_swipe_library
 
 import android.graphics.Bitmap
 

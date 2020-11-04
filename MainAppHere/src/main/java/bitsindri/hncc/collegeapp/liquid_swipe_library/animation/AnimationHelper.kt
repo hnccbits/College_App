@@ -1,4 +1,4 @@
-package bitsindri.hncc.collegeapp.library.animation
+package bitsindri.hncc.collegeapp.liquid_swipe_library.animation
 
 import kotlin.math.cos
 import kotlin.math.exp

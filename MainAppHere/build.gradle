@@ -51,6 +51,8 @@ dependencies {
     //lottie dependency for splash animation image
     implementation 'com.airbnb.android:lottie:3.4.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'com.github.shrikanth7698:Custom-Navigation-Drawer:v0.0.1'
+
     //onboarding dependency for splash
 //    implementation 'com.cuberto:liquid-swipe:1.0.0'
 
