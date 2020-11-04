@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.IntroQuestion"
+    android:background="#FFFFFF"
+    android:id="@+id/relativelayout">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/viewpager2"
+        android:paddingStart="60dp"
+        android:paddingEnd="60dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/skipbtn"
+        android:text="skip>>"
+        android:fontFamily="sans-serif-light"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:background="@drawable/btn_border"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:padding="2dp"/>
+
+
+
+</RelativeLayout>

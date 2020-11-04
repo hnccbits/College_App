@@ -1,2 +1,2 @@
-include ':app'
+include ':MainAppHere'
 rootProject.name = "College App"
