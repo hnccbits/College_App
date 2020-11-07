@@ -86,6 +86,7 @@
         android:text="Everything you want is available here . Behave Smart"
         android:textSize="16sp"
         android:layout_marginTop="5dp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent=".1"
