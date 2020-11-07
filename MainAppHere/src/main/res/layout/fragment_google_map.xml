@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    tools:context=".activities.GoogleMapFragment"
+    android:background="@color/white">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_source"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
+        android:background="@drawable/edittext_bg"
+        android:hint="Enter Source Location"
+        android:textColorHint="#000000"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_destination"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_bg"
+        android:hint="Enter Destination Location"
+        android:textColorHint="#000000"/>
+
+
+    <Button
+        android:id="@+id/btnShowTrack"
+        android:layout_width="match_parent"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/button_bg"
+        android:layout_height="wrap_content"
+        android:text="Show Track"/>
+
+</LinearLayout>

@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Marketplace",R.drawable.feed_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Messages",R.drawable.message_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Music",R.drawable.music_bg));
+        menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Navigate",R.drawable.music_bg));
         sNavigationDrawer.setMenuItemList(menuItems);
         fragmentClass =  HomeFragment.class;
         try {
@@ -78,6 +79,11 @@ public class MainActivity extends AppCompatActivity {
                     case 3:{
 //                        color1 = R.color.blue;
                         fragmentClass = MarketplaceFragment.class;
+                        break;
+                    }
+                    case 4:{
+//                        color1 = R.color.blue;
+                        fragmentClass = GoogleMapFragment.class;
                         break;
                     }
 
