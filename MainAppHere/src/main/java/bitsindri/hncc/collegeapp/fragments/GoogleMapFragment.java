@@ -1,4 +1,4 @@
-package bitsindri.hncc.collegeapp.activities;
+package bitsindri.hncc.collegeapp.fragments;
 
 import android.content.Intent;
 import android.net.Uri;

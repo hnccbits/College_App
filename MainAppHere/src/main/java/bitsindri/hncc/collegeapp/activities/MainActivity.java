@@ -1,25 +1,28 @@
 package bitsindri.hncc.collegeapp.activities;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer;
-
-import com.google.android.material.navigation.NavigationView;
 import com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import bitsindri.hncc.collegeapp.R;
+import bitsindri.hncc.collegeapp.fragments.GoogleMapFragment;
+import bitsindri.hncc.collegeapp.fragments.HomeFragment;
+import bitsindri.hncc.collegeapp.fragments.MarketplaceFragment;
+import bitsindri.hncc.collegeapp.fragments.Telephone_Directory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Messages",R.drawable.message_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Music",R.drawable.music_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Navigate",R.drawable.music_bg));
+        menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Tel- Directory",R.drawable.music_bg));
         sNavigationDrawer.setMenuItemList(menuItems);
         fragmentClass =  HomeFragment.class;
         try {
@@ -68,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     case 1:{
 //                        color1 = R.color.orange;
+//                        color1= Color.parseColor("#012dda");
                         fragmentClass = MarketplaceFragment.class;
                         break;
                     }
@@ -85,6 +90,14 @@ public class MainActivity extends AppCompatActivity {
 //                        color1 = R.color.blue;
                         fragmentClass = GoogleMapFragment.class;
                         break;
+                    }
+                    case 5:{
+//                        color1 = R.color.blue;
+                        fragmentClass = Telephone_Directory.class;
+                        customToast("tele-phone directory");
+                        break;
+
+
                     }
 
                 }
@@ -112,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
                         if (fragment != null) {
                             FragmentManager fragmentManager = getSupportFragmentManager();
-                            fragmentManager.beginTransaction().setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out).replace(R.id.frameLayout, fragment).commit();
+                            fragmentManager.beginTransaction().setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out).replace(R.id.frameLayout, fragment).addToBackStack(null).commit();
 
                         }
                     }
@@ -149,6 +162,51 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
     }
+/**EXIT ALERTDIALOG BOX :*/
+    @Override
+    public void onBackPressed() {
+        int backStackEntryCount = getSupportFragmentManager().getBackStackEntryCount();
+        if (backStackEntryCount == 0)
+        {
+            final AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
+            builder.setMessage("Are you sure want to exit?");
+            builder.setCancelable(true);
+            builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
 
+            builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                   customToast("see you soon:)");
+                    finish();
+                }
+            });
+            AlertDialog alertDialog=builder.create();
+            alertDialog.show();
+        }
 
+        else {
+
+            super.onBackPressed();
+        }
+    }
+
+    void customToast(String message)
+    {
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast,
+                (ViewGroup) findViewById(R.id.toast_layout_root));
+        TextView text = (TextView) layout.findViewById(R.id.text);
+        text.setText(message);
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.BOTTOM, 0, 50);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
+    }
 }

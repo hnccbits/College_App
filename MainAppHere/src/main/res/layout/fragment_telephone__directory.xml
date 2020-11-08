@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.MarketplaceFragment">
+    tools:context=".fragments.Telephone_Directory">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,19 +14,20 @@
             android:id="@+id/sellButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SELL"
+            android:text=" Call Emergency!"
             android:textStyle="bold"
+            android:drawableLeft="@drawable/call_icon"
             android:layout_marginTop="50dp"
             android:paddingStart="40dp"
             android:paddingEnd="40dp"
-            android:background="@drawable/btn_border"
+            android:background="@drawable/btn_red"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/marketplaceRecyclerView"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/marketplaceRecyclerView"
+            android:id="@+id/tel_RecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"

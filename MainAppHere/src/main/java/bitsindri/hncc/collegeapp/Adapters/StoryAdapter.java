@@ -16,9 +16,9 @@ import bitsindri.hncc.collegeapp.R;
 import bitsindri.hncc.collegeapp.Custom_Classes.UserList;
 import xute.storyview.StoryView;
 
-public class PageAdapter extends RecyclerView.Adapter<PageAdapter.ViewHolder> {
+public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> {
     ArrayList<UserList> data ;
-    public PageAdapter(ArrayList<UserList>  data)
+    public StoryAdapter(ArrayList<UserList>  data)
     {
 
         this.data=data;
@@ -27,7 +27,7 @@ public class PageAdapter extends RecyclerView.Adapter<PageAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.story_list,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_story_list,parent,false);
         return  new ViewHolder(view);
     }
 
