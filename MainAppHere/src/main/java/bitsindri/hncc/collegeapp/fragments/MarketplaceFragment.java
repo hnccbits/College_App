@@ -1,4 +1,4 @@
-package bitsindri.hncc.collegeapp.activities;
+package bitsindri.hncc.collegeapp.fragments;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

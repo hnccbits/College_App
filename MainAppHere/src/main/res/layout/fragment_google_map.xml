@@ -7,7 +7,7 @@
     android:padding="16dp"
     android:orientation="vertical"
     android:layout_gravity="center_horizontal"
-    tools:context=".activities.GoogleMapFragment"
+    tools:context=".fragments.GoogleMapFragment"
     android:background="@color/white">
 
 
