@@ -13,6 +13,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer;
 
 import java.util.ArrayList;
@@ -27,6 +29,7 @@ import bitsindri.hncc.collegeapp.fragments.Telephone_Directory;
 public class MainActivity extends AppCompatActivity {
 
     SNavigationDrawer sNavigationDrawer;
+    private ChipNavigationBar chipNavigationBar;
     int color1=0;
     Class fragmentClass;
     public static Fragment fragment;
@@ -41,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         }
         sNavigationDrawer = findViewById(R.id.navigationDrawer);
         List<com.shrikanthravi.customnavigationdrawer2.data.MenuItem> menuItems = new ArrayList<>();
-        menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Home",R.drawable.news_bg));
-        menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Marketplace",R.drawable.feed_bg));
+//        menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Home",R.drawable.news_bg));
+//        menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Marketplace",R.drawable.feed_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Messages",R.drawable.message_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Music",R.drawable.music_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Navigate",R.drawable.music_bg));
@@ -65,33 +68,33 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("Position "+position);
 
                 switch (position){
-                    case 0:{
-//                        color1 = ;
-                        fragmentClass = HomeFragment.class;
-                        break;
-                    }
-                    case 1:{
-//                        color1 = R.color.orange;
-//                        color1= Color.parseColor("#012dda");
-                        fragmentClass = MarketplaceFragment.class;
-                        break;
-                    }
+//                    case 0:{
+////                        color1 = ;
+//                        fragmentClass = HomeFragment.class;
+//                        break;
+//                    }
+//                    case 1:{
+////                        color1 = R.color.orange;
+////                        color1= Color.parseColor("#012dda");
+//                        fragmentClass = MarketplaceFragment.class;
+//                        break;
+//                    }
+//                    case 0:{
+////                        color1 = R.color.green;
+//                        fragmentClass = HomeFragment.class;
+//                        break;
+//                    }
+//                    case 1:{
+////                        color1 = R.color.blue;
+//                        fragmentClass = MarketplaceFragment.class;
+//                        break;
+//                    }
                     case 2:{
-//                        color1 = R.color.green;
-                        fragmentClass = HomeFragment.class;
-                        break;
-                    }
-                    case 3:{
-//                        color1 = R.color.blue;
-                        fragmentClass = MarketplaceFragment.class;
-                        break;
-                    }
-                    case 4:{
 //                        color1 = R.color.blue;
                         fragmentClass = GoogleMapFragment.class;
                         break;
                     }
-                    case 5:{
+                    case 3:{
 //                        color1 = R.color.blue;
                         fragmentClass = Telephone_Directory.class;
                         customToast("tele-phone directory");
@@ -161,7 +164,39 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
+
+        // setting up chip navigation bar
+        chipNavigationBar = findViewById(R.id.bottom_nav_bar);
+
+        chipNavigationBar.setItemSelected(R.id.home, true);
+
+        BottomMenu(); //for handling clicks on chipNavigationBar
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new HomeFragment()).commit();
+
+
     }
+
+    private void BottomMenu(){
+
+        chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int i) {
+                Fragment fragment = null;
+                switch (i){
+                    case R.id.home:
+                        fragment = new HomeFragment();
+                        break;
+                    case R.id.marketplace:
+                        fragment = new MarketplaceFragment();
+                        break;
+                }
+                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
+            }
+        });
+
+    }
+
 /**EXIT ALERTDIALOG BOX :*/
     @Override
     public void onBackPressed() {
