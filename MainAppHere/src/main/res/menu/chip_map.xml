@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/car"
+        android:icon="@drawable/ic_action_car"
+        android:title="Drive"
+        app:cnb_iconColor="@color/fb_blue"/>
+    <item
+        android:id="@+id/bicycle"
+        android:icon="@drawable/ic_action_bicycle"
+        android:title="Two-wheeler"
+        app:cnb_iconColor="@color/fb_blue"/>
+    <item
+        android:id="@+id/bus"
+        android:icon="@drawable/ic_action_bus"
+        android:title="Train or Bus"
+        app:cnb_iconColor="@color/fb_blue" />
+    <item
+        android:id="@+id/walk"
+        android:icon="@drawable/ic_action_walk"
+        android:title="Walk"
+        app:cnb_iconColor="@color/fb_blue" />
+
+</menu>
