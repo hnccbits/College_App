@@ -3,45 +3,115 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_gravity="center_horizontal"
     tools:context=".fragments.GoogleMapFragment"
     android:background="@color/white">
 
-
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_0"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:layout_marginStart="30dp"/>
+
+
+    <EditText
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
         android:id="@+id/et_source"
-        android:padding="12dp"
+        android:padding="8dp"
         android:textColor="@color/black"
         android:layout_marginTop="8dp"
         android:textSize="14sp"
-        android:background="@drawable/edittext_bg"
+        android:background="@drawable/map_edittext_bg"
         android:hint="Enter Source Location"
-        android:textColorHint="#000000"/>
+        android:textColorHint="@color/black"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_action_location"
+            android:layout_marginStart="30dp"/>
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:id="@+id/et_destination"
-        android:padding="12dp"
+        android:padding="8dp"
         android:textColor="@color/black"
         android:textSize="14sp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/edittext_bg"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/map_edittext_bg"
         android:hint="Enter Destination Location"
-        android:textColorHint="#000000"/>
+        android:textColorHint="@color/black"/>
 
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/revert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_action_revert"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="-40dp"/>
 
     <Button
         android:id="@+id/btnShowTrack"
         android:layout_width="match_parent"
-        android:layout_marginTop="22dp"
-        android:background="@drawable/button_bg"
+        android:textSize="14sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:background="#F8F5F6"
+        android:textStyle="bold"
         android:layout_height="wrap_content"
         android:text="Show Track"/>
+
+
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/chipNavigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cnb_menuResource="@menu/chip_map"
+        android:layout_marginTop="20dp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_map"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recent searches"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
+        android:padding="5dp"
+        android:lineSpacingExtra="20dp"
+        android:textColor="@color/fb_blue"
+        android:textAlignment="center"/>
+
 
 </LinearLayout>
