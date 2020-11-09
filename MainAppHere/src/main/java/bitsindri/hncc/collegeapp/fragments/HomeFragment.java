@@ -1,4 +1,4 @@
-package bitsindri.hncc.collegeapp.activities;
+package bitsindri.hncc.collegeapp.fragments;
 
 import android.os.Bundle;
 
@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import bitsindri.hncc.collegeapp.Adapters.PageAdapter;
+import bitsindri.hncc.collegeapp.Adapters.StoryAdapter;
 import bitsindri.hncc.collegeapp.Adapters.homeFeedAdapter;
 import bitsindri.hncc.collegeapp.Custom_Classes.UserList;
 import bitsindri.hncc.collegeapp.GetterAndSetter.feed;
@@ -28,8 +28,7 @@ public class HomeFragment extends Fragment {
     homeFeedAdapter homeFeedAdapter;
 
     ArrayList<UserList> data=new ArrayList<UserList>();
-    //ViewPager2 viewpager;
-    PageAdapter pageAdapter;
+    StoryAdapter pageAdapter;
     ArrayList<ArrayList<StoryModel>> user_list=new ArrayList<ArrayList<StoryModel>>();
 
 
@@ -44,7 +43,7 @@ public class HomeFragment extends Fragment {
         View homeFeedView = inflater.inflate(R.layout.fragment_home, container, false);
 
 
-
+        data.clear(); //clearing data each time,before loading to PageAdapter
 
         //code for STATUS on home fragment
         ArrayList<StoryModel> StoriesList = new ArrayList<>();  // create a Array list of Stories
@@ -54,6 +53,7 @@ public class HomeFragment extends Fragment {
         StoriesList.add(new StoryModel("https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg","Satus 3","Today,2:31 PM"));
 //        storyView.setImageUris(StoriesList);  // finally set the stories to storyview
         user_list.add(StoriesList);
+
         data.add(new UserList(user_list,"User1","Today,11:00am"));
         StoriesList.clear(); // claering previous data from arraylist.
 
@@ -75,29 +75,9 @@ public class HomeFragment extends Fragment {
 
 
 
-        pageAdapter=new PageAdapter(data);
+        pageAdapter=new StoryAdapter(data);
 
-//        viewpager.setClipToPadding(false);
-//        viewpager.setClipChildren(false);
-//        viewpager.setOffscreenPageLimit(3);
-//        viewpager.getChildAt(0).setOverScrollMode(viewpager.OVER_SCROLL_ALWAYS);
-////        viewpager.getChildAt(0).setOverScrollMode(viewpager.OVER_SCROLL_NEVER);
-//        viewpager.setAdapter(pageAdapter);
-//
-//        CompositePageTransformer transformer=new CompositePageTransformer();
-//        transformer.addTransformer(new MarginPageTransformer(0));
-//        transformer.addTransformer(new ViewPager2.PageTransformer() {
-//            @Override
-//            public void transformPage(@NonNull View page, float position) {
-//
-//                float r = 1 - Math.abs(position);
-//                //page.setScaleY(0.8f);
-//
-//                page.setScaleY(0.8f + r * 0.05f);
-//
-//            }
-//        });
-//        viewpager.setPageTransformer(transformer);
+
 
 
         //RECYCLER VIEW
