@@ -70,7 +70,8 @@ public class marketplaceAdapter extends RecyclerView.Adapter{
 
             itemCategory = itemView.findViewById(R.id.item_category);
             itemPrice = itemView.findViewById(R.id.item_price);
-            buyButton = itemView.findViewById(R.id.item_buy);
+            buyButton = itemView.findViewById(R.id.fav_item);
+
 
         }
     }
