@@ -22,6 +22,7 @@ import bitsindri.hncc.collegeapp.R;
 import bitsindri.hncc.collegeapp.fragments.GoogleMapFragment;
 import bitsindri.hncc.collegeapp.fragments.HomeFragment;
 import bitsindri.hncc.collegeapp.fragments.MarketplaceFragment;
+import bitsindri.hncc.collegeapp.fragments.MenuFragment;
 import bitsindri.hncc.collegeapp.fragments.Telephone_Directory;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Music",R.drawable.music_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Navigate",R.drawable.music_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Tel- Directory",R.drawable.music_bg));
+        menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Menu",R.drawable.music_bg));
         sNavigationDrawer.setMenuItemList(menuItems);
         fragmentClass =  HomeFragment.class;
         try {
@@ -96,9 +98,16 @@ public class MainActivity extends AppCompatActivity {
                         fragmentClass = Telephone_Directory.class;
                         customToast("tele-phone directory");
                         break;
+                    }
+                    case 6:{
+//                        color1 = R.color.blue;
+                        fragmentClass = MenuFragment.class;
+                        customToast("menu");
+                        break;
 
 
                     }
+
 
                 }
                 sNavigationDrawer.setDrawerListener(new SNavigationDrawer.DrawerListener() {
