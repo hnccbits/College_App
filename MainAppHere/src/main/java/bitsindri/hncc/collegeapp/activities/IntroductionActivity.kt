@@ -44,10 +44,10 @@ class IntroductionActivity : AppCompatActivity() {
         anim = loadAnimation(this, R.anim.o_b_anim)
         viewPager.startAnimation(anim)
 
-        bg.animate().translationY(-1600F).setDuration(1000).setStartDelay(8000)
-        logo.animate().translationY(1400F).setDuration(1000).setStartDelay(8000)
-        app_name.animate().translationY(1400F).setDuration(1000).setStartDelay(8000)
-        lottie.animate().translationY(1400F).setDuration(1000).setStartDelay(8000)
+        bg.animate().translationY(-2200F).setDuration(1000).setStartDelay(8000)
+        logo.animate().translationY(2200F).setDuration(1000).setStartDelay(8000)
+        app_name.animate().translationY(2000F).setDuration(1000).setStartDelay(8000)
+        lottie.animate().translationY(2000F).setDuration(1000).setStartDelay(8000)
     }
 
     class ScreenSlidePagerAdapter(fm:FragmentManager):FragmentStatePagerAdapter(fm) {

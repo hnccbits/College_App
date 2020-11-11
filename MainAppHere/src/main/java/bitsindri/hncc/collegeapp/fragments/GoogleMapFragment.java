@@ -1,25 +1,43 @@
 package bitsindri.hncc.collegeapp.fragments;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
+
+import java.util.ArrayList;
+
+import bitsindri.hncc.collegeapp.Adapters.GoogleMapAdapter;
+import bitsindri.hncc.collegeapp.GetterAndSetter.googlemap;
 import bitsindri.hncc.collegeapp.R;
 
 public class GoogleMapFragment extends Fragment {
 
     EditText et_destination;
+    ImageView revert;
     EditText et_source;
+    ChipNavigationBar chipNavigationBar;
     Button btnShowTrack;
+
+    RecyclerView recyclerview_map;
+    GoogleMapAdapter googleMapAdapter;
+    ArrayList<googlemap> items=new ArrayList<>();
+    LinearLayoutManager linearLayoutManager;
 
     public GoogleMapFragment() {
         // Required empty public constructor
@@ -35,25 +53,84 @@ public class GoogleMapFragment extends Fragment {
 
         et_destination = view.findViewById(R.id.et_destination);
         et_source = view.findViewById(R.id.et_source);
+        revert = view.findViewById(R.id.revert);
+        chipNavigationBar = view.findViewById(R.id.chipNavigationBar);
+
+        recyclerview_map = view.findViewById(R.id.recyclerview_map);
+        linearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerview_map.setLayoutManager(linearLayoutManager);
+
+
         btnShowTrack = view.findViewById(R.id.btnShowTrack);
+
+
+        items.add(new googlemap("Sindri"));
+        items.add(new googlemap("Dhanbad"));
+        items.add(new googlemap("MG"));
+        items.add(new googlemap("OP"));
+        items.add(new googlemap("GH"));
+        items.add(new googlemap("Canteen"));
+        items.add(new googlemap("ATM"));
+        items.add(new googlemap("Shaherpura"));
+        items.add(new googlemap("Lecture Hall"));
+        items.add(new googlemap("C-51"));
+
+
+
+        googleMapAdapter = new GoogleMapAdapter(items,getContext());
+        recyclerview_map.setAdapter(googleMapAdapter);
+
+
+
+        revert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String source = et_source.getText().toString();
+                String dest = et_destination.getText().toString();
+
+                if(source.equals("") && dest.equals("")){
+                    Toast.makeText(getActivity(),"Enter both location",Toast.LENGTH_SHORT).show();
+                }
+                else{
+
+                       String temp = source;
+
+
+                }
+
+            }
+        });
 
 
         btnShowTrack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-              String source = et_source.getText().toString();
-              String dest = et_destination.getText().toString();
+                String source = et_source.getText().toString();
+                String dest = et_destination.getText().toString();
+
               if(source.equals("") && dest.equals("")){
                   Toast.makeText(getActivity(),"Enter both location",Toast.LENGTH_SHORT).show();
               }
               else{
-                  displayTrack(source,dest);
+                  displayTrack(source, dest);
               }
 
 
             }
         });
+
+        chipNavigationBar.setItemSelected(R.id.car,true);
+
+//        chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(int i) {
+//                switch (i){
+//                    case R.id.car:
+//                }
+//            }
+//        });
 
         return  view;
     }

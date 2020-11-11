@@ -69,6 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot Password"
+        android:textColor="@color/black"
         app:layout_constraintVertical_bias="0"
         android:layout_marginTop="5dp"
         app:layout_constraintHorizontal_bias=".8"

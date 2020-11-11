@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    android:layout_width="185dp"
-    android:layout_height="250dp"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_margin="4dp"
-    cardview:cardCornerRadius="10dp"
-    android:elevation="5dp"
+    cardview:cardCornerRadius="2dp"
+    android:elevation="10dp"
     android:focusable="true">
 
     <LinearLayout
@@ -19,7 +19,7 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="6"
             android:layout_marginStart="2dp"
             android:layout_marginTop="2dp"
@@ -28,43 +28,43 @@
         <TextView
             android:id="@+id/item_category"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+           android:layout_marginTop="2dp"
+            android:layout_marginLeft="5dp"
             android:text="Books"
+            android:fontFamily="sans-serif"
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:textSize="15sp"
             android:maxLines="2"
-            android:gravity="center"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="1dp"/>
-        <LinearLayout
+
+         />
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            >
             <TextView
                 android:id="@+id/item_price"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_weight="2"
                 android:layout_height="wrap_content"
                 android:text="Rs 4500 "
                 android:textSize="16sp"
-                android:textStyle="bold"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:textColor="@android:color/black" />
+                android:textColor="#77808E"
+                android:layout_margin="5dp"/>
             <Button
-                android:id="@+id/item_buy"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="BUY"
-                android:layout_margin="1.5dp"
-                android:textColor="#ffffff"
-                android:background="@drawable/btn_border"/>
-        </LinearLayout>
+                android:id="@+id/fav_item"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/star_off"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+
+                />
+        </RelativeLayout>
 
     </LinearLayout>
 
