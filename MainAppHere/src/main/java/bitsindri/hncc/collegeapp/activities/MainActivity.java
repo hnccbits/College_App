@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         }
         sNavigationDrawer = findViewById(R.id.navigationDrawer);
         List<com.shrikanthravi.customnavigationdrawer2.data.MenuItem> menuItems = new ArrayList<>();
-//        menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Home",R.drawable.news_bg));
-//        menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Marketplace",R.drawable.feed_bg));
+        menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Home",R.drawable.news_bg));
+        menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Marketplace",R.drawable.feed_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Messages",R.drawable.message_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Music",R.drawable.music_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Navigate",R.drawable.music_bg));
@@ -70,45 +70,47 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("Position "+position);
 
                 switch (position){
-//                    case 0:{
-////                        color1 = ;
-//                        fragmentClass = HomeFragment.class;
-//                        break;
-//                    }
-//                    case 1:{
-////                        color1 = R.color.orange;
-////                        color1= Color.parseColor("#012dda");
-//                        fragmentClass = MarketplaceFragment.class;
-//                        break;
-//                    }
-//                    case 0:{
-////                        color1 = R.color.green;
-//                        fragmentClass = HomeFragment.class;
-//                        break;
-//                    }
-//                    case 1:{
-////                        color1 = R.color.blue;
-//                        fragmentClass = MarketplaceFragment.class;
-//                        break;
-//                    }
+                    case 0:{
+//                        color1 = ;
+                        fragmentClass = HomeFragment.class;
+                        break;
+                    }
+                    case 1:{
+//                        color1 = R.color.orange;
+//                        color1= Color.parseColor("#012dda");
+                        fragmentClass = MarketplaceFragment.class;
+                        break;
+                    }
+
                     case 2:{
 //                        color1 = R.color.blue;
-                        fragmentClass = GoogleMapFragment.class;
+                        //TODO: Implement chat (different channels for first ,second,thord & final year students
+                        customToast("this feature coming soon...");
                         break;
                     }
                     case 3:{
 //                        color1 = R.color.blue;
+                        //fragmentClass = Telephone_Directory.class;
+                        customToast("unused feature");
+                        break;
+                    }
+                    case 4:{
+//                        color1 = R.color.blue;
+                        //fragmentClass = MenuFragment.class;
+                        fragmentClass = GoogleMapFragment.class;
+                        customToast("navigation");
+                        break;
+                    }
+                    case 5:{
+                        customToast("tel-directory");
                         fragmentClass = Telephone_Directory.class;
-                        customToast("tele-phone directory");
                         break;
                     }
                     case 6:{
 //                        color1 = R.color.blue;
                         fragmentClass = MenuFragment.class;
-                        customToast("menu");
+                        customToast("Menu");
                         break;
-
-
                     }
 
 
@@ -181,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomMenu(); //for handling clicks on chipNavigationBar
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new HomeFragment()).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new HomeFragment()).commit();
 
 
     }
@@ -196,8 +198,12 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.home:
                         fragment = new HomeFragment();
                         break;
-                    case R.id.marketplace:
-                        fragment = new MarketplaceFragment();
+                    case R.id.menu:
+                        fragment = new MenuFragment();
+                        break;
+                    case R.id.user_profile:
+                          fragment = new HomeFragment();
+                        customToast("user profile comming soon");
                         break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
