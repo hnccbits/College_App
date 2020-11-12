@@ -1,19 +1,35 @@
 package bitsindri.hncc.collegeapp.Adapters;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.StrictMode;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 import bitsindri.hncc.collegeapp.GetterAndSetter.feed;
 import bitsindri.hncc.collegeapp.R;
+import bitsindri.hncc.collegeapp.activities.commentActivity;
 
 public class homeFeedAdapter extends RecyclerView.Adapter{
 
@@ -53,7 +69,54 @@ public class homeFeedAdapter extends RecyclerView.Adapter{
 
         FeedHolder.feedLikes.setText(feed.getPostLikes()+" Likes");
 
+        FeedHolder.commentFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent commentIntent = new Intent(myContext, bitsindri.hncc.collegeapp.activities.commentActivity.class);
+                commentIntent.putExtra("postImage", feed.getPostImageUrl());
+                commentIntent.putExtra("postMessage", feed.getPostMessage());
+                commentIntent.putExtra("postUserName", feed.getProfileName());
+                commentIntent.putExtra("postDateAndTime", feed.getPostDateAndTime());
+                commentIntent.putExtra("postLikes", feed.getPostLikes());
+                myContext.startActivity(commentIntent);
+
+            }
+        });
+
+        FeedHolder.shareFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shareIntent = new Intent();
+
+                if(PostImageUrl.equals("no_post_img")){
+                    // when post has no image, only text
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, feed.getPostMessage());
+                    shareIntent.setType("text/plain");
+                }else {
+                    // when post has image and text both
+                    Uri imageUri = Uri.parse("android.resource://" + myContext.getPackageName()
+                            + "/drawable/" + "desktop");
+                    String shareMessage = feed.getPostMessage();
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello");
+                    shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+                    shareIntent.setType("image/jpeg");
+                }
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                try {
+                    myContext.startActivity(Intent.createChooser(shareIntent, "send"));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(myContext, "Something went wrong :(", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
     }
+
+
+
+
 
     @Override
     public int getItemCount() {
@@ -67,6 +130,7 @@ public class homeFeedAdapter extends RecyclerView.Adapter{
         ImageView feedImage;
         TextView feedText;
         TextView feedLikes;
+        LinearLayout shareFeed, commentFeed;
 
         public FeedHolder(View itemView) {
             super(itemView);
@@ -75,6 +139,8 @@ public class homeFeedAdapter extends RecyclerView.Adapter{
             feedImage = itemView.findViewById(R.id.feed_image);
             feedText = itemView.findViewById(R.id.feed_text);
             feedLikes = itemView.findViewById(R.id.feed_likes);
+            shareFeed = itemView.findViewById(R.id.shareLinearLayout);
+            commentFeed = itemView.findViewById(R.id.commentLinearLayout);
         }
 
     }
