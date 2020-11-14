@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Tel- Directory",R.drawable.music_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Menu",R.drawable.music_bg));
         sNavigationDrawer.setMenuItemList(menuItems);
-        fragmentClass =  HomeFragment.class;
+        fragmentClass =  MenuFragment.class;
         try {
             fragment = (Fragment) fragmentClass.newInstance();
         } catch (Exception e) {
@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
         // setting up chip navigation bar
         chipNavigationBar = findViewById(R.id.bottom_nav_bar);
 
-        chipNavigationBar.setItemSelected(R.id.home, true);
+        chipNavigationBar.setItemSelected(R.id.menu, true);
 
         BottomMenu(); //for handling clicks on chipNavigationBar
 
