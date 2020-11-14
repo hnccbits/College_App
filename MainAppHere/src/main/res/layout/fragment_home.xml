@@ -16,7 +16,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/revyclerview"
+        android:id="@+id/story_recyclerview"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/background"
         android:layout_marginTop="0dp"
@@ -28,7 +28,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="2dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/revyclerview"
+        app:layout_constraintTop_toBottomOf="@+id/story_recyclerview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 

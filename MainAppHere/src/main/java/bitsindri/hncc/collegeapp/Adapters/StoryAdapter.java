@@ -18,6 +18,10 @@ import xute.storyview.StoryView;
 
 public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> {
     ArrayList<UserList> data ;
+
+    public StoryAdapter() {
+    }
+
     public StoryAdapter(ArrayList<UserList>  data)
     {
 
@@ -27,8 +31,12 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_story_list,parent,false);
-        return  new ViewHolder(view);
+
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_story_list,parent,false);
+        ViewHolder evh = new ViewHolder(v );
+        return  evh;
+//        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_story_list,parent,false);
+//        return  new ViewHolder(view);
     }
 
     @Override

@@ -10,7 +10,7 @@
 
     tools:context=".activities.MainActivity">
 
-    <com.google.android.material.card.MaterialCardView
+    <androidx.cardview.widget.CardView
         android:layout_width="100dp"
         android:layout_height="130dp"
         android:layout_centerInParent="true"
@@ -88,6 +88,6 @@
                 android:textColor="#535353" />
 
         </RelativeLayout>
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
