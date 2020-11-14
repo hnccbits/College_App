@@ -1,2 +1,2 @@
 # College_App
-University App For Hackathon
+University App in Dvelopment stage
