@@ -3,10 +3,20 @@ package bitsindri.hncc.collegeapp.Custom_Classes;
 public class menuClass {
     String itemCategory;
     int imgResource;
+    String Description;
 
-    public menuClass(String itemCategory, int imgResource) {
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public menuClass(String itemCategory, String Description, int imgResource) {
         this.itemCategory = itemCategory;
         this.imgResource = imgResource;
+        this.Description = Description;
     }
 
     public String getItemCategory() {

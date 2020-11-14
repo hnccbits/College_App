@@ -19,23 +19,21 @@ import bitsindri.hncc.collegeapp.R;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ExampleViewHolder> {
     private calluser callusers;
-    private Context mContext ;
-    private ArrayList<menuClass> marketplaceList ;
-    boolean click=false;
-    int temp=0;
+//    private Context mContext;
+    private ArrayList<menuClass> marketplaceList;
 
 
     public MenuAdapter(ArrayList<menuClass> marketplaceList, calluser callusers) {
         this.marketplaceList = marketplaceList;
-       this.callusers= callusers;
+        this.callusers = callusers;
 
     }
 
     @NonNull
     @Override
     public ExampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_menu,parent,false);
-        ExampleViewHolder evh = new ExampleViewHolder(v , callusers);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_menu, parent, false);
+        ExampleViewHolder evh = new ExampleViewHolder(v, callusers);
         return evh;
     }
 
@@ -43,9 +41,9 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ExampleViewHol
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
 
 
-       holder.itemCategory.setText(marketplaceList.get(position).getItemCategory());
-       holder.menu_icon.setImageResource(marketplaceList.get(position).getImgResource());
-
+        holder.itemCategory.setText(marketplaceList.get(position).getItemCategory());
+        holder.menu_icon.setImageResource(marketplaceList.get(position).getImgResource());
+        holder.description.setText(marketplaceList.get(position).getDescription());
 
 
     }
@@ -54,9 +52,11 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ExampleViewHol
     public int getItemCount() {
         return marketplaceList.size();
     }
-    public  class ExampleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+    public class ExampleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView itemCategory;
+        TextView description;
         ImageView menu_icon;
         calluser callusers;
 
@@ -64,7 +64,8 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ExampleViewHol
         public ExampleViewHolder(@NonNull View itemView, calluser calluser) {
             super(itemView);
             itemCategory = itemView.findViewById(R.id.item_category);
-            menu_icon=itemView.findViewById(R.id.menu_icon);
+            menu_icon = itemView.findViewById(R.id.menu_icon);
+            description=itemView.findViewById(R.id.item_description);
             this.callusers = calluser;
 
             itemView.setOnClickListener(this);
@@ -73,14 +74,13 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ExampleViewHol
 
         @Override
         public void onClick(View view) {
-            //Toast.makeText(mContext,"hello",Toast.LENGTH_SHORT).show();
             callusers.productDetails(getAdapterPosition());
 
         }
     }
 
     //Interface containing method......
-    public interface calluser{
+    public interface calluser {
         void productDetails(int position);
     }
 }
