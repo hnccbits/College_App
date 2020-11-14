@@ -56,14 +56,15 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
         menuListLeft.add(new menuClass("Ideas & Projects","Join hands with BIT's Business or Project Ideas, seek mentors and learn from mature Alumni's", R.drawable.image_project));
         menuListLeft.add(new menuClass("Lost & Found","Report missing objects or find something you lost", R.drawable.vector_lost_found));
         menuListLeft.add(new menuClass("Navigate","New in BIT ?\nFind paths across all tags  ", R.drawable.vector_navigate));
-        menuListLeft.add(new menuClass("Study Materials","Study material for all branches", R.drawable.img_icon));
-        menuListLeft.add(new menuClass("Contribute","Interested in maintaining this project? Work with your college to help everyone", R.drawable.image_contribute));
+        menuListLeft.add(new menuClass("Study Materials","Study material for all branches", R.drawable.vector_study_material));
+        menuListLeft.add(new menuClass("Contribute","Interested in maintaining this project? Work with your college to help everyone", R.drawable.vector_contribute));
 
         menuListRight.clear();
         menuListRight.add(new menuClass("Books","Need help?\nFind a senior who is willing to give away belongings as a motive to reuse products", R.drawable.image_books));
         menuListRight.add(new menuClass("Question Papers","Archive of Question papers from previous years\nAll Branches", R.drawable.image_question_paper));
         menuListRight.add(new menuClass("Order @Canteen","Going from class to canteen? Pre order to save time", R.drawable.vector_food));
         menuListRight.add(new menuClass("Settings","If you connect your device via USB cable and type adb devices", R.drawable.settings));
+        menuListRight.add(new menuClass("Mentor","Mentor juniors and help the community", R.drawable.vectoe_mentor));
     }
 
     private void setRecycler() {

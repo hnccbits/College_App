@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment {
         //RECYCLER VIEW
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        RecyclerView recyclerView = homeFeedView.findViewById(R.id.revyclerview);
+        RecyclerView recyclerView = homeFeedView.findViewById(R.id.story_recyclerview);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(pageAdapter);
 
