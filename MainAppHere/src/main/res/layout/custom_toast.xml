@@ -4,7 +4,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
+    android:padding="4dp"
     android:background="@drawable/toast_bg1"
     >
 
@@ -12,11 +12,14 @@
     <TextView android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:text="Toast"
+        android:textColor="#ffffff"
+        android:text="Success"
+        android:textStyle="bold"
         android:fontFamily="@font/montserrat"
         android:layout_centerInParent="true"
-        android:padding="5dp"
+        android:textSize="16sp"
+        android:paddingVertical="4dp"
+        android:paddingHorizontal="16dp"
         />
 
 </RelativeLayout>

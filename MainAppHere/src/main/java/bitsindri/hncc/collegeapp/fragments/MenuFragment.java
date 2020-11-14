@@ -63,7 +63,7 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
         menuListRight.add(new menuClass("Books","Need help?\nFind a senior who is willing to give away belongings as a motive to reuse products", R.drawable.image_books));
         menuListRight.add(new menuClass("Question Papers","Archive of Question papers from previous years\nAll Branches", R.drawable.image_question_paper));
         menuListRight.add(new menuClass("Order @Canteen","Going from class to canteen? Pre order to save time", R.drawable.vector_food));
-        menuListRight.add(new menuClass("Settings","If you connect your device via USB cable and type adb devices", R.drawable.settings));
+        menuListRight.add(new menuClass("Something","Something", R.drawable.settings));
         menuListRight.add(new menuClass("Mentor","Mentor juniors and help the community", R.drawable.vectoe_mentor));
     }
 
