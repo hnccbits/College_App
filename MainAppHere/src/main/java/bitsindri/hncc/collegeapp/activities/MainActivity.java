@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     int color1=0;
     Class fragmentClass;
     public static Fragment fragment;
+    Class startingFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +53,11 @@ public class MainActivity extends AppCompatActivity {
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Navigate",R.drawable.music_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Tel- Directory",R.drawable.music_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Menu",R.drawable.music_bg));
+
         sNavigationDrawer.setMenuItemList(menuItems);
-        fragmentClass =  MenuFragment.class;
+
+        startingFragment=HomeFragment.class;
+        fragmentClass =  startingFragment;
         try {
             fragment = (Fragment) fragmentClass.newInstance();
         } catch (Exception e) {
@@ -179,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
         // setting up chip navigation bar
         chipNavigationBar = findViewById(R.id.bottom_nav_bar);
 
-        chipNavigationBar.setItemSelected(R.id.menu, true);
+        chipNavigationBar.setItemSelected(R.id.home, true);
 
         BottomMenu(); //for handling clicks on chipNavigationBar
 

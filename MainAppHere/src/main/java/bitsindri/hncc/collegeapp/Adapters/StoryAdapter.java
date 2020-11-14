@@ -44,22 +44,23 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
         if(position==0)
         {
             holder.addStroy.setVisibility(View.VISIBLE);
-            holder.textTime.setText(null);
+//            holder.textTime.setText(null);
             holder.storyView.setVisibility(View.GONE);
             holder.dp.setVisibility(View.VISIBLE);
+            holder.dp.setImageResource(R.drawable.profilepic);
         }
         else
         {
             int index=position-1;
             holder.textName.setText(data.get(index).getUserName());
-            holder.textTime.setText(data.get(index).getTime());
+//            holder.textTime.setText(data.get(index).getTime());
             holder.storyView.resetStoryVisits();
             holder.storyView.setImageUris(data.get(index).getUser().get(index));
         }
         if(position==data.size())
         {
             holder.textName.setText(data.get(position).getUserName());
-            holder.textTime.setText(data.get(position).getTime());
+//            holder.textTime.setText(data.get(position).getTime());
             holder.storyView.resetStoryVisits();
             holder.storyView.setImageUris(data.get(position).getUser().get(position));
         }
@@ -75,7 +76,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
         //ImageView imageView;
         TextView textName;
-        TextView textTime;
+//        TextView textTime;
         StoryView storyView;
         Button addStroy;
         ImageView dp;
@@ -84,7 +85,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
             super(itemView);
 
             storyView = itemView.findViewById(R.id.storyView);
-            textTime=itemView.findViewById(R.id.text_time);
+//            textTime=itemView.findViewById(R.id.text_time);
             textName=itemView.findViewById(R.id.text_name);
             addStroy=itemView.findViewById(R.id.btn_addStory);
             dp=itemView.findViewById(R.id.profilepic);

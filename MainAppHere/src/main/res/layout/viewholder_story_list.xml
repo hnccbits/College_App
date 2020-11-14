@@ -11,14 +11,14 @@
     tools:context=".activities.MainActivity">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="100dp"
-        android:layout_height="130dp"
+        android:layout_width="88dp"
+        android:layout_height="112dp"
         android:layout_centerInParent="true"
         android:layout_marginTop="5dp"
         android:alpha="1"
-        android:elevation="10dp"
+        android:elevation="0dp"
         android:paddingBottom="10dp"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="0dp">
 
 
         <RelativeLayout
@@ -57,8 +57,7 @@
                     android:layout_width="85dp"
                     android:layout_height="85dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/profilepic"
-                    android:visibility="gone" />
+                    />
 
 
             </RelativeLayout>
@@ -68,7 +67,7 @@
                 android:id="@+id/text_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="2dp"
                 android:fontFamily="@font/montserrat"
@@ -76,16 +75,16 @@
                 android:textColor="#3A3A3A"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/text_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="2dp"
-                android:fontFamily="sans-serif-light"
-                android:text="Today, 2.31 PM"
-                android:textColor="#535353" />
+<!--            <TextView-->
+<!--                android:id="@+id/text_time"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:layout_margin="2dp"-->
+<!--                android:fontFamily="sans-serif-light"-->
+<!--                android:text="Today, 2.31 PM"-->
+<!--                android:textColor="#535353" />-->
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
