@@ -62,7 +62,7 @@ public class HomeFragment extends Fragment {
         StoriesList.add(new StoryModel("https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg","Satus 3","Today,2:31 PM"));
         user_list.add(StoriesList);
         data.add(new UserList(user_list,"User2","Today,12:00am"));
-        // StoriesList.clear(); // claering previous data from arraylist.
+        // StoriesList.clear(); // clearing previous data from arraylist.
 
         user_list.add(StoriesList);
         data.add(new UserList(user_list,"User3","Today,01:00pm"));
