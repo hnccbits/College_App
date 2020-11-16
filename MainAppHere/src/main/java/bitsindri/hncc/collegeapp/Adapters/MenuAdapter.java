@@ -1,10 +1,8 @@
 package bitsindri.hncc.collegeapp.Adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,11 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import bitsindri.hncc.collegeapp.Custom_Classes.menuClass;
-import bitsindri.hncc.collegeapp.GetterAndSetter.marketplace;
 import bitsindri.hncc.collegeapp.R;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ExampleViewHolder> {
-    private calluser callusers;
+    private final calluser callusers;
 //    private Context mContext;
     private ArrayList<menuClass> marketplaceList;
 
@@ -26,7 +23,6 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ExampleViewHol
     public MenuAdapter(ArrayList<menuClass> marketplaceList, calluser callusers) {
         this.marketplaceList = marketplaceList;
         this.callusers = callusers;
-
     }
 
     @NonNull

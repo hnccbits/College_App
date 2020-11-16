@@ -22,8 +22,10 @@ import java.util.List;
 
 import bitsindri.hncc.collegeapp.R;
 import bitsindri.hncc.collegeapp.fragments.GoogleMapFragment;
+
 import bitsindri.hncc.collegeapp.fragments.HomeFragment;
 import bitsindri.hncc.collegeapp.fragments.MarketplaceFragment;
+
 import bitsindri.hncc.collegeapp.fragments.MenuFragment;
 import bitsindri.hncc.collegeapp.fragments.Telephone_Directory;
 
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         sNavigationDrawer.setMenuItemList(menuItems);
 
-        startingFragment=HomeFragment.class;
+        startingFragment= HomeFragment.class;
         fragmentClass =  startingFragment;
         try {
             fragment = (Fragment) fragmentClass.newInstance();

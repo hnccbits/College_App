@@ -5,18 +5,18 @@ public class menuClass {
     int imgResource;
     String Description;
 
+    public menuClass(String itemCategory, String Description, int imgResource) {
+        this.itemCategory = itemCategory;
+        this.imgResource = imgResource;
+        this.Description = Description;
+    }
+
     public String getDescription() {
         return Description;
     }
 
     public void setDescription(String description) {
-        Description = description;
-    }
-
-    public menuClass(String itemCategory, String Description, int imgResource) {
-        this.itemCategory = itemCategory;
-        this.imgResource = imgResource;
-        this.Description = Description;
+        this.Description = description;
     }
 
     public String getItemCategory() {
