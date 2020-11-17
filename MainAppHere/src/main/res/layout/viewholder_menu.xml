@@ -9,9 +9,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         cardview:cardCornerRadius="20dp"
-        android:elevation="45dp"
+        android:elevation="40dp"
         android:layout_margin="5dp"
-
         cardview:layout_constraintStart_toStartOf="parent"
         cardview:layout_constraintTop_toTopOf="parent"
         cardview:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="#e8e8e8"
+            android:background="#ffffff"
             android:layout_gravity="center">
 
             <ImageView
