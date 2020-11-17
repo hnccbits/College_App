@@ -23,7 +23,8 @@
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             app:riv_corner_radius="20dp"
-            android:src="@drawable/desktop"
+            android:src="@drawable/flower"
+            android:alpha="0.5"
             >
 
         </com.makeramen.roundedimageview.RoundedImageView>

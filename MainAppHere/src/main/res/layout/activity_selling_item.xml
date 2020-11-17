@@ -18,7 +18,7 @@
             android:layout_height="300dp"
             android:layout_margin="4dp"
             android:padding="2dp"
-            android:src="@drawable/desktop" />
+            android:src="@drawable/flower" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
