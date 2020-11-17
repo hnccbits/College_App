@@ -52,23 +52,23 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
         // work done on menuListLeft by Prayanshu
         menuListLeft.clear();
         menuListLeft.add(new menuClass("Study Resources", R.drawable.vector_study_resources));
-        menuListLeft.add(new menuClass("Internships", R.drawable.vector_internships));
+        menuListLeft.add(new menuClass("Internships and Jobs", R.drawable.vector_internships_and_jobs));
+        menuListLeft.add(new menuClass("StartUp/Project ideas", R.drawable.vector_startup_projects));
+        menuListLeft.add(new menuClass("Ongoing issues in BIT", R.drawable.vector_ongoing_issues));
         menuListLeft.add(new menuClass("Workshops and Webinars", R.drawable.vector_workshops_and_webinars));
         menuListLeft.add(new menuClass("Contests and Hackathons", R.drawable.vector_contests_and_hackathons));
-        menuListLeft.add(new menuClass("StartUp/Project ideas", R.drawable.vector_startup_projects));
         menuListLeft.add(new menuClass("Our Achievements", R.drawable.vector_achievements));
-        menuListLeft.add(new menuClass("Ongoing issues in BIT", R.drawable.vector_ongoing_issues));
 
 
         // work done on menuListRight by Anjali
         menuListRight.clear();
+        menuListRight.add(new menuClass("Lost and Found", R.drawable.vector_lost_and_found));
         menuListRight.add(new menuClass("Interviews", R.drawable.vector_interviews));
-        menuListRight.add(new menuClass("Clubs and Societies", R.drawable.vector_clubs_and_societies));
         menuListRight.add(new menuClass("Help BITians", R.drawable.vector_help_bitians));
-        menuListRight.add(new menuClass("Mess Report", R.drawable.vector_mess_report));
         menuListRight.add(new menuClass("Canteen Orders", R.drawable.vector_canteen_orders));
+        menuListRight.add(new menuClass("Mess Report", R.drawable.vector_mess_report));
+        menuListRight.add(new menuClass("Clubs and Societies", R.drawable.vector_clubs_and_societies));
         menuListRight.add(new menuClass("About BIT Sindri", R.drawable.vector_bit_sindri));
-
     }
 
     private void setRecycler() {
