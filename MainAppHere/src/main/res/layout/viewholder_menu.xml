@@ -1,67 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginHorizontal="4dp"
-    android:layout_marginVertical="8dp"
-    android:clickable="true"
-    android:elevation="48dp"
-    android:translationZ="4dp"
-    android:outlineProvider="bounds"
-    android:focusable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    cardview:cardCornerRadius="16dp">
+    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:padding="4dp"
-        android:orientation="vertical">
+        cardview:cardCornerRadius="20dp"
+        android:elevation="45dp"
+        android:layout_margin="5dp"
+
+        cardview:layout_constraintStart_toStartOf="parent"
+        cardview:layout_constraintTop_toTopOf="parent"
+        cardview:layout_constraintEnd_toEndOf="parent"
+        cardview:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
-            >
+            android:orientation="vertical"
+            android:background="#e8e8e8"
+            android:layout_gravity="center">
+
             <ImageView
                 android:id="@+id/menu_icon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginBottom="4dp"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/img_icon" />
-
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="3dp"
+                android:layout_gravity="center"
+                android:src="@drawable/vector_study_resources"/>
             <TextView
                 android:id="@+id/item_category"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center"
+                android:layout_margin="3dp"
+                android:gravity="center"
                 android:fontFamily="sans-serif"
-                android:maxLines="1"
-                android:text="Books"
+                android:maxLines="2"
+                android:text="Study Resources"
                 android:textColor="@android:color/black"
-                android:textSize="16sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#BFBABABA"
-            />
 
-        <TextView
-            android:id="@+id/item_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Abra ka Dabra "
-            android:textColor="@color/Black" />
+    </androidx.cardview.widget.CardView>
 
-
-    </LinearLayout>
-
-</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -49,19 +49,26 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
     }
 
     private void setData() {
+        // work done on menuListLeft by Prayanshu
         menuListLeft.clear();
-        menuListLeft.add(new menuClass("Ideas & Projects","Join hands with BIT's Business or Project Ideas, seek mentors and learn from mature Alumni's", R.drawable.image_project));
-        menuListLeft.add(new menuClass("Lost & Found","Report missing objects or find something you lost", R.drawable.vector_lost_found));
-        menuListLeft.add(new menuClass("Navigate","New in BIT ?\nFind paths across all tags  ", R.drawable.vector_navigate));
-        menuListLeft.add(new menuClass("Study Materials","Study material for all branches", R.drawable.vector_study_material));
-        menuListLeft.add(new menuClass("Contribute","Interested in maintaining this project? Work with your college to help everyone", R.drawable.vector_contribute));
+        menuListLeft.add(new menuClass("Study Resources", R.drawable.vector_study_resources));
+        menuListLeft.add(new menuClass("Internships", R.drawable.vector_internships));
+        menuListLeft.add(new menuClass("Workshops and Webinars", R.drawable.vector_workshops_and_webinars));
+        menuListLeft.add(new menuClass("Contests and Hackathons", R.drawable.vector_contests_and_hackathons));
+        menuListLeft.add(new menuClass("StartUp/Project ideas", R.drawable.vector_startup_projects));
+        menuListLeft.add(new menuClass("Our Achievements", R.drawable.vector_achievements));
+        menuListLeft.add(new menuClass("Ongoing issues in BIT", R.drawable.vector_ongoing_issues));
 
+
+        // work done on menuListRight by Anjali
         menuListRight.clear();
-        menuListRight.add(new menuClass("Books","Need help?\nFind a senior who is willing to give away belongings as a motive to reuse products", R.drawable.image_books));
-        menuListRight.add(new menuClass("Question Papers","Archive of Question papers from previous years\nAll Branches", R.drawable.image_question_paper));
-        menuListRight.add(new menuClass("Order @Canteen","Going from class to canteen? Pre order to save time", R.drawable.vector_food));
-        menuListRight.add(new menuClass("Something","Something", R.drawable.settings));
-        menuListRight.add(new menuClass("Mentor","Mentor juniors and help the community", R.drawable.vectoe_mentor));
+        menuListRight.add(new menuClass("Interviews", R.drawable.vector_interviews));
+        menuListRight.add(new menuClass("Clubs and Societies", R.drawable.vector_clubs_and_societies));
+        menuListRight.add(new menuClass("Help BITians", R.drawable.vector_help_bitians));
+        menuListRight.add(new menuClass("Mess Report", R.drawable.vector_mess_report));
+        menuListRight.add(new menuClass("Canteen Orders", R.drawable.vector_canteen_orders));
+        menuListRight.add(new menuClass("About BIT Sindri", R.drawable.vector_bit_sindri));
+
     }
 
     private void setRecycler() {

@@ -39,7 +39,6 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ExampleViewHol
 
         holder.itemCategory.setText(marketplaceList.get(position).getItemCategory());
         holder.menu_icon.setImageResource(marketplaceList.get(position).getImgResource());
-        holder.description.setText(marketplaceList.get(position).getDescription());
 
 
     }
@@ -52,7 +51,6 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ExampleViewHol
     public class ExampleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView itemCategory;
-        TextView description;
         ImageView menu_icon;
         calluser callusers;
 
@@ -61,7 +59,6 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ExampleViewHol
             super(itemView);
             itemCategory = itemView.findViewById(R.id.item_category);
             menu_icon = itemView.findViewById(R.id.menu_icon);
-            description=itemView.findViewById(R.id.item_description);
             this.callusers = calluser;
 
             itemView.setOnClickListener(this);
