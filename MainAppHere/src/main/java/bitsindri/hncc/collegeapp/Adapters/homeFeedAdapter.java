@@ -60,7 +60,7 @@ public class homeFeedAdapter extends RecyclerView.Adapter{
 
         String PostImageUrl = feed.getPostImageUrl();
         if(!PostImageUrl.equals("no_post_img")){
-            FeedHolder.feedImage.setImageResource(R.drawable.desktop);
+            FeedHolder.feedImage.setImageResource(R.drawable.flower);
         }else {
             FeedHolder.feedImage.setVisibility(View.GONE);
         }
