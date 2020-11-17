@@ -21,9 +21,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bitsindri.hncc.collegeapp.R;
+import bitsindri.hncc.collegeapp.fragments.EmptyFragment;
 import bitsindri.hncc.collegeapp.fragments.GoogleMapFragment;
+
 import bitsindri.hncc.collegeapp.fragments.HomeFragment;
 import bitsindri.hncc.collegeapp.fragments.MarketplaceFragment;
+
 import bitsindri.hncc.collegeapp.fragments.MenuFragment;
 import bitsindri.hncc.collegeapp.fragments.Telephone_Directory;
 
@@ -53,10 +56,11 @@ public class MainActivity extends AppCompatActivity {
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Navigate",R.drawable.music_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Tel- Directory",R.drawable.music_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Menu",R.drawable.music_bg));
+        menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Empty Item",R.drawable.music_bg));
 
         sNavigationDrawer.setMenuItemList(menuItems);
 
-        startingFragment=HomeFragment.class;
+        startingFragment= HomeFragment.class;
         fragmentClass =  startingFragment;
         try {
             fragment = (Fragment) fragmentClass.newInstance();
@@ -88,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
                     case 2:{
 //                        color1 = R.color.blue;
-                        //TODO: Implement chat (different channels for first ,second,thord & final year students
+                        //TODO: Implement chat (different channels for first ,second,third & final year students
                         customToast("this feature coming soon...");
                         break;
                     }
@@ -114,6 +118,12 @@ public class MainActivity extends AppCompatActivity {
 //                        color1 = R.color.blue;
                         fragmentClass = MenuFragment.class;
                         customToast("Menu");
+                        break;
+                    }
+                    case 7:{
+//                        color1 = R.color.blue;
+                        fragmentClass = EmptyFragment.class;
+                        customToast("empty fragment");
                         break;
                     }
 

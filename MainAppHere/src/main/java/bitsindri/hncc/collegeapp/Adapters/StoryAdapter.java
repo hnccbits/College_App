@@ -33,7 +33,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_story_list,parent,false);
-        ViewHolder evh = new ViewHolder(v );
+        ViewHolder evh = new ViewHolder(v);
         return  evh;
 //        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_story_list,parent,false);
 //        return  new ViewHolder(view);
@@ -73,7 +73,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
         return data.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         //ImageView imageView;
         TextView textName;
 //        TextView textTime;

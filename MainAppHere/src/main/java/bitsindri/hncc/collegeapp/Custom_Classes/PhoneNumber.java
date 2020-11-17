@@ -3,9 +3,15 @@ package bitsindri.hncc.collegeapp.Custom_Classes;
 public class PhoneNumber {
     private  int mImageResource;
     private String username;     // for name of authority
+    private String phone_no;     // for number of authority in string.
+
 
     public int getmImageResource() {
         return mImageResource;
+    }
+
+    public PhoneNumber(String username) {
+        this.username = username;
     }
 
     public PhoneNumber(int mImageResource, String username, String phone_no) {
@@ -34,6 +40,5 @@ public class PhoneNumber {
         this.phone_no = phone_no;
     }
 
-    private String phone_no;     // for number of authority in string.
 
 }

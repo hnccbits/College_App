@@ -24,7 +24,7 @@
             android:layout_weight="6"
             android:layout_marginHorizontal="1dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/desktop" />
+            android:src="@drawable/flower" />
 
         <TextView
             android:id="@+id/item_category"
