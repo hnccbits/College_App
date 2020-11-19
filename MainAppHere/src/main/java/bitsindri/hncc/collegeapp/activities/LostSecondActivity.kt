@@ -1,4 +1,4 @@
-package com.projectubu.personaldashboard
+package bitsindri.hncc.collegeapp.activities;
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
@@ -8,6 +8,8 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import bitsindri.hncc.collegeapp.R
+import bitsindri.hncc.collegeapp.fragments.DatePickerFragment
 
 class LostSecondActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener  {
 

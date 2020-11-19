@@ -1,4 +1,4 @@
-package com.projectubu.personaldashboard
+package bitsindri.hncc.collegeapp.fragments
 
 import android.Manifest
 import android.content.Context
@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import bitsindri.hncc.collegeapp.R
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.LocationListener

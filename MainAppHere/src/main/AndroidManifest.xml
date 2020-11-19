@@ -2,7 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="bitsindri.hncc.collegeapp">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +18,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <activity android:name=".activities.MapActivity" />
         <activity android:name=".activities.commentActivity" />
+        <activity
+            android:name=".activities.FrontActivity" />
+        <activity
+            android:name=".activities.FoundThirdActivity" />
+        <activity
+            android:name=".activities.FoundSecondActivity" />
+        <activity
+            android:name=".activities.FoundFirstActivity" />
+        <activity
+            android:name=".activities.FoundDetailActivity" />
+        <activity
+            android:name=".activities.LostThirdActivity" />
+        <activity
+            android:name=".activities.LostSecondActivity" />
+        <activity
+            android:name=".activities.LostFirstActivity" />
+        <activity
+            android:name=".activities.LostDetailActivity" />
         <activity
             android:name=".activities.IntroductionActivity"
             android:configChanges="screenSize"
@@ -38,7 +74,9 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".activities.MainActivity" android:configChanges="orientation|screenSize|keyboardHidden">
+        <activity
+            android:name=".activities.MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,6 +87,9 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
     </application>
 
 </manifest>

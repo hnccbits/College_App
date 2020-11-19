@@ -1,4 +1,4 @@
-package com.projectubu.personaldashboard
+package bitsindri.hncc.collegeapp.activities;
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
@@ -8,6 +8,8 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import bitsindri.hncc.collegeapp.R
+import bitsindri.hncc.collegeapp.fragments.DatePickerFragment
 
 class FoundSecondActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener  {
 
@@ -58,11 +60,11 @@ class FoundSecondActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
 
 
         linear_address.setOnClickListener{
-            startActivity(Intent(this@FoundSecondActivity, LostThirdActivity::class.java))
+            startActivity(Intent(this@FoundSecondActivity, FoundThirdActivity::class.java))
         }
 
         btn_submit.setOnClickListener{
-            startActivity(Intent(this@FoundSecondActivity, LostDetailActivity::class.java))
+            startActivity(Intent(this@FoundSecondActivity, FoundDetailActivity::class.java))
         }
     }
 

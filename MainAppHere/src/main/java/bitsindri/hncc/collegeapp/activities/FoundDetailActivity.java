@@ -1,8 +1,10 @@
-package com.projectubu.personaldashboard;
+package bitsindri.hncc.collegeapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import bitsindri.hncc.collegeapp.R;
 
 public class FoundDetailActivity extends AppCompatActivity {
 

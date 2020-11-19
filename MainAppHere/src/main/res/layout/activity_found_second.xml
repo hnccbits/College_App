@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FoundSecondActivity"
+    android:layout_height="wrap_content"
+    tools:context=".activities.FoundSecondActivity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -12,6 +12,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_margin="25dp">
+
+        <include layout="@layout/toolbar"/>
 
         <LinearLayout
             android:id="@+id/content_frame_second"
@@ -204,7 +206,7 @@
                 android:id="@+id/btn_submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTint="@color/pink"
                 android:text="Submit"
                 android:layout_marginTop="30dp"
                 android:textSize="16sp"

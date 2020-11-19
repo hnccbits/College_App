@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LostFirstActivity"
+    android:layout_height="wrap_content"
+    tools:context=".activities.LostFirstActivity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -13,64 +13,76 @@
         android:orientation="vertical"
         android:layout_margin="24dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <include layout="@layout/toolbar"/>
 
-        <EditText
-            android:id="@+id/et_category"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Category"
-            android:textSize="14sp"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"/>
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Category"
+                android:textSize="14sp"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"/>
 
 
-    </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <EditText
-            android:id="@+id/et_item"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Item"
-            android:textSize="14sp"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"/>
+            android:layout_height="match_parent">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/et_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Item"
+                android:textSize="14sp"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <EditText
-            android:id="@+id/et_brand"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Brand"
-            android:textSize="14sp"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/et_brand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Brand"
+                android:textSize="14sp"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/maincolor">
 
             <TextView
-                android:id="@+id/maincolor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="25dp"
                 android:hint="Main color"
                 android:textSize="14sp"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
                 android:layout_marginTop="24dp"/>
+
+            <Button
+                android:id="@+id/main_fill"
+                android:layout_width="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/lost_color_bg"/>
 
 
         </LinearLayout>
@@ -86,15 +98,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:id="@+id/secondcolor">
 
             <TextView
-                android:id="@+id/et_secondcolor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="25dp"
                 android:hint="Second color"
                 android:textSize="14sp"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
                 android:layout_marginTop="24dp"/>
+
+            <Button
+                android:id="@+id/second_fill"
+                android:layout_width="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/lost_color_bg"/>
 
 
 
@@ -113,21 +135,21 @@
             android:layout_marginTop="20dp"/>
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <EditText
-            android:id="@+id/et_desc"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:hint="add details"
-            android:padding="4dp"
-            android:background="@drawable/cardbg"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"/>
+            android:layout_height="match_parent">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/et_desc"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:hint="add details"
+                android:padding="4dp"
+                android:background="@drawable/cardbg"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -158,7 +180,7 @@
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/pink"
             android:text="Next"
             android:textSize="16sp"
             android:textColor="@android:color/white" />
