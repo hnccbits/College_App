@@ -1,4 +1,4 @@
-package com.projectubu.personaldashboard
+package bitsindri.hncc.collegeapp.activities;
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
@@ -8,6 +8,9 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import androidx.appcompat.widget.Toolbar
+import bitsindri.hncc.collegeapp.R
+import bitsindri.hncc.collegeapp.fragments.DatePickerFragment
 
 class FoundSecondActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener  {
 
@@ -22,6 +25,8 @@ class FoundSecondActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
     lateinit var content_frame_second: LinearLayout
     lateinit var lost_second: LinearLayout
 
+    lateinit var toolbar: Toolbar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_found_second)
@@ -34,8 +39,11 @@ class FoundSecondActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
         switch2 = findViewById(R.id.switch2)
         linear_add = findViewById(R.id.linear_drop)
         separator = findViewById(R.id.separator)
-        content_frame_second = findViewById(R.id.content_frame_second)
         lost_second = findViewById(R.id.lost_second)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setTitle("Found Second Activity")
 
         switch2.setOnClickListener{
             if(switch2.isChecked){
@@ -58,11 +66,11 @@ class FoundSecondActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
 
 
         linear_address.setOnClickListener{
-            startActivity(Intent(this@FoundSecondActivity, LostThirdActivity::class.java))
+            startActivity(Intent(this@FoundSecondActivity, FoundThirdActivity::class.java))
         }
 
         btn_submit.setOnClickListener{
-            startActivity(Intent(this@FoundSecondActivity, LostDetailActivity::class.java))
+            startActivity(Intent(this@FoundSecondActivity, FoundDetailActivity::class.java))
         }
     }
 

@@ -5,4 +5,12 @@
     <color name="purple">#ba53de</color>
     <color name="pink">#f469a9</color>
     <color name="fb_blue">#4585FB</color>
+    <color name="lost">#CD5C5C</color>
+    <color name="found">#0099CC</color>
+    <color name="alertDialog">#ff4b5c</color>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
 </resources>

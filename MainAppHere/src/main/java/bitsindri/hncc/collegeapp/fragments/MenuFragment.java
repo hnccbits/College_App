@@ -1,5 +1,6 @@
 package bitsindri.hncc.collegeapp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,13 +18,14 @@ import java.util.ArrayList;
 
 import bitsindri.hncc.collegeapp.Custom_Classes.menuClass;
 import bitsindri.hncc.collegeapp.R;
+import bitsindri.hncc.collegeapp.activities.FoundFirstActivity;
+import bitsindri.hncc.collegeapp.activities.FrontActivity;
+import bitsindri.hncc.collegeapp.activities.LostSecondActivity;
 
 public class MenuFragment extends Fragment implements MenuAdapter.calluser {
 
     ArrayList<menuClass> menuListLeft;
     ArrayList<menuClass> menuListRight;
-    private RecyclerView recyclerViewLeft;
-    private RecyclerView recyclerViewRight;
     MenuAdapter menuAdapterLeft;
     MenuAdapter menuAdapterRight;
 
@@ -72,8 +74,8 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
     }
 
     private void setRecycler() {
-        recyclerViewLeft = getActivity().findViewById(R.id.menuRecyclerview_1);
-        recyclerViewRight = getActivity().findViewById(R.id.menuRecyclerview_2);
+        RecyclerView recyclerViewLeft = getActivity().findViewById(R.id.menuRecyclerview_1);
+        RecyclerView recyclerViewRight = getActivity().findViewById(R.id.menuRecyclerview_2);
         recyclerViewLeft.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewRight.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -106,7 +108,8 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
 
     @Override
     public void productDetails(int position) {
-        Toast.makeText(getContext(),"position: "+position,Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getContext(), FrontActivity.class));
+
         //TO DO ADD TASK
     }
 }
