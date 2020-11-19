@@ -5,23 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        cardview:cardCornerRadius="20dp"
-        android:elevation="40dp"
-        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:padding="3dp"
         cardview:layout_constraintStart_toStartOf="parent"
         cardview:layout_constraintTop_toTopOf="parent"
         cardview:layout_constraintEnd_toEndOf="parent"
         cardview:layout_constraintBottom_toBottomOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#ffffff"
-            android:layout_gravity="center">
 
             <ImageView
                 android:id="@+id/menu_icon"
@@ -46,7 +38,5 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

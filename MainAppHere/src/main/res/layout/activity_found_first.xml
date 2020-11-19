@@ -3,9 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FoundFirstActivity"
+    android:layout_height="wrap_content"
+    tools:context=".activities.FoundFirstActivity"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -62,18 +70,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:id="@+id/maincolor">
 
             <TextView
-                android:id="@+id/et_maincolor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="25dp"
                 android:hint="Main color"
                 android:textSize="14sp"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:layout_marginTop="24dp"/>
 
+            <Button
+                android:id="@+id/main_fill"
+                android:layout_width="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/lost_color_bg"/>
 
 
         </LinearLayout>
@@ -89,17 +104,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:id="@+id/secondcolor">
 
             <TextView
-                android:id="@+id/et_secondcolor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="25dp"
                 android:hint="Second color"
                 android:textSize="14sp"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:layout_marginTop="24dp"/>
+
+            <Button
+                android:id="@+id/second_fill"
+                android:layout_width="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/lost_color_bg"/>
 
 
 
@@ -144,7 +167,7 @@
                 android:id="@+id/photo"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/vector_clubs_and_societies"
+                android:src="@drawable/man"
                 android:layout_marginStart="10dp"/>
 
             <TextView
@@ -163,10 +186,12 @@
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/fb_blue"
+            android:backgroundTint="@color/pink"
             android:text="Next"
             android:textSize="16sp"
             android:textColor="@android:color/white" />
+
+    </LinearLayout>
 
     </LinearLayout>
 

@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -55,6 +56,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ExampleViewHol
         calluser callusers;
 
 
+
         public ExampleViewHolder(@NonNull View itemView, calluser calluser) {
             super(itemView);
             itemCategory = itemView.findViewById(R.id.item_category);
@@ -63,11 +65,13 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ExampleViewHol
 
             itemView.setOnClickListener(this);
 
+
         }
 
         @Override
         public void onClick(View view) {
             callusers.productDetails(getAdapterPosition());
+
 
         }
     }

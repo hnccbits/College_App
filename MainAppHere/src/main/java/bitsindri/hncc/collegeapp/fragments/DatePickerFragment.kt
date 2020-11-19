@@ -1,4 +1,4 @@
-package com.projectubu.personaldashboard
+package bitsindri.hncc.collegeapp.fragments
 
 import android.app.DatePickerDialog
 import android.app.Dialog

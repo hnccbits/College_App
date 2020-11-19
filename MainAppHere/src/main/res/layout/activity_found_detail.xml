@@ -3,15 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FoundDetailActivity"
+    android:layout_height="wrap_content"
+    tools:context=".activities.FoundDetailActivity"
     android:background="#F8F5F6">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="5dp">
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,7 +24,7 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/vector_clubs_and_societies"/>
+                android:src="@drawable/man"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -396,7 +398,7 @@
             android:id="@+id/btn_done"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/fb_blue"
+
             android:text="Done"
             android:textSize="16sp"
             android:textColor="@android:color/white" />
