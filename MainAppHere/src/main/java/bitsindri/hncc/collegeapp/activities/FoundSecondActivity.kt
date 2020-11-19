@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import bitsindri.hncc.collegeapp.R
 
 class FoundSecondActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener  {
 

@@ -1,4 +1,4 @@
-package com.projectubu.personaldashboard
+package bitsindri.hncc.collegeapp.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import bitsindri.hncc.collegeapp.R
+import com.projectubu.personaldashboard.LostSecondActivity
 
 class FoundThirdActivity : AppCompatActivity() {
 

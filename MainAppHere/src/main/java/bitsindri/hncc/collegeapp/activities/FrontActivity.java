@@ -1,4 +1,4 @@
-package com.projectubu.personaldashboard;
+package bitsindri.hncc.collegeapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -6,6 +6,11 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.projectubu.personaldashboard.FoundFirstActivity;
+import com.projectubu.personaldashboard.LostFirstActivity;
+
+import bitsindri.hncc.collegeapp.R;
 
 public class FrontActivity extends AppCompatActivity {
 

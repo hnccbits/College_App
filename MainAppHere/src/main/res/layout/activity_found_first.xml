@@ -128,7 +128,7 @@
                 android:layout_height="80dp"
                 android:hint="add details"
                 android:padding="4dp"
-                android:background="@drawable/cardbg"
+                android:background="@drawable/border"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"/>
 
@@ -144,7 +144,7 @@
                 android:id="@+id/photo"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/camera"
+                android:src="@drawable/vector_clubs_and_societies"
                 android:layout_marginStart="10dp"/>
 
             <TextView
@@ -163,7 +163,7 @@
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/fb_blue"
             android:text="Next"
             android:textSize="16sp"
             android:textColor="@android:color/white" />
