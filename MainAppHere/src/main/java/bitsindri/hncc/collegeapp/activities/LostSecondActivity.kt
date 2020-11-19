@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import androidx.appcompat.widget.Toolbar
 import bitsindri.hncc.collegeapp.R
 import bitsindri.hncc.collegeapp.fragments.DatePickerFragment
 
@@ -24,6 +25,8 @@ class LostSecondActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
     lateinit var content_frame_second:LinearLayout
     lateinit var lost_second:LinearLayout
 
+    lateinit var toolbar: Toolbar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lost_second)
@@ -36,8 +39,12 @@ class LostSecondActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
         switch2 = findViewById(R.id.switch2)
         linear_add = findViewById(R.id.linear_drop)
         separator = findViewById(R.id.separator)
-        content_frame_second = findViewById(R.id.content_frame_second)
         lost_second = findViewById(R.id.lost_second)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setTitle("Lost Second Activity")
+
 
         switch2.setOnClickListener{
             if(switch2.isChecked){

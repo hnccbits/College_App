@@ -15,6 +15,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import bitsindri.hncc.collegeapp.activities.LostSecondActivity
 import yuku.ambilwarna.AmbilWarnaDialog
@@ -30,6 +31,8 @@ class LostFirstActivity : AppCompatActivity(), CameraDialog.DialogListener {
     var mDefaultColor by Delegates.notNull<Int>()
     var mDefaultColorSecond by Delegates.notNull<Int>()
 
+    lateinit var toolbar: Toolbar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lost_first)
@@ -39,6 +42,11 @@ class LostFirstActivity : AppCompatActivity(), CameraDialog.DialogListener {
         second_fill = findViewById(R.id.second_fill)
         maincolor = findViewById(R.id.maincolor)
         secondcolor = findViewById(R.id.secondcolor)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setTitle("Lost First Activity")
+
 
         mDefaultColor = ContextCompat.getColor(this,R.color.colorPrimary)
         mDefaultColorSecond = ContextCompat.getColor(this,R.color.colorPrimaryDark)

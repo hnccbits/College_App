@@ -46,6 +46,7 @@ class MapActivity : AppCompatActivity(),OnMapReadyCallback {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION),LOCATION_REQUEST)
             return
         }
+mMap.isMyLocationEnabled= true
 
     }
 
@@ -60,7 +61,7 @@ class MapActivity : AppCompatActivity(),OnMapReadyCallback {
             LOCATION_REQUEST->{
                 if(grantResults.size >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
 
-                    mMap.isMyLocationEnabled= true
+                    Toast.makeText(this,"permission granted",Toast.LENGTH_SHORT).show()
 
                     }
 

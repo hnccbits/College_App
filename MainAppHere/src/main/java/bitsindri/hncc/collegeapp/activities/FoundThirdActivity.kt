@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import bitsindri.hncc.collegeapp.R
 import bitsindri.hncc.collegeapp.fragments.MapFragment
 
@@ -15,6 +16,7 @@ class FoundThirdActivity : AppCompatActivity() {
     lateinit var btn_done: Button
     lateinit var linear_add: LinearLayout
     lateinit var lost_third: LinearLayout
+    lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +26,11 @@ class FoundThirdActivity : AppCompatActivity() {
         linear_add = findViewById(R.id.linear_add)
         lost_third = findViewById(R.id.lost_third)
         // content_frame = findViewById(R.id.Content_frame
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setTitle("Found Third Activity")
+
 
         btn_done.setOnClickListener(View.OnClickListener { startActivity(Intent(this@FoundThirdActivity, FoundSecondActivity::class.java)) })
 
