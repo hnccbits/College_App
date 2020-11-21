@@ -1,6 +1,7 @@
 package bitsindri.hncc.collegeapp.fragments;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +17,11 @@ import java.util.ArrayList;
 import bitsindri.hncc.collegeapp.Adapters.MenuAdapter;
 import bitsindri.hncc.collegeapp.Custom_Classes.menuClass;
 import bitsindri.hncc.collegeapp.R;
+import bitsindri.hncc.collegeapp.activities.AchievementsActivity;
+import bitsindri.hncc.collegeapp.activities.ContestsAndHackathonsActivity;
 import bitsindri.hncc.collegeapp.activities.FrontActivity;
 import bitsindri.hncc.collegeapp.activities.InternshipsAndJobsActivity;
+import bitsindri.hncc.collegeapp.activities.OngoingIssuesActivity;
 import bitsindri.hncc.collegeapp.activities.WorkshopsAndWebinarsActivity;
 
 
@@ -61,7 +65,7 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
         menuListLeft.add(new menuClass("StartUp/Project ideas", R.drawable.vector_startup_projects));
         menuListLeft.add(new menuClass("Help BITians", R.drawable.vector_help_bitians));
 
-        menuListLeft.add(new menuClass("Ongoing issues in BIT", R.drawable.vector_ongoing_issues));
+        menuListLeft.add(new menuClass("Ongoing Issues", R.drawable.vector_ongoing_issues));
         menuListLeft.add(new menuClass("Contact Us", R.drawable.vector_contact_us));
 
         menuListLeft.add(new menuClass("Workshops and Webinars", R.drawable.vector_workshops_and_webinars));
@@ -73,7 +77,7 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
         menuListLeft.add(new menuClass("Our Achievements", R.drawable.vector_achievements));
         menuListLeft.add(new menuClass("Clubs and Societies", R.drawable.vector_clubs_and_societies));
 
-        menuListLeft.add(new menuClass("About BIT Sindri", R.drawable.vector_bit_sindri));
+        menuListLeft.add(new menuClass("BIT Sindri", R.drawable.vector_bit_sindri));
 
 
 //        menuListRight.clear();
@@ -135,7 +139,7 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
         }else if(position == 5){
             //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
         }else if(position == 6){
-            //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
+            startActivity(new Intent(getContext(), OngoingIssuesActivity.class));
         }else if(position == 7){
             //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
         }else if(position == 8){
@@ -143,15 +147,15 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
         }else if(position == 9){
             //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
         }else if(position == 10){
-            //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
+            startActivity(new Intent(getContext(), ContestsAndHackathonsActivity.class));
         }else if(position == 11){
             //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
         }else if(position == 12){
-            //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
+            startActivity(new Intent(getContext(), AchievementsActivity.class));
         }else if(position == 13){
             //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
         }else if(position == 14){
-            //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.bitsindri.ac.in/index.php#")));
         }
 
     }

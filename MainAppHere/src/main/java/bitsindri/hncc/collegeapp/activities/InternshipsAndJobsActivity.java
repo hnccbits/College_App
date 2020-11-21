@@ -16,7 +16,7 @@ import bitsindri.hncc.collegeapp.R;
 public class InternshipsAndJobsActivity extends AppCompatActivity {
 
     ArrayList<internshipsAndJobs> internshipsAndJobsArrayList;
-    private RecyclerView internshipsAndJobsRecyclerView;
+    RecyclerView internshipsAndJobsRecyclerView;
     InternshipsAndJobsAdapter InternshipsAndJobsAdapter;
 
     @Override

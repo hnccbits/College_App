@@ -18,7 +18,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.WorkshopsAndWebinarsActivity"></activity>
+        <activity android:name=".activities.AddAchievementActivity"></activity>
+        <activity android:name=".activities.AchievementsActivity" />
+        <activity android:name=".activities.AddIssueActivity" />
+        <activity android:name=".activities.OngoingIssuesActivity" />
+        <activity android:name=".activities.ContestsAndHackathonsActivity" />
+        <activity android:name=".activities.WorkshopsAndWebinarsActivity" />
         <activity android:name=".activities.InternshipsAndJobsActivity" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld

@@ -15,7 +15,7 @@ import bitsindri.hncc.collegeapp.R;
 public class WorkshopsAndWebinarsActivity extends AppCompatActivity {
 
     ArrayList<internshipsAndJobs> workshopsAndWebinarsArrayList;
-    private RecyclerView workshopsAndWebinarsRecyclerView;
+    RecyclerView workshopsAndWebinarsRecyclerView;
     InternshipsAndJobsAdapter workshopsAndWebinarsAdapter;
 
     @Override
