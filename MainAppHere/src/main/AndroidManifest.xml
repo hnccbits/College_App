@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -18,36 +18,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".activities.AddAchievementActivity"></activity>
+        <activity android:name=".activities.AchievementsActivity" />
+        <activity android:name=".activities.AddIssueActivity" />
+        <activity android:name=".activities.OngoingIssuesActivity" />
+        <activity android:name=".activities.ContestsAndHackathonsActivity" />
+        <activity android:name=".activities.WorkshopsAndWebinarsActivity" />
+        <activity android:name=".activities.InternshipsAndJobsActivity" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
         -->
-
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
         -->
         <activity android:name=".activities.MapActivity" />
         <activity android:name=".activities.commentActivity" />
-        <activity
-            android:name=".activities.FrontActivity" />
-        <activity
-            android:name=".activities.FoundThirdActivity" />
-        <activity
-            android:name=".activities.FoundSecondActivity" />
-        <activity
-            android:name=".activities.FoundFirstActivity" />
-        <activity
-            android:name=".activities.FoundDetailActivity" />
-        <activity
-            android:name=".activities.LostThirdActivity" />
-        <activity
-            android:name=".activities.LostSecondActivity" />
-        <activity
-            android:name=".activities.LostFirstActivity" />
-        <activity
-            android:name=".activities.LostDetailActivity" />
+        <activity android:name=".activities.FrontActivity" />
+        <activity android:name=".activities.FoundThirdActivity" />
+        <activity android:name=".activities.FoundSecondActivity" />
+        <activity android:name=".activities.FoundFirstActivity" />
+        <activity android:name=".activities.FoundDetailActivity" />
+        <activity android:name=".activities.LostThirdActivity" />
+        <activity android:name=".activities.LostSecondActivity" />
+        <activity android:name=".activities.LostFirstActivity" />
+        <activity android:name=".activities.LostDetailActivity" />
         <activity
             android:name=".activities.IntroductionActivity"
             android:configChanges="screenSize"

@@ -398,7 +398,7 @@
             android:id="@+id/btn_done"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/pink"
+
             android:text="Done"
             android:textSize="16sp"
             android:textColor="@android:color/white" />

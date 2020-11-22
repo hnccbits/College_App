@@ -98,6 +98,7 @@ public class HomeFragment extends Fragment {
 
         homeFeedList = new ArrayList<feed>();
 
+        homeFeedList.clear();
         homeFeedList.add(new feed("Person A", "29-10-2020 05:40 PM", "no_post_img", "This is my first message on this app", "5"));
         homeFeedList.add(new feed("Person B", "25-10-2020 06:35 PM", "has_image", "Labelled as a vegetable for nutritional purposes, tomatoes are a good source of vitamin C and the phytochemical lycopene. ", "10"));
         homeFeedList.add(new feed("Person C", "24-10-2020 10:42 AM", "no_post_img", "This is my another message for every one on this app", "0"));

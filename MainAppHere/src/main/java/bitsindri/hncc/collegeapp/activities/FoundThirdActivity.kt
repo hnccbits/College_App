@@ -4,12 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import bitsindri.hncc.collegeapp.R
-import bitsindri.hncc.collegeapp.fragments.MapFragment
 
 class FoundThirdActivity : AppCompatActivity() {
 
