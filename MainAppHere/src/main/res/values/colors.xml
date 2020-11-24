@@ -9,8 +9,12 @@
     <color name="found">#0099CC</color>
     <color name="alertDialog">#ff4b5c</color>
 
+
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="textPrimary">#010101</color>
+    <color name="textSecondary">#757575</color>
+    <color name="favColor">#FFFFFF</color>
 
 </resources>
