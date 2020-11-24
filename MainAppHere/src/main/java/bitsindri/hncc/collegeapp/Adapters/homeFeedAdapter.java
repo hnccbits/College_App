@@ -1,17 +1,8 @@
 package bitsindri.hncc.collegeapp.Adapters;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.StrictMode;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,13 +14,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 import bitsindri.hncc.collegeapp.GetterAndSetter.feed;
 import bitsindri.hncc.collegeapp.R;
-import bitsindri.hncc.collegeapp.activities.commentActivity;
 
 public class homeFeedAdapter extends RecyclerView.Adapter{
 
@@ -60,14 +48,37 @@ public class homeFeedAdapter extends RecyclerView.Adapter{
 
         String PostImageUrl = feed.getPostImageUrl();
         if(!PostImageUrl.equals("no_post_img")){
-            FeedHolder.feedImage.setImageResource(R.drawable.flower);
+            FeedHolder.feedImage.setImageResource(R.drawable.desktop);
         }else {
             FeedHolder.feedImage.setVisibility(View.GONE);
         }
 
         FeedHolder.feedText.setText(feed.getPostMessage());
 
-        FeedHolder.feedLikes.setText(feed.getPostLikes()+" Likes");
+        FeedHolder.feedLikes.setText(feed.getPostLikes());
+
+        final boolean[] isLiked = {false};
+        final int[] postLikes = {Integer.parseInt(feed.getPostLikes())};
+        FeedHolder.feedLikeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isLiked[0]){
+                    // user is unliking the post
+                    isLiked[0] = false;
+                    --postLikes[0];
+                    feed.setPostLikes(String.valueOf(postLikes[0]));
+                    FeedHolder.feedLikes.setText(String.valueOf(postLikes[0]));
+                    FeedHolder.feedLikeButton.setImageResource(R.drawable.vector_unlike);
+                }else{
+                    // user is liking the post
+                    isLiked[0] = true;
+                    ++postLikes[0];
+                    feed.setPostLikes(String.valueOf(postLikes[0]));
+                    FeedHolder.feedLikes.setText(String.valueOf(postLikes[0]));
+                    FeedHolder.feedLikeButton.setImageResource(R.drawable.vector_like);
+                }
+            }
+        });
 
         FeedHolder.commentFeed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +139,8 @@ public class homeFeedAdapter extends RecyclerView.Adapter{
         TextView feedProfileName;
         TextView feedDateAndTime;
         ImageView feedImage;
+        ImageView feedLikeButton;
+        LinearLayout feedLikeLayout;
         TextView feedText;
         TextView feedLikes;
         LinearLayout shareFeed, commentFeed;
@@ -138,6 +151,8 @@ public class homeFeedAdapter extends RecyclerView.Adapter{
             feedDateAndTime= itemView.findViewById(R.id.each_post_date_and_time_text_view);
             feedImage = itemView.findViewById(R.id.feed_image);
             feedText = itemView.findViewById(R.id.feed_text);
+            feedLikeButton = itemView.findViewById(R.id.like_button);
+            feedLikeLayout = itemView.findViewById(R.id.like_linear_layout);
             feedLikes = itemView.findViewById(R.id.feed_likes);
             shareFeed = itemView.findViewById(R.id.shareLinearLayout);
             commentFeed = itemView.findViewById(R.id.commentLinearLayout);
