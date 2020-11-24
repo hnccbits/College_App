@@ -21,6 +21,7 @@ import bitsindri.hncc.collegeapp.activities.AchievementsActivity;
 import bitsindri.hncc.collegeapp.activities.ContestsAndHackathonsActivity;
 import bitsindri.hncc.collegeapp.activities.FrontActivity;
 import bitsindri.hncc.collegeapp.activities.InternshipsAndJobsActivity;
+import bitsindri.hncc.collegeapp.activities.NavigationActivity;
 import bitsindri.hncc.collegeapp.activities.OngoingIssuesActivity;
 import bitsindri.hncc.collegeapp.activities.WorkshopsAndWebinarsActivity;
 
@@ -145,7 +146,7 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
         }else if(position == 8){
             startActivity(new Intent(getContext(), WorkshopsAndWebinarsActivity.class));
         }else if(position == 9){
-            //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
+            startActivity(new Intent(getContext(), NavigationActivity.class));
         }else if(position == 10){
             startActivity(new Intent(getContext(), ContestsAndHackathonsActivity.class));
         }else if(position == 11){
