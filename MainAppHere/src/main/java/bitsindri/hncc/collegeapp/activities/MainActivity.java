@@ -173,14 +173,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-//        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+//        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FoodFragment()).commit();
 //
 //        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 //            @Override
 //            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 //                int id = item.getItemId();
 //                if(id == R.id.home) {
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FoodFragment()).commit();
 //                }else if(id == R.id.marketplace) {
 //                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MarketplaceFragment()).commit();
 //                }
@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomMenu(); //for handling clicks on chipNavigationBar
 
-        //getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new HomeFragment()).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new FoodFragment()).commit();
 
 
     }
