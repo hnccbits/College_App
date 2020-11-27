@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -129,6 +130,9 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
 
         if(position == 0){
             //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            fragmentManager.beginTransaction().setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out).replace(R.id.frameLayout, new StudyResources_Fragment()).addToBackStack(null).commit();
+
         }else if(position == 1){
             startActivity(new Intent(getContext(), FrontActivity.class));
         }else if(position == 2){

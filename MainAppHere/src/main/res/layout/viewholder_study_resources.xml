@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        app:cardElevation="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardUseCompatPadding="true"
+        android:layout_width="match_parent"
+       android:layout_margin="2dp"
+        android:layout_height="200dp">
+
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            android:id="@+id/IV"
+            android:layout_margin="2dp"
+            android:src="@drawable/vector_study_resources"
+            android:layout_gravity="start|center_vertical"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="top|center">
+            <TextView
+                android:id="@+id/TV_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PDF FILE NAME"
+                android:drawableLeft="@drawable/bookmark"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:id="@+id/TV_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subject :electrostatics"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/TV_sem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sem      :1st sem"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:id="@+id/TV_branch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="branch :Electrical"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/download"
+            android:text="read"
+            android:background="@drawable/btn_red"
+            android:layout_gravity="end|center_vertical"
+            android:layout_margin="5dp"
+            />
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

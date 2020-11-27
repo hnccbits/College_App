@@ -29,6 +29,8 @@
         <activity android:name=".activities.ContestsAndHackathonsActivity" />
         <activity android:name=".activities.WorkshopsAndWebinarsActivity" />
         <activity android:name=".activities.InternshipsAndJobsActivity" />
+        <activity android:name=".activities.WebViewActivity"/>
+
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
