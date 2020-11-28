@@ -21,6 +21,7 @@ import bitsindri.hncc.collegeapp.activities.AchievementsActivity;
 import bitsindri.hncc.collegeapp.activities.ContestsAndHackathonsActivity;
 import bitsindri.hncc.collegeapp.activities.FrontActivity;
 import bitsindri.hncc.collegeapp.activities.InternshipsAndJobsActivity;
+import bitsindri.hncc.collegeapp.activities.MessActivity;
 import bitsindri.hncc.collegeapp.activities.NavigationActivity;
 import bitsindri.hncc.collegeapp.activities.OngoingIssuesActivity;
 import bitsindri.hncc.collegeapp.activities.WorkshopsAndWebinarsActivity;
@@ -73,7 +74,7 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
         menuListLeft.add(new menuClass("Canteen Orders", R.drawable.vector_canteen_orders));
 
         menuListLeft.add(new menuClass("Contests and Hackathons", R.drawable.vector_contests_and_hackathons));
-        menuListLeft.add(new menuClass("Mess Report", R.drawable.vector_mess_report));
+        menuListLeft.add(new menuClass("Hostel Report", R.drawable.vector_mess_report));
 
         menuListLeft.add(new menuClass("Our Achievements", R.drawable.vector_achievements));
         menuListLeft.add(new menuClass("Clubs and Societies", R.drawable.vector_clubs_and_societies));
@@ -150,7 +151,7 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
         }else if(position == 10){
             startActivity(new Intent(getContext(), ContestsAndHackathonsActivity.class));
         }else if(position == 11){
-            //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
+            startActivity(new Intent(getContext(), MessActivity.class));
         }else if(position == 12){
             startActivity(new Intent(getContext(), AchievementsActivity.class));
         }else if(position == 13){
