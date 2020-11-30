@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import bitsindri.hncc.collegeapp.Custom_Classes.Data;
 import bitsindri.hncc.collegeapp.Custom_Classes.PDFModel;
 import bitsindri.hncc.collegeapp.Interfaces.ItemClickListener;
 import bitsindri.hncc.collegeapp.R;
@@ -28,6 +29,11 @@ public class PDFAdapter extends RecyclerView.Adapter<PDFAdapter.Holder> {
         this.context = context;
         this.itemClickListener = itemClickListener;
     }
+//    public PDFAdapter(List<Data> list, Context context, ItemClickListener itemClickListener) {
+//        this.list = list;
+//        this.context = context;
+//        this.itemClickListener = itemClickListener;
+//    }
 
     @NonNull
     @Override
@@ -40,7 +46,7 @@ public class PDFAdapter extends RecyclerView.Adapter<PDFAdapter.Holder> {
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
 
-        holder.pdfName.setText(list.get(position).getPdfName());
+  //      holder.pdfName.setText(list.get(position).getPdfName());
 //        holder.sem.setText((list.get(position).getSemester()));
 //        holder.branch.setText((list.get(position).getBranch()));
 //        holder.sub.setText((list.get(position).getSubject()));
