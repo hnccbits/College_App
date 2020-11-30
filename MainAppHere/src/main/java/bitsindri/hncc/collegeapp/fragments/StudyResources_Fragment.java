@@ -18,22 +18,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bitsindri.hncc.collegeapp.Adapters.PDFAdapter;
+import bitsindri.hncc.collegeapp.Custom_Classes.Data;
 import bitsindri.hncc.collegeapp.Custom_Classes.PDFModel;
+import bitsindri.hncc.collegeapp.Interfaces.ApiInterface;
 import bitsindri.hncc.collegeapp.Interfaces.ItemClickListener;
 import bitsindri.hncc.collegeapp.R;
 import bitsindri.hncc.collegeapp.activities.WebViewActivity;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link StudyResources_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class StudyResources_Fragment extends Fragment {
 
 
     RecyclerView recyclerView;
     public static List<PDFModel> list;
-
+    ArrayList<Data> newlist;
+    PDFAdapter adapter;
+    ItemClickListener itemClickListener;
     public StudyResources_Fragment() {
         // Required empty public constructor
     }
@@ -59,6 +63,8 @@ public class StudyResources_Fragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         recyclerView =getActivity().findViewById(R.id.RV);
 
+        loadJSON();
+
         list = new ArrayList<>();
         list.add(new PDFModel("PDF One","https://drive.google.com/file/d/0B4L4P11PTo2Bc3RhcnRlcl9maWxl/view?usp=sharing"));
         list.add(new PDFModel("PDF Two", "https://drive.google.com/file/d/0B4L4P11PTo2Bc3RhcnRlcl9maWxl/view?usp=sharing"));
@@ -70,7 +76,7 @@ public class StudyResources_Fragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        ItemClickListener itemClickListener = new ItemClickListener() {
+        itemClickListener = new ItemClickListener() {
             @Override
             public void onClick(View view, int position, boolean isLongClick) {
 
@@ -89,9 +95,42 @@ public class StudyResources_Fragment extends Fragment {
             }
         };
 
-        PDFAdapter adapter = new PDFAdapter(list,getContext(),itemClickListener);
+            adapter = new PDFAdapter(list,getContext(),itemClickListener);
         recyclerView.setAdapter(adapter);
 
 
+    }
+    private void loadJSON() {
+        Retrofit retrofit = new Retrofit.Builder()
+                //TODO: paste the correct url here
+                .baseUrl("https://bit.ly/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Call<List<Data>> call = apiInterface.getInfo();
+        ((Call) call).enqueue(new Callback<List<Data>>() {
+            @Override
+            public void onResponse(Call<List<Data>> call, Response<List<Data>> response) {
+
+            //    Data dataList = response.body();
+                List<Data> dataList=response.body();
+
+                for(Data data:dataList)
+                {
+                    newlist.add((Data) dataList);
+                }
+
+                //TODO: Call the modified constructor of the PDFAdapter
+                //adapter = new PDFAdapter(newlist,getContext(),itemClickListener);
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<Data>> call, Throwable t) {
+                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+
+
+        });
     }
 }
