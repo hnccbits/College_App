@@ -7,6 +7,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -48,9 +49,11 @@ class UpdateMessMenuFragment : Fragment(),DialogInterface.OnClickListener , Adap
     lateinit var calendar: Calendar
     lateinit var simpleDateFormat: SimpleDateFormat
     var spinner_item = ""
+    var uri:Uri? = null
 
     lateinit var imageView: ImageView
     lateinit var new_menu_name: String
+    lateinit var editText: EditText
 
 
     @SuppressLint("SimpleDateFormat", "WeekBasedYear")
@@ -121,12 +124,24 @@ class UpdateMessMenuFragment : Fragment(),DialogInterface.OnClickListener , Adap
         val inflator: LayoutInflater = activity?.layoutInflater!!
         val view = inflator.inflate(R.layout.dialog_change, null)
 
-        val imageView = view.findViewById<ImageView>(R.id.menu_image)
+         imageView = view.findViewById<ImageView>(R.id.menu_image)
         val editView = view.findViewById<EditText>(R.id.menu_text)
 
         new_menu_name = editView.text.toString()
         imageView.setOnClickListener{
-            pickImageFromGallery()
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { //system is greater than marshmallow
+                if (checkSelfPermission(activity as Context,Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+                    val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    requestPermissions(permissions, UpdateMessMenuFragment.PERMISSION_CODE)
+                } else {
+                    pickImageFromGallery()
+                    imageView.setImageURI(uri)
+                }
+            } else {
+                pickImageFromGallery()
+                imageView.setImageURI(uri)
+            }
         }
 
         alertDialog.setView(view)
@@ -166,47 +181,14 @@ class UpdateMessMenuFragment : Fragment(),DialogInterface.OnClickListener , Adap
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == AppCompatActivity.RESULT_OK && requestCode == IMAGE_PICK_CODE && data != null) {
-            imageView.setImageURI(data.data)
+            uri = data.data
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
 
-
-//    @SuppressLint("QueryPermissionsNeeded")
-//    override fun selectOptions(b: Boolean, i: Int) {
-//        if (b && i == 4) {
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { //system is greater than marshmallow
-//                if (checkSelfPermission(activity as Context,Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-//                    val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-//                    requestPermissions(permissions, PERMISSION_CODE)
-//                } else {
-//                    pickImageFromGallery()
-//                }
-//            } else {
-//                pickImageFromGallery()
-//            }
-//        } else if (b && i == 3) {
-//
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { //system is greater than marshmallow
-//                if (checkSelfPermission(activity as Context,Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED ||
-//                        checkSelfPermission(activity as Context,Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-//                    val permissions = arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-//                    requestPermissions(permissions, PERMISSION_CODE_CAMERA)
-//                } else {
-//                    takePicture()
-//
-//                }
-//            } else {
-//
-//                takePicture()
-//            }
-//
-//        }
-//    }
-
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         when (requestCode) {
-            PERMISSION_CODE -> {
+            UpdateMessMenuFragment.PERMISSION_CODE -> {
                 if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     pickImageFromGallery()
                 } else {
@@ -218,41 +200,17 @@ class UpdateMessMenuFragment : Fragment(),DialogInterface.OnClickListener , Adap
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
+
     private fun pickImageFromGallery() {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { //system is greater than marshmallow
-            if (checkSelfPermission(activity as Context,Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-                val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-                requestPermissions(permissions, PERMISSION_CODE)
-            } else {
-                pickImageFromGallery()
-            }
-        } else {
-            pickImageFromGallery()
-        }
-
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, IMAGE_PICK_CODE)
     }
-//    @SuppressLint("QueryPermissionsNeeded")
-//    private fun takePicture(){
-//
-//        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-//        startActivityForResult(intent, CAMERA_ACTION_CODE)
-////        if (intent.resolveActivity()!= null) {
-////            startActivityForResult(intent, CAMERA_ACTION_CODE)
-////        } else {
-////            Toast.makeText(activity as Context, "There is no app that supports this action", Toast.LENGTH_SHORT).show()
-////        }
-//
-//    }
+
 
     companion object {
-        private const val CAMERA_ACTION_CODE = 6
-        private const val PERMISSION_CODE = 5
         private const val IMAGE_PICK_CODE = 2
-        private const val PERMISSION_CODE_CAMERA = 7
+        private const val PERMISSION_CODE = 5
     }
 
 
