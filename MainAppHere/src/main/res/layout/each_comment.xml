@@ -14,6 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -21,6 +22,7 @@
             android:layout_margin="3dp"
             app:civ_border_width="1dp"
             app:civ_border_color="#c56183"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

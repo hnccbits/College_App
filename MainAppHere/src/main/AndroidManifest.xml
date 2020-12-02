@@ -18,7 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MessActivity"></activity>
+        <activity android:name=".activities.CommentActivityForMenuChange"></activity>
+        <activity android:name=".activities.ReportAtivity" />
+        <activity android:name=".activities.MessActivity" />
         <activity android:name=".activities.OrderStatusActivity" />
         <activity android:name=".activities.CartActivity" />
         <activity android:name=".activities.NavigationActivity" />
@@ -30,8 +32,7 @@
         <activity android:name=".activities.ContestsAndHackathonsActivity" />
         <activity android:name=".activities.WorkshopsAndWebinarsActivity" />
         <activity android:name=".activities.InternshipsAndJobsActivity" />
-        <activity android:name=".activities.WebViewActivity"/>
-
+        <activity android:name=".activities.WebViewActivity" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.

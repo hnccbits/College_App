@@ -66,6 +66,12 @@ public class commentActivity extends AppCompatActivity {
         commentsAdapter = new commentsAdapter(commentList, commentActivity.this);
         commentsRecyclerView.setAdapter(commentsAdapter);
 
+
+
+
+
+
+
         sendCommentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

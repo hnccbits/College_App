@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
+import android.util.TypedValue
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -49,37 +50,19 @@ class MessMenuFragment : Fragment(),DialogInterface.OnClickListener {
     @SuppressLint("SetTextI18n")
     private fun showAlertDialog() {
         val alertDialog = AlertDialog.Builder(activity as Context)
+        val inflator:LayoutInflater = activity?.layoutInflater !!
+        val view = inflator.inflate(R.layout.day_menu_mess,null)
+
+        alertDialog.setView(view)
+
         alertDialog.setTitle("One more step")
         alertDialog.setMessage("View Menu ")
 
-        val lp = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.FILL_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        )
-        val linearLayout = LinearLayout(activity as Context)
-        linearLayout.orientation = LinearLayout.VERTICAL
-
-        val txtMenu = TextView(activity as Context)
-        txtMenu.setText("Chhola Bhatura")
-        txtMenu.layoutParams = lp
-
-        val imgImage = ImageView(activity as Context)
-        imgImage.setImageResource(R.drawable.askinpoppins)
-        imgImage.layoutParams = lp
-
-        alertDialog.setView(txtMenu)
-        alertDialog.setView(imgImage)
 
         alertDialog.setIcon(R.drawable.ic_action_shopping_cart)
 
-        alertDialog.setNegativeButton("NO",this)
-        alertDialog.setPositiveButton("OK") { dialogInterface: DialogInterface, i: Int ->
-            if(txtMenu.text.equals("")){
-                Toast.makeText(activity as Context,"Fill the address first", Toast.LENGTH_SHORT).show()
-            }else{
-                Toast.makeText(activity as Context,"Thank you  ,Order Placed", Toast.LENGTH_SHORT).show()
-            }
-
+        alertDialog.setNegativeButton("Cancel",this)
+        alertDialog.setPositiveButton("Ok") { dialogInterface: DialogInterface, i: Int ->
 
         }
 
