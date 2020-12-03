@@ -82,43 +82,37 @@ public class GoogleMapFragment extends Fragment {
 
 
 
-        revert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        revert.setOnClickListener(v -> {
 
-                String source = et_source.getText().toString();
-                String dest = et_destination.getText().toString();
+            String source = et_source.getText().toString();
+            String dest = et_destination.getText().toString();
 
-                if(source.equals("") && dest.equals("")){
-                    Toast.makeText(getActivity(),"Enter both location",Toast.LENGTH_SHORT).show();
-                }
-                else{
+            if(source.equals("") && dest.equals("")){
+                Toast.makeText(getActivity(),"Enter both location",Toast.LENGTH_SHORT).show();
+            }
+            else{
 
-                       String temp = source;
+                   String temp = source;
 
-
-                }
 
             }
+
         });
 
 
-        btnShowTrack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnShowTrack.setOnClickListener(v -> {
 
-                String source = et_source.getText().toString();
-                String dest = et_destination.getText().toString();
+            String source = et_source.getText().toString();
+            String dest = et_destination.getText().toString();
 
-              if(source.equals("") && dest.equals("")){
-                  Toast.makeText(getActivity(),"Enter both location",Toast.LENGTH_SHORT).show();
-              }
-              else{
-                  displayTrack(source, dest);
-              }
+          if(source.equals("") && dest.equals("")){
+              Toast.makeText(getActivity(),"Enter both location",Toast.LENGTH_SHORT).show();
+          }
+          else{
+              displayTrack(source, dest);
+          }
 
 
-            }
         });
 
         chipNavigationBar.setItemSelected(R.id.car,true);

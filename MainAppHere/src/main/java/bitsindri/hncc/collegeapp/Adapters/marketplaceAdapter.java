@@ -42,16 +42,13 @@ public class marketplaceAdapter extends RecyclerView.Adapter{
         marketplaceViewHolder.itemCategory.setText(marketplaceList.get(position).getItemCategory());
         final String price = "Rs. " + marketplaceList.get(position).getItemPrice();
         marketplaceViewHolder.itemPrice.setText(price);
-        marketplaceViewHolder.buyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        marketplaceViewHolder.buyButton.setOnClickListener(v -> {
 
-                Intent intent = new Intent(mContext, sellingItemActivity.class);
-                intent.putExtra("category", marketplaceList.get(position).getItemCategory());
-                intent.putExtra("price", price);
-                mContext.startActivity(intent);
+            Intent intent = new Intent(mContext, sellingItemActivity.class);
+            intent.putExtra("category", marketplaceList.get(position).getItemCategory());
+            intent.putExtra("price", price);
+            mContext.startActivity(intent);
 
-            }
         });
     }
 

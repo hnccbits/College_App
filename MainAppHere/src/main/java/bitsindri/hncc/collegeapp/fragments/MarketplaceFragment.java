@@ -116,23 +116,15 @@ public class MarketplaceFragment extends Fragment implements NewMarketAdapter.ca
         imgClose = view.findViewById(R.id.img_close);
         btnPingMe = view.findViewById(R.id.btn_click);
 
-        imgClose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bottomSheetDialog.dismiss();
-            }
-        });
+        imgClose.setOnClickListener(v -> bottomSheetDialog.dismiss());
 
-        btnPingMe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnPingMe.setOnClickListener(v -> {
 
-                Intent i = new Intent(getActivity(), sellingItemActivity.class);
-                i.putExtra("category", marketplaceArrayList.get(index).getItemCategory());
-                i.putExtra("price", String.valueOf(marketplaceArrayList.get(index).getItemPrice()));
-                startActivity(i);
-                bottomSheetDialog.dismiss();
-            }
+            Intent i = new Intent(getActivity(), sellingItemActivity.class);
+            i.putExtra("category", marketplaceArrayList.get(index).getItemCategory());
+            i.putExtra("price", String.valueOf(marketplaceArrayList.get(index).getItemPrice()));
+            startActivity(i);
+            bottomSheetDialog.dismiss();
         });
 
     }
