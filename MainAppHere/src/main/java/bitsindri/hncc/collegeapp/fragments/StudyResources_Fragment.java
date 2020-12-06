@@ -76,23 +76,20 @@ public class StudyResources_Fragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        itemClickListener = new ItemClickListener() {
-            @Override
-            public void onClick(View view, int position, boolean isLongClick) {
+        itemClickListener = (view, position, isLongClick) -> {
 
-                switch (view.getId())
-                {
-                    case R.id.IV|R.id.download:
-                        Intent intent = new Intent(getContext(), WebViewActivity.class);
-                        //intent.putExtra("url",list.get(position).getPdfUrl());
-                        intent.putExtra("url",list.get(position).getPdfUrl());
-                        startActivity(intent);
-                        break;
+            switch (view.getId())
+            {
+                case R.id.IV|R.id.download:
+                    Intent intent = new Intent(getContext(), WebViewActivity.class);
+                    //intent.putExtra("url",list.get(position).getPdfUrl());
+                    intent.putExtra("url",list.get(position).getPdfUrl());
+                    startActivity(intent);
+                    break;
 
-
-                }
 
             }
+
         };
 
             adapter = new PDFAdapter(list,getContext(),itemClickListener);
