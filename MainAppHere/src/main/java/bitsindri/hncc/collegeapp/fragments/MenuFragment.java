@@ -158,7 +158,7 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.bitsindri.ac.in/index.php#")));
         }
         else if(position==15){
-            startActivity(new Intent(getContext(), BuisnessActivity.class));
+            startActivity(new Intent(getContext(), FeeCollectionActivity.class));
         }
 
     }
