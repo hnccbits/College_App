@@ -18,7 +18,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.CommentActivityForMenuChange"></activity>
+        <activity android:name=".activities.BuisnessActivity"></activity>
+        <activity android:name=".activities.PaymentActivity" />
+        <activity android:name=".activities.FeeCollectionActivity" />
+        <activity android:name=".activities.CommentActivityForMenuChange" />
         <activity android:name=".activities.ReportAtivity" />
         <activity android:name=".activities.MessActivity" />
         <activity android:name=".activities.OrderStatusActivity" />

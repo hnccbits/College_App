@@ -19,7 +19,9 @@ import bitsindri.hncc.collegeapp.Adapters.MenuAdapter;
 import bitsindri.hncc.collegeapp.Custom_Classes.menuClass;
 import bitsindri.hncc.collegeapp.R;
 import bitsindri.hncc.collegeapp.activities.AchievementsActivity;
+import bitsindri.hncc.collegeapp.activities.BuisnessActivity;
 import bitsindri.hncc.collegeapp.activities.ContestsAndHackathonsActivity;
+import bitsindri.hncc.collegeapp.activities.FeeCollectionActivity;
 import bitsindri.hncc.collegeapp.activities.FrontActivity;
 import bitsindri.hncc.collegeapp.activities.InternshipsAndJobsActivity;
 import bitsindri.hncc.collegeapp.activities.MessActivity;
@@ -81,16 +83,8 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
         menuListLeft.add(new menuClass("Clubs and Societies", R.drawable.vector_clubs_and_societies));
 
         menuListLeft.add(new menuClass("BIT Sindri", R.drawable.vector_bit_sindri));
+        menuListLeft.add(new menuClass("Fee Collection",R.drawable.vector_lost_and_found));
 
-
-//        menuListRight.clear();
-//        menuListRight.add(new menuClass("Lost and Found", R.drawable.vector_lost_and_found));
-//        menuListRight.add(new menuClass("Interviews", R.drawable.vector_interviews));
-//        menuListRight.add(new menuClass("Help BITians", R.drawable.vector_help_bitians));
-//        menuListRight.add(new menuClass("Canteen Orders", R.drawable.vector_canteen_orders));
-//        menuListRight.add(new menuClass("Mess Report", R.drawable.vector_mess_report));
-//        menuListRight.add(new menuClass("Clubs and Societies", R.drawable.vector_clubs_and_societies));
-//        menuListRight.add(new menuClass("About BIT Sindri", R.drawable.vector_bit_sindri));
     }
 
     private void setRecycler() {
@@ -162,6 +156,9 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
             //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
         }else if(position == 14){
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.bitsindri.ac.in/index.php#")));
+        }
+        else if(position==15){
+            startActivity(new Intent(getContext(), BuisnessActivity.class));
         }
 
     }
