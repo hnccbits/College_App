@@ -95,9 +95,10 @@ class NavigationActivity : AppCompatActivity() {
 
         else ->
         super.onBackPressed()
-    }
+
+        }
     }
 
 
-    }
+}
 

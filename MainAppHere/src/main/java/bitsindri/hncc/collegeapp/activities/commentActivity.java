@@ -66,6 +66,8 @@ public class commentActivity extends AppCompatActivity {
         commentsAdapter = new commentsAdapter(commentList, commentActivity.this);
         commentsRecyclerView.setAdapter(commentsAdapter);
 
+
+
         sendCommentButton.setOnClickListener(v -> {
             String myComment = commentEditText.getText().toString();
             if(!myComment.equals("")){

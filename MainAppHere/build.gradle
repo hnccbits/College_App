@@ -85,6 +85,9 @@ dependencies {
 
     implementation 'info.hoang8f:fbutton:1.0.5'
 
+    //for fee payment thread
+    implementation 'com.braintreepayments:card-form:5.0.0'
+
     //reterofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
