@@ -71,32 +71,29 @@ public class NewMarketAdapter extends RecyclerView.Adapter<NewMarketAdapter.Exam
             starbtn = itemView.findViewById(R.id.fav_item);
             this.callusers = calluser;
 
-            starbtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            starbtn.setOnClickListener(v -> {
 
-                    int position=getAdapterPosition();
-                    if(temp==position)
-                    {
-                        //TODO: implement like feature.
-                    }
-                    else
-                    {
-                        temp=position;
-                        click=false;
-                    }
-
-                    if(!click)
-                    {
-                        starbtn.setBackgroundResource(R.drawable.star_on);
-                    }
-                    else
-                    {
-                        starbtn.setBackgroundResource(R.drawable.star_off);
-                    }
-                    click=!click;
-
+                int position=getAdapterPosition();
+                if(temp==position)
+                {
+                    //TODO: implement like feature.
                 }
+                else
+                {
+                    temp=position;
+                    click=false;
+                }
+
+                if(!click)
+                {
+                    starbtn.setBackgroundResource(R.drawable.star_on);
+                }
+                else
+                {
+                    starbtn.setBackgroundResource(R.drawable.star_off);
+                }
+                click=!click;
+
             });
 
             itemView.setOnClickListener(this);

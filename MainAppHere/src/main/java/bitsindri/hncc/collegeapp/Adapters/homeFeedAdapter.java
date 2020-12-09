@@ -59,68 +59,59 @@ public class homeFeedAdapter extends RecyclerView.Adapter{
 
         final boolean[] isLiked = {false};
         final int[] postLikes = {Integer.parseInt(feed.getPostLikes())};
-        FeedHolder.feedLikeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(isLiked[0]){
-                    // user is unliking the post
-                    isLiked[0] = false;
-                    --postLikes[0];
-                    feed.setPostLikes(String.valueOf(postLikes[0]));
-                    FeedHolder.feedLikes.setText(String.valueOf(postLikes[0]));
-                    FeedHolder.feedLikeButton.setImageResource(R.drawable.vector_unlike);
-                }else{
-                    // user is liking the post
-                    isLiked[0] = true;
-                    ++postLikes[0];
-                    feed.setPostLikes(String.valueOf(postLikes[0]));
-                    FeedHolder.feedLikes.setText(String.valueOf(postLikes[0]));
-                    FeedHolder.feedLikeButton.setImageResource(R.drawable.vector_like);
-                }
+        FeedHolder.feedLikeLayout.setOnClickListener(v -> {
+            if(isLiked[0]){
+                // user is unliking the post
+                isLiked[0] = false;
+                --postLikes[0];
+                feed.setPostLikes(String.valueOf(postLikes[0]));
+                FeedHolder.feedLikes.setText(String.valueOf(postLikes[0]));
+                FeedHolder.feedLikeButton.setImageResource(R.drawable.vector_unlike);
+            }else{
+                // user is liking the post
+                isLiked[0] = true;
+                ++postLikes[0];
+                feed.setPostLikes(String.valueOf(postLikes[0]));
+                FeedHolder.feedLikes.setText(String.valueOf(postLikes[0]));
+                FeedHolder.feedLikeButton.setImageResource(R.drawable.vector_like);
             }
         });
 
-        FeedHolder.commentFeed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent commentIntent = new Intent(myContext, bitsindri.hncc.collegeapp.activities.commentActivity.class);
-                commentIntent.putExtra("postImage", feed.getPostImageUrl());
-                commentIntent.putExtra("postMessage", feed.getPostMessage());
-                commentIntent.putExtra("postUserName", feed.getProfileName());
-                commentIntent.putExtra("postDateAndTime", feed.getPostDateAndTime());
-                commentIntent.putExtra("postLikes", feed.getPostLikes());
-                myContext.startActivity(commentIntent);
+        FeedHolder.commentFeed.setOnClickListener(v -> {
+            Intent commentIntent = new Intent(myContext, bitsindri.hncc.collegeapp.activities.commentActivity.class);
+            commentIntent.putExtra("postImage", feed.getPostImageUrl());
+            commentIntent.putExtra("postMessage", feed.getPostMessage());
+            commentIntent.putExtra("postUserName", feed.getProfileName());
+            commentIntent.putExtra("postDateAndTime", feed.getPostDateAndTime());
+            commentIntent.putExtra("postLikes", feed.getPostLikes());
+            myContext.startActivity(commentIntent);
 
-            }
         });
 
-        FeedHolder.shareFeed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent shareIntent = new Intent();
+        FeedHolder.shareFeed.setOnClickListener(v -> {
+            Intent shareIntent = new Intent();
 
-                if(PostImageUrl.equals("no_post_img")){
-                    // when post has no image, only text
-                    shareIntent.putExtra(Intent.EXTRA_TEXT, feed.getPostMessage());
-                    shareIntent.setType("text/plain");
-                }else {
-                    // when post has image and text both
-                    Uri imageUri = Uri.parse("android.resource://" + myContext.getPackageName()
-                            + "/drawable/" + "desktop");
-                    String shareMessage = feed.getPostMessage();
-                    shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello");
-                    shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
-                    shareIntent.setType("image/jpeg");
-                }
-                shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                try {
-                    myContext.startActivity(Intent.createChooser(shareIntent, "send"));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(myContext, "Something went wrong :(", Toast.LENGTH_SHORT).show();
-                }
-
+            if(PostImageUrl.equals("no_post_img")){
+                // when post has no image, only text
+                shareIntent.putExtra(Intent.EXTRA_TEXT, feed.getPostMessage());
+                shareIntent.setType("text/plain");
+            }else {
+                // when post has image and text both
+                Uri imageUri = Uri.parse("android.resource://" + myContext.getPackageName()
+                        + "/drawable/" + "desktop");
+                String shareMessage = feed.getPostMessage();
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello");
+                shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+                shareIntent.setType("image/jpeg");
             }
+            shareIntent.setAction(Intent.ACTION_SEND);
+            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            try {
+                myContext.startActivity(Intent.createChooser(shareIntent, "send"));
+            } catch (android.content.ActivityNotFoundException ex) {
+                Toast.makeText(myContext, "Something went wrong :(", Toast.LENGTH_SHORT).show();
+            }
+
         });
 
     }

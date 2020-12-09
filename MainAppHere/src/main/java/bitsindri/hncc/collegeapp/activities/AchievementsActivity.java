@@ -28,12 +28,7 @@ public class AchievementsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_achievements);
 
         FloatingActionButton fabAchievement = findViewById(R.id.add_achievement);
-        fabAchievement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AchievementsActivity.this, AddAchievementActivity.class));
-            }
-        });
+        fabAchievement.setOnClickListener(v -> startActivity(new Intent(AchievementsActivity.this, AddAchievementActivity.class)));
 
         RecyclerView achievementsRecyclerView = findViewById(R.id.achievements_recycler_view);
         achievementsRecyclerView.setLayoutManager(new LinearLayoutManager(AchievementsActivity.this));
@@ -48,12 +43,7 @@ public class AchievementsActivity extends AppCompatActivity {
         achievementsList.add(new feed("Person E", "15-08-2020 06:23 AM", "no_post_img", "This is a message for the world", "6"));
 
         // using comparator for arranging feed as per timing of their post
-        Comparator<feed> compareByDateAndTime = new Comparator<feed>() {
-            @Override
-            public int compare(feed f1, feed f2) {
-                return f2.getPostDateAndTime().compareToIgnoreCase(f1.getPostDateAndTime());
-            }
-        };
+        Comparator<feed> compareByDateAndTime = (f1, f2) -> f2.getPostDateAndTime().compareToIgnoreCase(f1.getPostDateAndTime());
         achievementsList.sort(compareByDateAndTime);
 
         achievementsAdapter = new homeFeedAdapter(achievementsList, AchievementsActivity.this);

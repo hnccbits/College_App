@@ -42,12 +42,9 @@ public class StaticRVAdapter extends RecyclerView.Adapter<StaticRVAdapter.Static
         holder.image.setImageResource(curretnItem.getImage());
         holder.text.setText(curretnItem.getText());
 
-        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                row_index = position;
-                notifyDataSetChanged();
-            }
+        holder.linearLayout.setOnClickListener(v -> {
+            row_index = position;
+            notifyDataSetChanged();
         });
 
         if(row_index == position){

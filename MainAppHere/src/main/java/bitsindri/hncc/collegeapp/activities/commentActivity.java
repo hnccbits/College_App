@@ -68,20 +68,13 @@ public class commentActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-        sendCommentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String myComment = commentEditText.getText().toString();
-                if(!myComment.equals("")){
-                    comment myCommentObj = new comment("Person A", "11-11-20 09:05 PM", myComment);
-                    commentList.add(myCommentObj);
-                    commentEditText.setText("");
-                    commentsAdapter.notifyDataSetChanged();
-                }
+        sendCommentButton.setOnClickListener(v -> {
+            String myComment = commentEditText.getText().toString();
+            if(!myComment.equals("")){
+                comment myCommentObj = new comment("Person A", "11-11-20 09:05 PM", myComment);
+                commentList.add(myCommentObj);
+                commentEditText.setText("");
+                commentsAdapter.notifyDataSetChanged();
             }
         });
 
