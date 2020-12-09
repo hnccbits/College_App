@@ -23,13 +23,13 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
+        android:id="@+id/procced"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
         android:layout_margin="30dp"
         android:lineSpacingExtra="5dp"
         android:text="Proceed to Payment"
-        android:background="@drawable/border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
