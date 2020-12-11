@@ -28,12 +28,7 @@ public class OngoingIssuesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ongoing_issues);
 
         FloatingActionButton fab = findViewById(R.id.add_issue);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(OngoingIssuesActivity.this, AddIssueActivity.class));
-            }
-        });
+        fab.setOnClickListener(v -> startActivity(new Intent(OngoingIssuesActivity.this, AddIssueActivity.class)));
 
 
         RecyclerView ongoingIssuesRecyclerView = findViewById(R.id.ongoing_issues_recycler_view);
@@ -49,12 +44,7 @@ public class OngoingIssuesActivity extends AppCompatActivity {
         ongoingIssuesList.add(new feed("Person E", "15-08-2020 06:23 AM", "no_post_img", "This is a message for the world", "6"));
 
         // using comparator for arranging feed as per timing of their post
-        Comparator<feed> compareByDateAndTime = new Comparator<feed>() {
-            @Override
-            public int compare(feed f1, feed f2) {
-                return f2.getPostDateAndTime().compareToIgnoreCase(f1.getPostDateAndTime());
-            }
-        };
+        Comparator<feed> compareByDateAndTime = (f1, f2) -> f2.getPostDateAndTime().compareToIgnoreCase(f1.getPostDateAndTime());
         ongoingIssuesList.sort(compareByDateAndTime);
 
         ongoingIssuesAdapter = new homeFeedAdapter(ongoingIssuesList, OngoingIssuesActivity.this);

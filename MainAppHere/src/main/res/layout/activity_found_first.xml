@@ -167,7 +167,7 @@
                 android:id="@+id/photo"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/man"
+                android:src="@drawable/camera"
                 android:layout_marginStart="10dp"/>
 
             <TextView

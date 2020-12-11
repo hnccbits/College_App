@@ -30,7 +30,7 @@ public class commentsAdapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.each_comment, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.each_comment_for_mess, parent, false);
         return new commentsAdapter.commentHolder(view);
     }
 
@@ -40,7 +40,7 @@ public class commentsAdapter extends RecyclerView.Adapter {
         final commentsAdapter.commentHolder commentHolder = (commentsAdapter.commentHolder) holder;
         final comment comment = commentList.get(position);
 
-        commentHolder.commentProfileName.setText(comment.getCommentUserName());
+        commentHolder.eating_time_comment.setText(comment.getCommentUserName());
         commentHolder.commentDateAndTime.setText(comment.getCommentDateAndTime());
         commentHolder.commentText.setText(comment.getCommentText());
 
@@ -53,13 +53,13 @@ public class commentsAdapter extends RecyclerView.Adapter {
 
     public class commentHolder extends RecyclerView.ViewHolder {
 
-        TextView commentProfileName;
+        TextView eating_time_comment;
         TextView commentDateAndTime;
         TextView commentText;
 
         public commentHolder(View itemView) {
             super(itemView);
-            commentProfileName = itemView.findViewById(R.id.comment_name_text_view);
+            eating_time_comment = itemView.findViewById(R.id.eating_time_comment);
             commentDateAndTime= itemView.findViewById(R.id.comment_date_and_time_text_view);
             commentText = itemView.findViewById(R.id.comment_text);
 

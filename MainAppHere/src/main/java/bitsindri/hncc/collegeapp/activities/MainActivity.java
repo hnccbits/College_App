@@ -72,103 +72,100 @@ public class MainActivity extends AppCompatActivity {
             fragmentManager.beginTransaction().setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out).replace(R.id.frameLayout, fragment).commit();
         }
 
-        sNavigationDrawer.setOnMenuItemClickListener(new SNavigationDrawer.OnMenuItemClickListener() {
-            @Override
-            public void onMenuItemClicked(int position) {
-                System.out.println("Position "+position);
+        sNavigationDrawer.setOnMenuItemClickListener(position -> {
+            System.out.println("Position "+position);
 
-                switch (position){
-                    case 0:{
+            switch (position){
+                case 0:{
 //                        color1 = ;
-                        fragmentClass = HomeFragment.class;
-                        break;
-                    }
-                    case 1:{
+                    fragmentClass = HomeFragment.class;
+                    break;
+                }
+                case 1:{
 //                        color1 = R.color.orange;
 //                        color1= Color.parseColor("#012dda");
-                        fragmentClass = MarketplaceFragment.class;
-                        break;
-                    }
+                    fragmentClass = MarketplaceFragment.class;
+                    break;
+                }
 
-                    case 2:{
+                case 2:{
 //                        color1 = R.color.blue;
-                        //TODO: Implement chat (different channels for first ,second,third & final year students
-                        customToast("this feature coming soon...");
-                        break;
-                    }
-                    case 3:{
+                    //TODO: Implement chat (different channels for first ,second,third & final year students
+                    customToast("this feature coming soon...");
+                    break;
+                }
+                case 3:{
 //                        color1 = R.color.blue;
-                        //fragmentClass = Telephone_Directory.class;
-                        customToast("unused feature");
-                        break;
-                    }
-                    case 4:{
+                    //fragmentClass = Telephone_Directory.class;
+                    customToast("unused feature");
+                    break;
+                }
+                case 4:{
 //                        color1 = R.color.blue;
-                        //fragmentClass = MenuFragment.class;
-                        fragmentClass = GoogleMapFragment.class;
-                        customToast("navigation");
-                        break;
-                    }
-                    case 5:{
-                        customToast("tel-directory");
-                        fragmentClass = Telephone_Directory.class;
-                        break;
-                    }
-                    case 6:{
+                    //fragmentClass = MenuFragment.class;
+                    fragmentClass = GoogleMapFragment.class;
+                    customToast("navigation");
+                    break;
+                }
+                case 5:{
+                    customToast("tel-directory");
+                    fragmentClass = Telephone_Directory.class;
+                    break;
+                }
+                case 6:{
 //                        color1 = R.color.blue;
-                        fragmentClass = MenuFragment.class;
-                        customToast("Menu");
-                        break;
-                    }
-                    case 7:{
+                    fragmentClass = MenuFragment.class;
+                    customToast("Menu");
+                    break;
+                }
+                case 7:{
 //                        color1 = R.color.blue;
-                        fragmentClass = EmptyFragment.class;
-                        customToast("empty fragment");
-                        break;
-                    }
+                    fragmentClass = EmptyFragment.class;
+                    customToast("empty fragment");
+                    break;
+                }
 
+
+            }
+            sNavigationDrawer.setDrawerListener(new SNavigationDrawer.DrawerListener() {
+
+                @Override
+                public void onDrawerOpened() {
 
                 }
-                sNavigationDrawer.setDrawerListener(new SNavigationDrawer.DrawerListener() {
 
-                    @Override
-                    public void onDrawerOpened() {
+                @Override
+                public void onDrawerOpening(){
 
+                }
+
+                @Override
+                public void onDrawerClosing(){
+                    System.out.println("Drawer closed");
+
+                    try {
+                        fragment = (Fragment) fragmentClass.newInstance();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
 
-                    @Override
-                    public void onDrawerOpening(){
+                    if (fragment != null) {
+                        FragmentManager fragmentManager = getSupportFragmentManager();
+                        fragmentManager.beginTransaction().setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out).replace(R.id.frameLayout, fragment).addToBackStack(null).commit();
 
                     }
+                }
 
-                    @Override
-                    public void onDrawerClosing(){
-                        System.out.println("Drawer closed");
+                @Override
+                public void onDrawerClosed() {
 
-                        try {
-                            fragment = (Fragment) fragmentClass.newInstance();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+                }
 
-                        if (fragment != null) {
-                            FragmentManager fragmentManager = getSupportFragmentManager();
-                            fragmentManager.beginTransaction().setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out).replace(R.id.frameLayout, fragment).addToBackStack(null).commit();
-
-                        }
-                    }
-
-                    @Override
-                    public void onDrawerClosed() {
-
-                    }
-
-                    @Override
-                    public void onDrawerStateChanged(int newState) {
-                        System.out.println("State "+newState);
-                    }
-                });
-            }
+                @Override
+                public void onDrawerStateChanged(int newState) {
+                    System.out.println("State "+newState);
+                }
+            });
         });
 
 
@@ -204,24 +201,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void BottomMenu(){
 
-        chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(int i) {
-                Fragment fragment = null;
-                switch (i){
-                    case R.id.home:
-                        fragment = new HomeFragment();
-                        break;
-                    case R.id.menu:
-                        fragment = new MenuFragment();
-                        break;
-                    case R.id.user_profile:
-                          fragment = new HomeFragment();
-                        customToast("user profile comming soon");
-                        break;
-                }
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
+        chipNavigationBar.setOnItemSelectedListener(i -> {
+            Fragment fragment = null;
+            switch (i){
+                case R.id.home:
+                    fragment = new HomeFragment();
+                    break;
+                case R.id.menu:
+                    fragment = new MenuFragment();
+                    break;
+                case R.id.user_profile:
+                      fragment = new HomeFragment();
+                    customToast("user profile comming soon");
+                    break;
             }
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
         });
 
     }
@@ -235,19 +229,11 @@ public class MainActivity extends AppCompatActivity {
             final AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
             builder.setMessage("Are you sure want to exit?");
             builder.setCancelable(true);
-            builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.cancel();
-                }
-            });
+            builder.setNegativeButton("NO", (dialog, which) -> dialog.cancel());
 
-            builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                   customToast("see you soon:)");
-                    finish();
-                }
+            builder.setPositiveButton("YES", (dialog, which) -> {
+               customToast("see you soon:)");
+                finish();
             });
             AlertDialog alertDialog=builder.create();
             alertDialog.show();

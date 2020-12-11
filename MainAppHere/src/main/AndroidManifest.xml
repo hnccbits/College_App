@@ -21,6 +21,12 @@
         <activity android:name=".activities.ContactUsActivity"></activity>
         <activity android:name=".activities.InterviewsActivity" />
         <activity android:name=".activities.StartupAndProjectIdeas" />
+        <activity android:name=".activities.BuisnessActivity"></activity>
+        <activity android:name=".activities.PaymentActivity" />
+        <activity android:name=".activities.FeeCollectionActivity" />
+        <activity android:name=".activities.CommentActivityForMenuChange" />
+        <activity android:name=".activities.ReportAtivity" />
+        <activity android:name=".activities.MessActivity" />
         <activity android:name=".activities.OrderStatusActivity" />
         <activity android:name=".activities.CartActivity" />
         <activity android:name=".activities.NavigationActivity" />
@@ -32,6 +38,7 @@
         <activity android:name=".activities.ContestsAndHackathonsActivity" />
         <activity android:name=".activities.WorkshopsAndWebinarsActivity" />
         <activity android:name=".activities.InternshipsAndJobsActivity" />
+        <activity android:name=".activities.WebViewActivity" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.

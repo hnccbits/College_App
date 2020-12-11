@@ -59,28 +59,22 @@ public class IntroQuestion extends AppCompatActivity implements IntroQuestionAda
 
         CompositePageTransformer transformer=new CompositePageTransformer();
         transformer.addTransformer(new MarginPageTransformer(50));
-        transformer.addTransformer(new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
+        transformer.addTransformer((page, position) -> {
 
-                float r = 1 - Math.abs(position);
-                page.setScaleY(0.8f);
+            float r = 1 - Math.abs(position);
+            page.setScaleY(0.8f);
 
 //                page.setScaleY(0.8f + r * 0.2f);
 
-            }
         });
         viewpager.setPageTransformer(transformer);
 
-        skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        skip.setOnClickListener(v -> {
 
-                Toast.makeText(IntroQuestion.this, "skip", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(IntroQuestion.this,MainActivity.class));
-                finish();
+            Toast.makeText(IntroQuestion.this, "skip", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(IntroQuestion.this,MainActivity.class));
+            finish();
 
-            }
         });
 
     }
