@@ -19,14 +19,17 @@ import bitsindri.hncc.collegeapp.Adapters.MenuAdapter;
 import bitsindri.hncc.collegeapp.Custom_Classes.menuClass;
 import bitsindri.hncc.collegeapp.R;
 import bitsindri.hncc.collegeapp.activities.AchievementsActivity;
+import bitsindri.hncc.collegeapp.activities.ContactUsActivity;
 import bitsindri.hncc.collegeapp.activities.BuisnessActivity;
 import bitsindri.hncc.collegeapp.activities.ContestsAndHackathonsActivity;
 import bitsindri.hncc.collegeapp.activities.FeeCollectionActivity;
 import bitsindri.hncc.collegeapp.activities.FrontActivity;
 import bitsindri.hncc.collegeapp.activities.InternshipsAndJobsActivity;
+import bitsindri.hncc.collegeapp.activities.InterviewsActivity;
 import bitsindri.hncc.collegeapp.activities.MessActivity;
 import bitsindri.hncc.collegeapp.activities.NavigationActivity;
 import bitsindri.hncc.collegeapp.activities.OngoingIssuesActivity;
+import bitsindri.hncc.collegeapp.activities.StartupAndProjectIdeas;
 import bitsindri.hncc.collegeapp.activities.WorkshopsAndWebinarsActivity;
 
 
@@ -35,7 +38,7 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
     ArrayList<menuClass> menuListLeft;
     //ArrayList<menuClass> menuListRight;
     MenuAdapter menuAdapterLeft;
-    MenuAdapter menuAdapterRight;
+    //MenuAdapter menuAdapterRight;
 
     public MenuFragment() {
         //Required empty public constructor
@@ -83,7 +86,8 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
         menuListLeft.add(new menuClass("Clubs and Societies", R.drawable.vector_clubs_and_societies));
 
         menuListLeft.add(new menuClass("BIT Sindri", R.drawable.vector_bit_sindri));
-        menuListLeft.add(new menuClass("Fee Collection",R.drawable.vector_lost_and_found));
+        menuListLeft.add(new menuClass("Fee Collection", R.drawable.vector_fees));
+        //menuListLeft.add(new menuClass("Fee Collection",R.drawable.vector_lost_and_found));
 
     }
 
@@ -133,15 +137,15 @@ public class MenuFragment extends Fragment implements MenuAdapter.calluser {
         }else if(position == 2){
             startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
         }else if(position == 3){
-            //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
+            startActivity(new Intent(getContext(), InterviewsActivity.class));
         }else if(position == 4){
-            //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
+            startActivity(new Intent(getContext(), StartupAndProjectIdeas.class));
         }else if(position == 5){
             //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
         }else if(position == 6){
             startActivity(new Intent(getContext(), OngoingIssuesActivity.class));
         }else if(position == 7){
-            //startActivity(new Intent(getContext(), InternshipsAndJobsActivity.class));
+            startActivity(new Intent(getContext(), ContactUsActivity.class));
         }else if(position == 8){
             startActivity(new Intent(getContext(), WorkshopsAndWebinarsActivity.class));
         }else if(position == 9){
