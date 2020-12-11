@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import bitsindri.hncc.collegeapp.Custom_Classes.EmptyClass;
@@ -74,7 +75,7 @@ public class EmptyAdapter extends RecyclerView.Adapter<EmptyAdapter.ExampleViewH
     }
 
     //Interface containing method......
-    public interface calluser{
+    public interface calluser {
         void dialNumber(int position);
     }
 }
