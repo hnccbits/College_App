@@ -13,17 +13,13 @@ import bitsindri.hncc.collegeapp.Adapters.homeFeedAdapter.FeedHolder
 import bitsindri.hncc.collegeapp.GetterAndSetter.Food
 import bitsindri.hncc.collegeapp.GetterAndSetter.feed
 import bitsindri.hncc.collegeapp.R
+import bitsindri.hncc.collegeapp.activities.FoodCategoryListActivity
 import bitsindri.hncc.collegeapp.activities.FoodDetailActivity
 
 class HomeRecyclerAdapter(context: Context, itemList: ArrayList<Food>) : RecyclerView.Adapter<HomeRecyclerAdapter.HomeViewHolder>() {
 
     var context: Context
     var itemList: ArrayList<Food>
-
-
-    lateinit var userId:String
-
-    var heartColor = "white"
 
     //whenever object for above class is created code inside initializer block is created
     init {
@@ -52,22 +48,16 @@ class HomeRecyclerAdapter(context: Context, itemList: ArrayList<Food>) : Recycle
 
 
         val food = itemList[position]
-        holder.txtname.text = food.menu
         holder.imgimage_url.setImageResource(food.image_url.toInt())
-        holder.txtcost_for_one.text = food.cost_for_one
-        holder.txtrating.text = food.rating
+        holder.txtcategory.text = food.category
 
         val FoodHolder = holder as HomeViewHolder
 
         holder.food_main_layout.setOnClickListener{
 
-            val intent = Intent(context, FoodDetailActivity::class.java)
-            intent.putExtra("menu",food.menu)
-            intent.putExtra("cost",food.cost_for_one)
-            intent.putExtra("rating",food.rating)
+            val intent = Intent(context, FoodCategoryListActivity::class.java)
+            intent.putExtra("category",food.category)
             intent.putExtra("image_url",food.image_url)
-            intent.putExtra("desc",food.description)
-            intent.putExtra("id",food.id)
             context.startActivity(intent)
 
         }
@@ -83,19 +73,13 @@ class HomeRecyclerAdapter(context: Context, itemList: ArrayList<Food>) : Recycle
 
         //initialisation of various views of food data class
 
-        val txtname: TextView
-        var txtcost_for_one: TextView
-        val txtrating: TextView
+        val txtcategory: TextView
         val imgimage_url: ImageView
-        val imgFav: ImageView
         val food_main_layout:CardView
 
         init {
-            txtname = itemView.findViewById(R.id.txtname)
-            txtcost_for_one = itemView.findViewById(R.id.txtcost_for_one)
-            txtrating = itemView.findViewById(R.id.txtrating)
+            txtcategory = itemView.findViewById(R.id.txtcategory)
             imgimage_url = itemView.findViewById(R.id.imgimage_url)
-            imgFav = itemView.findViewById(R.id.imgFav)
             food_main_layout= itemView.findViewById(R.id.food_main_layout)
         }
 
