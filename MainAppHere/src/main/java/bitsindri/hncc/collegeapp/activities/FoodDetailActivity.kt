@@ -6,7 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import bitsindri.hncc.collegeapp.Custom_Classes.SampleData
+//import bitsindri.hncc.collegeapp.Custom_Classes.SampleData
 import bitsindri.hncc.collegeapp.R
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
 import com.google.android.material.appbar.CollapsingToolbarLayout
