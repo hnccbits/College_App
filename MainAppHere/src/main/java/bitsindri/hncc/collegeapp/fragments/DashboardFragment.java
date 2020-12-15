@@ -77,33 +77,27 @@ public class DashboardFragment extends Fragment {
         dynamicRVAdapter = new DynamicRVAdapter(drv,getActivity(),items);
         drv.setAdapter(dynamicRVAdapter);
 
-        dynamicRVAdapter.setLoadMore(new LoadMore() {
-            @Override
-            public void onLoadMore() {
-                if(items.size()<=10){
-                    items.add(null);
-                    dynamicRVAdapter.notifyItemInserted(items.size()-1);
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            items.remove(items.size()-1);
-                            dynamicRVAdapter.notifyItemRemoved(items.size());
+        dynamicRVAdapter.setLoadMore(() -> {
+            if(items.size()<=10){
+                items.add(null);
+                dynamicRVAdapter.notifyItemInserted(items.size()-1);
+                new Handler().postDelayed(() -> {
+                    items.remove(items.size()-1);
+                    dynamicRVAdapter.notifyItemRemoved(items.size());
 
-                            int index = items.size();
-                            int end = index+10;
-                            for(int i=index;i<end;i++){
-                                String name = UUID.randomUUID().toString();
-                                DynamicRVModel item = new DynamicRVModel(name,R.drawable.img2);
-                                items.add(item);
-                            }
-                            dynamicRVAdapter.notifyDataSetChanged();
-                            dynamicRVAdapter.setLoaded();
-                        }
-                    },4000);
-                }
-                else{
-                    Toast.makeText(requireActivity(),"Data Completed",Toast.LENGTH_SHORT).show();
-                }
+                    int index = items.size();
+                    int end = index+10;
+                    for(int i=index;i<end;i++){
+                        String name = UUID.randomUUID().toString();
+                        DynamicRVModel item1 = new DynamicRVModel(name,R.drawable.img2);
+                        items.add(item1);
+                    }
+                    dynamicRVAdapter.notifyDataSetChanged();
+                    dynamicRVAdapter.setLoaded();
+                },4000);
+            }
+            else{
+                Toast.makeText(requireActivity(),"Data Completed",Toast.LENGTH_SHORT).show();
             }
         });
 

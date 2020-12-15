@@ -19,7 +19,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.FoodCategoryListActivity"></activity>
-        <activity android:name=".activities.BuisnessActivity" />
+        <activity android:name=".activities.ContactUsActivity"></activity>
+        <activity android:name=".activities.InterviewsActivity" />
+        <activity android:name=".activities.StartupAndProjectIdeas" />
+        <activity android:name=".activities.BuisnessActivity"></activity>
         <activity android:name=".activities.PaymentActivity" />
         <activity android:name=".activities.FeeCollectionActivity" />
         <activity android:name=".activities.CommentActivityForMenuChange" />
