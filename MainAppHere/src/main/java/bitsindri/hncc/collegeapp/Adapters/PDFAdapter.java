@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,20 +21,21 @@ import bitsindri.hncc.collegeapp.R;
 
 public class PDFAdapter extends RecyclerView.Adapter<PDFAdapter.Holder> {
 
-    private List<PDFModel> list;
+//    private List<PDFModel> list;
+private List<Data> list;
     private Context context;
     ItemClickListener itemClickListener;
 
-    public PDFAdapter(List<PDFModel> list, Context context, ItemClickListener itemClickListener) {
-        this.list = list;
-        this.context = context;
-        this.itemClickListener = itemClickListener;
-    }
-//    public PDFAdapter(List<Data> list, Context context, ItemClickListener itemClickListener) {
+//    public PDFAdapter(List<PDFModel> list, Context context, ItemClickListener itemClickListener) {
 //        this.list = list;
 //        this.context = context;
 //        this.itemClickListener = itemClickListener;
 //    }
+    public PDFAdapter(List<Data> list, Context context, ItemClickListener itemClickListener) {
+        this.list = list;
+        this.context = context;
+        this.itemClickListener = itemClickListener;
+    }
 
     @NonNull
     @Override
@@ -47,9 +49,10 @@ public class PDFAdapter extends RecyclerView.Adapter<PDFAdapter.Holder> {
     public void onBindViewHolder(@NonNull Holder holder, int position) {
 
   //      holder.pdfName.setText(list.get(position).getPdfName());
-//        holder.sem.setText((list.get(position).getSemester()));
-//        holder.branch.setText((list.get(position).getBranch()));
-//        holder.sub.setText((list.get(position).getSubject()));
+        holder.sem.setText((list.get(position).getSem()));
+        holder.branch.setText((list.get(position).getBranch()));
+        holder.sub.setText((list.get(position).getSub()));
+
     }
 
     @Override
@@ -72,7 +75,8 @@ public class PDFAdapter extends RecyclerView.Adapter<PDFAdapter.Holder> {
             read=itemView.findViewById(R.id.download);
 
 
-            imageView.setOnClickListener(this);
+
+//            imageView.setOnClickListener(this);
             read.setOnClickListener(this);
         }
 

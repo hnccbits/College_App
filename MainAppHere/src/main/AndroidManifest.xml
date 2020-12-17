@@ -20,9 +20,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
         <activity android:name=".activities.ForgotPasswordActivity"></activity>
 
         <activity android:name=".activities.CreatePostActivity"/>
+
 
         <activity android:name=".activities.FoodCategoryListActivity" />
         <activity android:name=".activities.ContactUsActivity" />
