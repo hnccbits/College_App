@@ -20,9 +20,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activities.CreatePostActivity"/>
 
         <activity android:name=".activities.ForgotPasswordActivity"></activity>
+
+        <activity android:name=".activities.CreatePostActivity"/>
+
 
         <activity android:name=".activities.FoodCategoryListActivity" />
         <activity android:name=".activities.ContactUsActivity" />
@@ -34,6 +36,7 @@
         <activity android:name=".activities.CommentActivityForMenuChange" />
         <activity android:name=".activities.ReportAtivity" />
         <activity android:name=".activities.MessActivity" />
+
 
 <!--        <activity android:name=".activities.OrderStatusActivity" />-->
 
