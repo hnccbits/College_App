@@ -5,13 +5,22 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import bitsindri.hncc.collegeapp.Adapters.InternshipsAndJobsAdapter;
 import bitsindri.hncc.collegeapp.Adapters.NewMarketAdapter;
 import bitsindri.hncc.collegeapp.GetterAndSetter.internshipsAndJobs;
+import bitsindri.hncc.collegeapp.Interfaces.FastAPI;
 import bitsindri.hncc.collegeapp.R;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class InternshipsAndJobsActivity extends AppCompatActivity {
 
@@ -26,16 +35,56 @@ public class InternshipsAndJobsActivity extends AppCompatActivity {
 
         internshipsAndJobsArrayList = new ArrayList<>();
         internshipsAndJobsArrayList.clear();
-        internshipsAndJobsArrayList.add(new internshipsAndJobs("ACG is Hiring Data Science PG Intern","Query on Databases for data extraction, Handle Bigdata sets and develop interactive and insightful dashboards using data visualization software\n\nLINK"));
-        internshipsAndJobsArrayList.add(new internshipsAndJobs("Amazon is Hiring Software Development Engineer Intern","As an intern, you will be matched to a manager and a mentor. You will have the opportunity to influence the evolution of Amazon technology and lead mission critical projects early in your career.\n\nLINK"));
-        internshipsAndJobsArrayList.add(new internshipsAndJobs("Postman is Hiring Technical Support Intern","We are looking for a Technical Support Intern to join our team supporting our 11+ million strong user base. Responsibilities also include adding content to our public facing knowledge base to keep it up to date with our increasing feature set. A background in software development is desired.\n\nLINK"));
-        internshipsAndJobsArrayList.add(new internshipsAndJobs("GE Is Hiring Software Engineer","Bachelor’s Degree in Computer Science or STEM” Majors (Science, Technology, Engineering and Math) with basic experience.\n\nLINK"));
-        internshipsAndJobsArrayList.add(new internshipsAndJobs("Annotation Analyst Job at Apple","As part of the Annotation Team you’ll play a central role in enhancing the user experience. We work in a fast paced, dynamic, technology focused environment.\n\nLINK"));
 
         internshipsAndJobsRecyclerView = findViewById(R.id.internship_an_jobs_recycler_view);
-        internshipsAndJobsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        internshipsAndJobsRecyclerView.setLayoutManager(new LinearLayoutManager(InternshipsAndJobsActivity.this));
 
-        InternshipsAndJobsAdapter = new InternshipsAndJobsAdapter( this,internshipsAndJobsArrayList);
+        InternshipsAndJobsAdapter = new InternshipsAndJobsAdapter( InternshipsAndJobsActivity.this, internshipsAndJobsArrayList);
         internshipsAndJobsRecyclerView.setAdapter(InternshipsAndJobsAdapter);
+
+
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://3.7.248.151:8000/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        // as fastApi is an interface
+        FastAPI fastApi = retrofit.create(FastAPI.class);
+
+        Call<List<internshipsAndJobs>> call = fastApi.getResponse();
+
+        // retrofit help us to fetch data on different thread, using enqueue
+        call.enqueue(new Callback<List<internshipsAndJobs>>() {
+            @Override
+            public void onResponse(Call<List<internshipsAndJobs>> call, Response<List<internshipsAndJobs>> response) {
+
+                if(!response.isSuccessful()){
+                    //responseTextView.setText("Code: " + response.code());
+                    Toast.makeText(InternshipsAndJobsActivity.this,"Code: " + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                List<internshipsAndJobs> responseList = response.body();
+
+                for(internshipsAndJobs eachResponse : responseList){
+                    internshipsAndJobsArrayList.add(new internshipsAndJobs(eachResponse.getId(), eachResponse.getTitle(), eachResponse.getUrl()));
+                }
+
+                InternshipsAndJobsAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onFailure(Call<List<internshipsAndJobs>> call, Throwable t) {
+                //responseTextView.setText(t.getMessage());
+                Log.i("onFailure","" + t.getMessage());
+            }
+        });
+
+
+
+
+
     }
 }
