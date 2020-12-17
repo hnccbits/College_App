@@ -1,10 +1,13 @@
 package bitsindri.hncc.collegeapp.activities
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils.loadAnimation
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -14,23 +17,33 @@ import bitsindri.hncc.collegeapp.fragments.OnBoardingFragment1
 import bitsindri.hncc.collegeapp.fragments.OnBoardingFragment2
 import bitsindri.hncc.collegeapp.fragments.OnBoardingFragment3
 import com.airbnb.lottie.LottieAnimationView
+import com.google.firebase.auth.FirebaseAuth
 
 
 class IntroductionActivity : AppCompatActivity() {
 
     lateinit var logo:ImageView
-    lateinit var app_name:ImageView
+    lateinit var app_name:TextView
     lateinit var bg:ImageView
     lateinit var lottie:LottieAnimationView
 
     lateinit var viewPager: ViewPager
     lateinit var pagerAdapter: ScreenSlidePagerAdapter
+    lateinit var Auth:FirebaseAuth
 
     lateinit var anim:Animation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_introduction)
+
+        Auth = FirebaseAuth.getInstance()
+
+        if (Auth.currentUser != null) {//user has an account by checking if the current user object is present
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         logo = findViewById(R.id.logo)
         app_name= findViewById(R.id.app_name)
