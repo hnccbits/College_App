@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.HomeFragment">
+    tools:context=".fragments.HomeFragment"
+    android:background="#C8CDD3">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,19 +22,27 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="horizontal"
         tools:listitem="@layout/viewholder_story_list"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="6dp" />
 
-        />
+    <TextView
+        android:id="@+id/create_post_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Want to say something?"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:background="@drawable/background"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homeRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="6dp"
         tools:listitem="@layout/each_feed"
         tools:itemCount="4"
-        android:background="#C8CDD3"
         />
 
     </LinearLayout>

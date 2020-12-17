@@ -1,5 +1,6 @@
 package bitsindri.hncc.collegeapp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.core.view.ViewCompat;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -19,6 +21,7 @@ import bitsindri.hncc.collegeapp.Adapters.homeFeedAdapter;
 import bitsindri.hncc.collegeapp.Custom_Classes.UserList;
 import bitsindri.hncc.collegeapp.GetterAndSetter.feed;
 import bitsindri.hncc.collegeapp.R;
+import bitsindri.hncc.collegeapp.activities.CreatePostActivity;
 import xute.storyview.StoryModel;
 
 
@@ -73,11 +76,7 @@ public class HomeFragment extends Fragment {
         user_list.add(StoriesList);
         data.add(new UserList(user_list,"User6","yestarday"));
 
-
-
         pageAdapter=new StoryAdapter(data);
-
-
 
 
         //RECYCLER VIEW
@@ -90,6 +89,15 @@ public class HomeFragment extends Fragment {
         ViewCompat.setNestedScrollingEnabled(recyclerView, false);
 
 
+
+        TextView createPost = homeFeedView.findViewById(R.id.create_post_text_view);
+        createPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent createPostIntent = new Intent(getContext(), CreatePostActivity.class);
+                startActivity(createPostIntent);
+            }
+        });
 
 
         //code for FEED on home fragment

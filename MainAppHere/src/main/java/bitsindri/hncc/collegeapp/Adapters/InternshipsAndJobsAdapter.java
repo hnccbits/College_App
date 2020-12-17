@@ -18,8 +18,8 @@ import bitsindri.hncc.collegeapp.R;
 
 public class InternshipsAndJobsAdapter extends RecyclerView.Adapter {
 
-    private  Context mContext ;
-    private  ArrayList<internshipsAndJobs> internshipsAndJobsList ;
+    private final Context mContext ;
+    private final ArrayList<internshipsAndJobs> internshipsAndJobsList ;
 
     public InternshipsAndJobsAdapter(Context mContext, ArrayList<internshipsAndJobs> internshipsAndJobsList) {
         this.mContext = mContext;
@@ -39,7 +39,7 @@ public class InternshipsAndJobsAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         InternshipsAndJobsAdapter.InternshipsAndJobsHolder InternshipsAndJobsHolder = (InternshipsAndJobsAdapter.InternshipsAndJobsHolder)holder;
         InternshipsAndJobsHolder.title.setText(internshipsAndJobsList.get(position).getTitle());
-        InternshipsAndJobsHolder.description.setText(internshipsAndJobsList.get(position).getDescription());
+        InternshipsAndJobsHolder.description.setText(internshipsAndJobsList.get(position).getUrl());
     }
 
     @Override

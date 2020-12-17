@@ -12,13 +12,18 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".activities.ForgotPasswordActivity"></activity>
+
+        <activity android:name=".activities.CreatePostActivity"/>
+
         <activity android:name=".activities.FoodCategoryListActivity" />
         <activity android:name=".activities.ContactUsActivity" />
         <activity android:name=".activities.InterviewsActivity" />
@@ -29,6 +34,10 @@
         <activity android:name=".activities.CommentActivityForMenuChange" />
         <activity android:name=".activities.ReportAtivity" />
         <activity android:name=".activities.MessActivity" />
+
+
+<!--        <activity android:name=".activities.OrderStatusActivity" />-->
+
         <activity android:name=".activities.CartActivity" />
         <activity android:name=".activities.NavigationActivity" />
         <activity android:name=".activities.FoodDetailActivity" />

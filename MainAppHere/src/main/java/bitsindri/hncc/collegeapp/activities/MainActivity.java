@@ -30,6 +30,7 @@ import bitsindri.hncc.collegeapp.fragments.HomeFragment;
 import bitsindri.hncc.collegeapp.fragments.MarketplaceFragment;
 
 import bitsindri.hncc.collegeapp.fragments.MenuFragment;
+import bitsindri.hncc.collegeapp.fragments.ProfileFragment;
 import bitsindri.hncc.collegeapp.fragments.Telephone_Directory;
 
 public class MainActivity extends AppCompatActivity {
@@ -211,8 +212,8 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new MenuFragment();
                     break;
                 case R.id.user_profile:
-                      fragment = new HomeFragment();
-                    customToast("user profile comming soon");
+                    fragment = new ProfileFragment();
+                    //customToast("user profile coming soon");
                     break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();

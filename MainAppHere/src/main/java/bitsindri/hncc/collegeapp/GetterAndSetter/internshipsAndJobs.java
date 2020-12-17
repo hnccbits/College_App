@@ -1,26 +1,23 @@
 package bitsindri.hncc.collegeapp.GetterAndSetter;
 
 public class internshipsAndJobs {
-    String title, description;
+    String id, title, url;
 
-    public internshipsAndJobs(String title, String description) {
+    public internshipsAndJobs(String id, String title, String url) {
+        this.id = id;
         this.title = title;
-        this.description = description;
+        this.url = url;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public String getUrl() {
+        return url;
     }
 }
