@@ -1,6 +1,7 @@
 package bitsindri.hncc.collegeapp.activities;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer;
 
@@ -40,10 +42,14 @@ public class MainActivity extends AppCompatActivity {
     public static Fragment fragment;
     Class startingFragment;
 
+    FirebaseAuth Auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Auth= FirebaseAuth.getInstance();
 
         if(getSupportActionBar()!=null) {
             getSupportActionBar().hide();
@@ -53,11 +59,10 @@ public class MainActivity extends AppCompatActivity {
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Home",R.drawable.news_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Marketplace",R.drawable.feed_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Messages",R.drawable.message_bg));
-        menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Music",R.drawable.music_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Navigate",R.drawable.music_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Tel- Directory",R.drawable.music_bg));
-        menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Menu",R.drawable.music_bg));
         menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("Empty Item",R.drawable.music_bg));
+        menuItems.add(new com.shrikanthravi.customnavigationdrawer2.data.MenuItem("SignOut",R.drawable.ic_action_close));
 
         sNavigationDrawer.setMenuItemList(menuItems);
 
@@ -97,33 +102,28 @@ public class MainActivity extends AppCompatActivity {
                 }
                 case 3:{
 //                        color1 = R.color.blue;
-                    //fragmentClass = Telephone_Directory.class;
-                    customToast("unused feature");
-                    break;
-                }
-                case 4:{
-//                        color1 = R.color.blue;
                     //fragmentClass = MenuFragment.class;
                     fragmentClass = GoogleMapFragment.class;
                     customToast("navigation");
                     break;
                 }
-                case 5:{
+                case 4:{
                     customToast("tel-directory");
                     fragmentClass = Telephone_Directory.class;
                     break;
                 }
-                case 6:{
-//                        color1 = R.color.blue;
-                    fragmentClass = MenuFragment.class;
-                    customToast("Menu");
-                    break;
-                }
-                case 7:{
-//                        color1 = R.color.blue;
+                case 5:{
                     fragmentClass = EmptyFragment.class;
                     customToast("empty fragment");
                     break;
+                }
+                case 6:{
+
+                    Auth.signOut();
+                    customToast("SignOut Successful");
+                    Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                    finish();
+
                 }
 
 
