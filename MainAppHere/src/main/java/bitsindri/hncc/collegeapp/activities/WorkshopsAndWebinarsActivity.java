@@ -5,12 +5,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import bitsindri.hncc.collegeapp.Adapters.InternshipsAndJobsAdapter;
 import bitsindri.hncc.collegeapp.GetterAndSetter.internshipsAndJobs;
+import bitsindri.hncc.collegeapp.Interfaces.FastAPI;
 import bitsindri.hncc.collegeapp.R;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WorkshopsAndWebinarsActivity extends AppCompatActivity {
 
@@ -26,6 +35,52 @@ public class WorkshopsAndWebinarsActivity extends AppCompatActivity {
 
         workshopsAndWebinarsArrayList = new ArrayList<>();
         workshopsAndWebinarsArrayList.clear();
+
+        workshopsAndWebinarsRecyclerView = findViewById(R.id.workshops_and_webinars_recycler_view);
+        workshopsAndWebinarsRecyclerView.setLayoutManager(new LinearLayoutManager(WorkshopsAndWebinarsActivity.this));
+
+        workshopsAndWebinarsAdapter = new InternshipsAndJobsAdapter( WorkshopsAndWebinarsActivity.this, workshopsAndWebinarsArrayList);
+        workshopsAndWebinarsRecyclerView.setAdapter(workshopsAndWebinarsAdapter);
+
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://3.7.248.151:8000/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        // as fastApi is an interface
+        FastAPI fastApi = retrofit.create(FastAPI.class);
+
+        Call<List<internshipsAndJobs>> call = fastApi.getWorkshops();
+
+        // retrofit help us to fetch data on different thread, using enqueue
+        call.enqueue(new Callback<List<internshipsAndJobs>>() {
+            @Override
+            public void onResponse(Call<List<internshipsAndJobs>> call, Response<List<internshipsAndJobs>> response) {
+
+                if(!response.isSuccessful()){
+                    //responseTextView.setText("Code: " + response.code());
+                    Toast.makeText(WorkshopsAndWebinarsActivity.this,"Code: " + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                List<internshipsAndJobs> responseList = response.body();
+
+                for(internshipsAndJobs eachResponse : responseList){
+                    workshopsAndWebinarsArrayList.add(new internshipsAndJobs(eachResponse.getId(), eachResponse.getTitle(), eachResponse.getUrl()));
+                }
+
+                workshopsAndWebinarsAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onFailure(Call<List<internshipsAndJobs>> call, Throwable t) {
+                //responseTextView.setText(t.getMessage());
+                Log.i("onFailure","" + t.getMessage());
+            }
+        });
+
 //        workshopsAndWebinarsArrayList.add(new internshipsAndJobs("(Workshop) Machine Learning With Image Classification Project","Topic : Machine Learning & Project Creation from scratch\n" +
 //                "Level : Beginner To Advance\n" +
 //                "Fees : $0\n" +
@@ -46,11 +101,6 @@ public class WorkshopsAndWebinarsActivity extends AppCompatActivity {
 //                "\n\nLINK"));
 
 
-        workshopsAndWebinarsRecyclerView = findViewById(R.id.workshops_and_webinars_recycler_view);
-        workshopsAndWebinarsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        workshopsAndWebinarsAdapter = new InternshipsAndJobsAdapter( this,workshopsAndWebinarsArrayList);
-        workshopsAndWebinarsRecyclerView.setAdapter(workshopsAndWebinarsAdapter);
 
     }
 

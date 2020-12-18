@@ -5,12 +5,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import bitsindri.hncc.collegeapp.Adapters.InternshipsAndJobsAdapter;
 import bitsindri.hncc.collegeapp.GetterAndSetter.internshipsAndJobs;
+import bitsindri.hncc.collegeapp.Interfaces.FastAPI;
 import bitsindri.hncc.collegeapp.R;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ContestsAndHackathonsActivity extends AppCompatActivity {
 
@@ -25,22 +34,51 @@ public class ContestsAndHackathonsActivity extends AppCompatActivity {
 
         contestsAndHackathonsArrayList = new ArrayList<>();
         contestsAndHackathonsArrayList.clear();
-//        contestsAndHackathonsArrayList.add(new internshipsAndJobs("Codeforces","Codeforces Round #685 (Div. 2) will take place on the 21st of November at 14:35 UTC. \n"
-//                +"Please, join by the link https://codeforces.com/contests/1451"));
-//        contestsAndHackathonsArrayList.add(new internshipsAndJobs("Appathon","Create an Android Application in one day and share it to us. \n"
-//                +"https://dare2compete.com/o/appathon-nullclass-136949"));
-//        contestsAndHackathonsArrayList.add(new internshipsAndJobs("Codechef","Codechef November Cook-Off 2020 \n"
-//                +"https://www.codechef.com/COOK124/?utm_source=hpbanner&utm_medium=website&utm_campaign=COOK124"));
-//        contestsAndHackathonsArrayList.add(new internshipsAndJobs("LETS HACK","Build your ideas to unveil a plethora of opportunities and compete against some of the best minds. Choose your track to find the right place and be the better you. \n"
-//                +"https://dare2compete.com/o/lets-hack-zubiio-136619"));
-//        contestsAndHackathonsArrayList.add(new internshipsAndJobs("Codeforces","Educational Codeforces Round 98 (rated for Div. 2) starts on the 19th of November at 14:35 UTC \n"
-//                +"https://codeforces.com/contests/1452"));
 
         contestsAndHackathonsRecyclerView = findViewById(R.id.contests_and_hackathons_recycler_view);
-        contestsAndHackathonsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        contestsAndHackathonsRecyclerView.setLayoutManager(new LinearLayoutManager(ContestsAndHackathonsActivity.this));
 
-        contestsAndHackathonsAdapter = new InternshipsAndJobsAdapter( this,contestsAndHackathonsArrayList);
+        contestsAndHackathonsAdapter = new InternshipsAndJobsAdapter( ContestsAndHackathonsActivity.this,contestsAndHackathonsArrayList);
         contestsAndHackathonsRecyclerView.setAdapter(contestsAndHackathonsAdapter);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://3.7.248.151:8000/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        // as fastApi is an interface
+        FastAPI fastApi = retrofit.create(FastAPI.class);
+
+        Call<List<internshipsAndJobs>> call = fastApi.getHackathons();
+
+        // retrofit help us to fetch data on different thread, using enqueue
+        call.enqueue(new Callback<List<internshipsAndJobs>>() {
+            @Override
+            public void onResponse(Call<List<internshipsAndJobs>> call, Response<List<internshipsAndJobs>> response) {
+
+                if(!response.isSuccessful()){
+                    //responseTextView.setText("Code: " + response.code());
+                    Toast.makeText(ContestsAndHackathonsActivity.this,"Code: " + response.code(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                List<internshipsAndJobs> responseList = response.body();
+
+                for(internshipsAndJobs eachResponse : responseList){
+                    contestsAndHackathonsArrayList.add(new internshipsAndJobs(eachResponse.getId(), eachResponse.getTitle(), eachResponse.getUrl()));
+                }
+
+                contestsAndHackathonsAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onFailure(Call<List<internshipsAndJobs>> call, Throwable t) {
+                //responseTextView.setText(t.getMessage());
+                Log.i("onFailure","" + t.getMessage());
+            }
+        });
+
 
     }
 }

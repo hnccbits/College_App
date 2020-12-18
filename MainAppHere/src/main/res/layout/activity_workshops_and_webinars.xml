@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C8CDD3"
     tools:context=".activities.WorkshopsAndWebinarsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/workshops_and_webinars_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="5dp"
+        tools:listitem="@layout/each_internship_or_job"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
