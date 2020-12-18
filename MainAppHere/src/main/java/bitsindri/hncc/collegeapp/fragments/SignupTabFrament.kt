@@ -90,9 +90,6 @@ class SignupTabFrament:Fragment() {
 
         signup.setOnClickListener {
 
-            signup.setVisibility(View.INVISIBLE)
-            progressBar.setVisibility(View.VISIBLE)
-
             val Email = email.text.toString()
             val Password = pass.text.toString()
             val Confirm_Password = conf_pass.text.toString()
@@ -146,6 +143,8 @@ class SignupTabFrament:Fragment() {
                                 }
                     }
                     else{
+                        progressBar.visibility = View.INVISIBLE
+                        signup.setVisibility(View.VISIBLE)
 
                         Toast.makeText(
                                 activity as Context,

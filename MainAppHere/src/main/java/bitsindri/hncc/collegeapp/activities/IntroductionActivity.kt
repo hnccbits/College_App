@@ -8,6 +8,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils.loadAnimation
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -38,11 +39,18 @@ class IntroductionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_introduction)
 
         Auth = FirebaseAuth.getInstance()
+        val mUser = Auth.currentUser
 
-        if (Auth.currentUser != null) {//user has an account by checking if the current user object is present
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+        if (mUser != null) {
+            if (Auth.currentUser != null && mUser.isEmailVerified) {//user has an account by checking if the current user object is present
+                val intent = Intent(this, IntroQuestion::class.java)
+                startActivity(intent)
+                finish()
+            }
+            else{
+                Toast.makeText(this, "No user found with this credentials", Toast.LENGTH_SHORT)
+                        .show()
+            }
         }
 
         logo = findViewById(R.id.logo)
@@ -87,5 +95,10 @@ class IntroductionActivity : AppCompatActivity() {
             }
             return tab
         }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 }

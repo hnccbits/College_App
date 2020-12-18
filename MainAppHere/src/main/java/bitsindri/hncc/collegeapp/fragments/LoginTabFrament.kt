@@ -38,16 +38,21 @@ class LoginTabFrament:Fragment() {
 
         val view = inflater.inflate(R.layout.login_tab_fragment,container,false)
 
+
+
         Auth = FirebaseAuth.getInstance()
         userId = Auth.currentUser?.uid.toString()
 
         val mUser = Auth.currentUser
 
         if (mUser != null) {
-            if (Auth.currentUser != null && mUser.isEmailVerified) {//user has an account by checking if the current user object is present
-                val intent = Intent(activity as Context, IntroQuestion::class.java)
-                startActivity(intent)
-                activity?.finish()
+            if (Auth.currentUser != null) {
+                if(mUser.isEmailVerified){
+
+                    val intent = Intent(activity as Context, IntroQuestion::class.java)
+                    startActivity(intent)
+                    activity?.finish()
+                }
             }
             else{
                 Toast.makeText(activity as Context, "No user found with this credentials", Toast.LENGTH_SHORT)
@@ -55,6 +60,7 @@ class LoginTabFrament:Fragment() {
             }
         }
 
+        progressBar=view.findViewById(R.id.progressBar)
         email = view.findViewById(R.id.email)
         pass = view.findViewById(R.id.pass)
         btnLogin =  view.findViewById(R.id.btnLogin)
@@ -77,21 +83,53 @@ class LoginTabFrament:Fragment() {
         txtForgotPassword.animate().translationX(0F).alpha(1F).setDuration(800).setStartDelay(700).start()
 
 
-        btnLogin.setOnClickListener {
+        btnLogin.setOnClickListener{
+            val Email:String = email.text.toString()
+            val Password:String = pass.text.toString()
 
-            if (Auth.currentUser != null) {//user has an account by checking if the current user object is present
+            if(!Email.equals("") && !Password.equals("")){
 
-                btnLogin.visibility = View.INVISIBLE
+//          if(Password2.length<6){
+//              Toast.makeText(this@LoginActivity,"Invalid Password",Toast.LENGTH_SHORT).show()
+//          }else {
                 progressBar.visibility = View.VISIBLE
+                btnLogin.visibility = View.GONE
 
-                val intent = Intent(activity as Context, IntroQuestion::class.java)
-                startActivity(intent)
-                activity?.finish()
+                //authentication of user
+
+                Auth.signInWithEmailAndPassword(Email, Password)
+                        .addOnCompleteListener {//addOnCompleteListener mthod is used to verify whether the task is done successfully or not
+                            task ->
+                            progressBar.visibility = View.GONE
+                            btnLogin.visibility = View.VISIBLE
+
+                            if (task.isSuccessful) {
+                                Toast.makeText(
+                                        activity,
+                                        "Logged In Successfully",
+                                        Toast.LENGTH_SHORT
+                                ).show()
+                                val intent = Intent(activity, IntroQuestion::class.java)
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+//                          intent.putExtra("URL",downloadedUrl)
+                                startActivity(intent)
+                            } else {
+                                Toast.makeText(
+                                        activity,
+                                        "Error! = " + (task.exception),
+                                        Toast.LENGTH_SHORT
+                                ).show()
+                                progressBar.visibility = View.GONE
+                                btnLogin.visibility = View.VISIBLE
+                            }
+
+//                  }
+                        }
             }else{
-                Toast.makeText(activity as Context, "No user found with this credentials", Toast.LENGTH_SHORT)
-                        .show()
-            }
 
+                Toast.makeText(activity,"Enter all Details",Toast.LENGTH_SHORT).show()
+
+            }
 
 
         }
@@ -101,13 +139,17 @@ class LoginTabFrament:Fragment() {
         }
 
         txtcasualLogin.setOnClickListener{
-            startActivity(Intent(activity,MainActivity::class.java))
-            activity?.finish()
+                    startActivity(Intent(activity,MainActivity::class.java))
+                    activity?.finish()
         }
-
-
 
         return  view
 
+    }
+
+    override fun onResume() {
+        email.setText("")
+        pass.setText("")
+        super.onResume()
     }
 }

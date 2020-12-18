@@ -92,7 +92,9 @@ private ArrayList<Data> data;
             switch (view.getId())
             {
                 case R.id.download:
+                    Toast.makeText(getContext(),"loading...",Toast.LENGTH_SHORT).show();
                     Toast.makeText(getContext(),"loading...",Toast.LENGTH_LONG).show();
+
                     Intent intent = new Intent(getContext(), WebViewActivity.class);
                     //intent.putExtra("url",list.get(position).getPdfUrl());
                     intent.putExtra("url",data.get(position).getUrl());
@@ -130,6 +132,9 @@ private ArrayList<Data> data;
                 mShimmerViewContainer.stopShimmer();
                 mShimmerViewContainer.setVisibility(View.GONE);
             }
+//              mShimmerViewContainer.stopShimmerAnimation();
+//                    mShimmerViewContainer.setVisibility(View.GONE);
+
 
 
 
