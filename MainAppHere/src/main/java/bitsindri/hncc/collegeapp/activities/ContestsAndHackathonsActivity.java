@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
+
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +29,14 @@ public class ContestsAndHackathonsActivity extends AppCompatActivity {
     ArrayList<internshipsAndJobs> contestsAndHackathonsArrayList;
     RecyclerView contestsAndHackathonsRecyclerView;
     InternshipsAndJobsAdapter contestsAndHackathonsAdapter;
+    ShimmerFrameLayout mShimmerViewContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contests_and_hackathons);
+
+        mShimmerViewContainer = findViewById(R.id.shimmer_view_container);
 
         contestsAndHackathonsArrayList = new ArrayList<>();
         contestsAndHackathonsArrayList.clear();
@@ -69,6 +75,8 @@ public class ContestsAndHackathonsActivity extends AppCompatActivity {
                 }
 
                 contestsAndHackathonsAdapter.notifyDataSetChanged();
+                mShimmerViewContainer.stopShimmer();
+                mShimmerViewContainer.setVisibility(View.GONE);
 
             }
 

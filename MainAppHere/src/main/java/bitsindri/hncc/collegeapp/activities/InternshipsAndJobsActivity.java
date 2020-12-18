@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
+
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +30,14 @@ public class InternshipsAndJobsActivity extends AppCompatActivity {
     ArrayList<internshipsAndJobs> internshipsAndJobsArrayList;
     RecyclerView internshipsAndJobsRecyclerView;
     InternshipsAndJobsAdapter InternshipsAndJobsAdapter;
+    ShimmerFrameLayout mShimmerViewContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_internships_and_jobs);
+
+        mShimmerViewContainer = findViewById(R.id.shimmer_view_container);
 
         internshipsAndJobsArrayList = new ArrayList<>();
         internshipsAndJobsArrayList.clear();
@@ -72,7 +78,8 @@ public class InternshipsAndJobsActivity extends AppCompatActivity {
                 }
 
                 InternshipsAndJobsAdapter.notifyDataSetChanged();
-
+                mShimmerViewContainer.stopShimmer();
+                mShimmerViewContainer.setVisibility(View.GONE);
             }
 
             @Override
