@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1037155057219",
+    "project_id": "collage-app-54b4e",
+    "storage_bucket": "collage-app-54b4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037155057219:android:55cc9d9b98502139519ef6",
+        "android_client_info": {
+          "package_name": "bitsindri.hncc.collegeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1037155057219-i4tuv7mu25amiktqru26sj0ntvi03n87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAetx4nCiUweFeQ-kWiUJmX61Lx8FLeDJ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1037155057219-i4tuv7mu25amiktqru26sj0ntvi03n87.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
