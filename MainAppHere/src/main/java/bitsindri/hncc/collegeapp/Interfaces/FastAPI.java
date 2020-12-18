@@ -8,5 +8,11 @@ import retrofit2.http.GET;
 
 public interface FastAPI {
     @GET("internship")
-    Call<List<internshipsAndJobs>> getResponse();
+    Call<List<internshipsAndJobs>> getInternships();
+
+    @GET("workshop")
+    Call<List<internshipsAndJobs>> getWorkshops();
+
+    @GET("hackathon")
+    Call<List<internshipsAndJobs>> getHackathons();
 }

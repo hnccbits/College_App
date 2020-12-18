@@ -3,35 +3,40 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
     android:clickable="false"
     android:focusable="true"
-    android:layout_margin="5dp"
-    android:background="#ffffff"
+    android:layout_marginVertical="5dp"
+    android:layout_marginHorizontal="10dp"
+    android:background="#C8CDD3"
     android:foreground="?android:attr/selectableItemBackground">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="15dp">
             <TextView
                 android:id="@+id/internship_an_jobs_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:textSize="18sp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/internship_an_jobs_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="6dp"
-                android:textSize="17sp"
                 android:textColor="@color/black"
-                android:autoLink="web"
-                android:textColorLink="#0095FF"/>
+                android:textStyle="bold"/>
+            <Button
+                android:id="@+id/internship_an_jobs_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:text="Apply now"
+                android:background="@drawable/btn_border"
+                android:paddingHorizontal="15dp"
+                android:textAllCaps="false"/>
+<!--                android:autoLink="web"-->
+<!--                android:textColorLink="#0095FF"-->
         </LinearLayout>
 
 

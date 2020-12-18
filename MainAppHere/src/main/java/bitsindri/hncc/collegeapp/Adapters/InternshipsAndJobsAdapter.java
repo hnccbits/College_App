@@ -1,6 +1,8 @@
 package bitsindri.hncc.collegeapp.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +41,13 @@ public class InternshipsAndJobsAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         InternshipsAndJobsAdapter.InternshipsAndJobsHolder InternshipsAndJobsHolder = (InternshipsAndJobsAdapter.InternshipsAndJobsHolder)holder;
         InternshipsAndJobsHolder.title.setText(internshipsAndJobsList.get(position).getTitle());
-        InternshipsAndJobsHolder.description.setText(internshipsAndJobsList.get(position).getUrl());
+
+        InternshipsAndJobsHolder.description.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(internshipsAndJobsList.get(position).getUrl())));
+            }
+        });
     }
 
     @Override
@@ -49,7 +57,8 @@ public class InternshipsAndJobsAdapter extends RecyclerView.Adapter {
 
     public static class InternshipsAndJobsHolder extends RecyclerView.ViewHolder {
 
-        TextView title, description;
+        TextView title;
+        Button description;
 
         public InternshipsAndJobsHolder(View itemView) {
             super(itemView);
