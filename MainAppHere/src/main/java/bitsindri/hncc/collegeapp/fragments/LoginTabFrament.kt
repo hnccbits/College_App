@@ -44,10 +44,13 @@ class LoginTabFrament:Fragment() {
         val mUser = Auth.currentUser
 
         if (mUser != null) {
-            if (Auth.currentUser != null && mUser.isEmailVerified) {//user has an account by checking if the current user object is present
-                val intent = Intent(activity as Context, IntroQuestion::class.java)
-                startActivity(intent)
-                activity?.finish()
+            if (Auth.currentUser != null) {
+                if(mUser.isEmailVerified){
+
+                    val intent = Intent(activity as Context, IntroQuestion::class.java)
+                    startActivity(intent)
+                    activity?.finish()
+                }
             }
             else{
                 Toast.makeText(activity as Context, "No user found with this credentials", Toast.LENGTH_SHORT)
@@ -55,6 +58,7 @@ class LoginTabFrament:Fragment() {
             }
         }
 
+        progressBar=view.findViewById(R.id.progressBar)
         email = view.findViewById(R.id.email)
         pass = view.findViewById(R.id.pass)
         btnLogin =  view.findViewById(R.id.btnLogin)
@@ -101,8 +105,22 @@ class LoginTabFrament:Fragment() {
         }
 
         txtcasualLogin.setOnClickListener{
-            startActivity(Intent(activity,MainActivity::class.java))
-            activity?.finish()
+
+            if(mUser!=null){
+                if (mUser.isEmailVerified){
+
+                    startActivity(Intent(activity,MainActivity::class.java))
+                    activity?.finish()
+
+                }
+                else{
+                    Toast.makeText(activity,"Verify Email First",Toast.LENGTH_SHORT).show()
+                }
+            }else{
+                Toast.makeText(activity,"User Not Exists",Toast.LENGTH_SHORT).show()
+            }
+
+
         }
 
 
