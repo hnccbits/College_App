@@ -1,8 +1,24 @@
 package bitsindri.hncc.collegeapp.GetterAndSetter;
 
+import com.google.gson.annotations.SerializedName;
+
 public class feed {
 
-    String profileName, postDateAndTime, postImageUrl, postMessage, postLikes;
+
+    @SerializedName("name")
+    private String profileName;
+
+    @SerializedName("date_time")
+    private String postDateAndTime;
+
+    @SerializedName("img_url")
+    private String postImageUrl;
+
+    @SerializedName("message")
+    private  String postMessage;
+
+    @SerializedName("likes")
+    private String postLikes;
 
     public feed(String profileName, String postDateAndTime, String postImageUrl, String postMessage, String postLikes) {
         this.profileName = profileName;
