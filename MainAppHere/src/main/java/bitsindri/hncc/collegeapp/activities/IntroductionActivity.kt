@@ -95,5 +95,10 @@ class IntroductionActivity : AppCompatActivity() {
             }
             return tab
         }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 }
