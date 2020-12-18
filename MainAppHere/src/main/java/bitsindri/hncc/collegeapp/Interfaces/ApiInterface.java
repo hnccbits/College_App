@@ -4,6 +4,7 @@ import java.util.List;
 
 import bitsindri.hncc.collegeapp.Custom_Classes.Data;
 import bitsindri.hncc.collegeapp.Custom_Classes.DataList;
+import bitsindri.hncc.collegeapp.Custom_Classes.DataList_feed;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -15,5 +16,8 @@ public interface ApiInterface {
 //    Call<List<Data>> getInfo();
 @GET("/study_resource")
 Call<DataList> getInfo();
+
+    @GET("/users-feed")
+    Call<DataList_feed> getPost();
 }
 

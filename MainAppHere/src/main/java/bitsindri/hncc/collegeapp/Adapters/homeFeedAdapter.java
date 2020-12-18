@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import bitsindri.hncc.collegeapp.GetterAndSetter.feed;
@@ -47,10 +49,13 @@ public class homeFeedAdapter extends RecyclerView.Adapter{
         FeedHolder.feedDateAndTime.setText(feed.getPostDateAndTime());
 
         String PostImageUrl = feed.getPostImageUrl();
-        if(!PostImageUrl.equals("no_post_img")){
+        if(!PostImageUrl.equals("null")){
             FeedHolder.feedImage.setImageResource(R.drawable.desktop);
+            Picasso.get().load(feed.getPostImageUrl()).into(FeedHolder.feedImage);
+//            Picasso.with(myContext).load(feed.getPostImageUrl()).into( FeedHolder.feedImage);
         }else {
             FeedHolder.feedImage.setVisibility(View.GONE);
+
         }
 
         FeedHolder.feedText.setText(feed.getPostMessage());
