@@ -45,7 +45,7 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
-    implementation 'com.google.android.material:material:1.3.0-alpha04'
+    implementation 'com.google.android.material:material:1.3.0-beta01'
     implementation 'de.hdodenhof:circleimageview:3.1.0' //circle image view
     implementation "androidx.cardview:cardview:1.0.0"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'//cardView
@@ -56,8 +56,8 @@ dependencies {
 //    implementation 'com.ismaeldivita.chipnavigation:chip-navigation-bar:1.3.3' //chip navigation bar
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.10'
     implementation 'androidx.wear:wear:1.1.0'
-    implementation 'com.google.firebase:firebase-analytics:17.4.4'
-    implementation 'com.google.firebase:firebase-auth:19.3.2'
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
+    implementation 'com.google.firebase:firebase-auth:20.0.1'
     implementation 'com.google.firebase:firebase-database:19.6.0'
     implementation 'com.google.firebase:firebase-storage:19.2.1'
 //so that chip navigation bar can be used for java

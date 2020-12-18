@@ -63,8 +63,8 @@
             android:gravity="start"
             android:padding="5dp"
             android:text="Description"
-            android:textColor="#ffffff"
-            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textSize="19sp"
             android:textStyle="bold"/>
 
         <androidx.cardview.widget.CardView
@@ -84,7 +84,7 @@
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex
                  ea commodo consequat."
                 android:textColor="@android:color/black"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:background="#ecf4f3"/>
         </androidx.cardview.widget.CardView>
 
@@ -94,8 +94,8 @@
             android:gravity="start"
             android:padding="5dp"
             android:text="Owner details"
-            android:textColor="#ffffff"
-            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textSize="19sp"
             android:textStyle="bold"/>
 
         <LinearLayout
@@ -122,21 +122,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="User Name"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Role"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Department"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
             </LinearLayout>
         </LinearLayout>
 
         <Button
+            android:id="@+id/chat_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CHAT"
