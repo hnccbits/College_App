@@ -5,12 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fbf6f0"
+    android:background="#C8CDD3"
     tools:context=".activities.InternshipsAndJobsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/internship_an_jobs_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        tools:listitem="@layout/each_internship_or_job"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

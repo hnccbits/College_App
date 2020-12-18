@@ -52,7 +52,7 @@ public class InternshipsAndJobsActivity extends AppCompatActivity {
         // as fastApi is an interface
         FastAPI fastApi = retrofit.create(FastAPI.class);
 
-        Call<List<internshipsAndJobs>> call = fastApi.getResponse();
+        Call<List<internshipsAndJobs>> call = fastApi.getInternships();
 
         // retrofit help us to fetch data on different thread, using enqueue
         call.enqueue(new Callback<List<internshipsAndJobs>>() {
