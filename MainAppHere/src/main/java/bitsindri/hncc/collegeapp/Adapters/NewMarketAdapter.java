@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import bitsindri.hncc.collegeapp.Custom_Classes.PhoneNumber;
@@ -46,9 +48,10 @@ public class NewMarketAdapter extends RecyclerView.Adapter<NewMarketAdapter.Exam
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
 
 
-       holder.itemCategory.setText(marketplaceList.get(position).getItemCategory());
-        final String price = "Rs. " + marketplaceList.get(position).getItemPrice();
+       holder.itemCategory.setText(marketplaceList.get(position).getCategory());
+        String price = "Rs. " + marketplaceList.get(position).getPrice();
         holder.itemPrice.setText(price);
+        Picasso.get().load(marketplaceList.get(position).getImg_url()).into(holder.imageView);
 
 
     }
@@ -60,6 +63,7 @@ public class NewMarketAdapter extends RecyclerView.Adapter<NewMarketAdapter.Exam
     public  class ExampleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView itemCategory, itemPrice;
+        ImageView imageView;
         Button starbtn;
         calluser callusers;
 
@@ -68,6 +72,7 @@ public class NewMarketAdapter extends RecyclerView.Adapter<NewMarketAdapter.Exam
             super(itemView);
             itemCategory = itemView.findViewById(R.id.item_category);
             itemPrice = itemView.findViewById(R.id.item_price);
+            imageView=itemView.findViewById(R.id.product_img);
             starbtn = itemView.findViewById(R.id.fav_item);
             this.callusers = calluser;
 

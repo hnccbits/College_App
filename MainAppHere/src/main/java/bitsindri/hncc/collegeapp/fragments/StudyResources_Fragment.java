@@ -135,10 +135,6 @@ private ArrayList<Data> data;
 //              mShimmerViewContainer.stopShimmerAnimation();
 //                    mShimmerViewContainer.setVisibility(View.GONE);
 
-
-
-
-
             @Override
             public void onFailure(Call<DataList> call, Throwable t) {
                 Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
