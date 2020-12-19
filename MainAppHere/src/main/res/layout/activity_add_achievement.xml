@@ -72,7 +72,7 @@
             app:layout_constraintTop_toBottomOf="@+id/achievement_text_view"/>
 
         <Button
-            android:id="@+id/add_issue_button"
+            android:id="@+id/add_achievement_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Add my achievement"
