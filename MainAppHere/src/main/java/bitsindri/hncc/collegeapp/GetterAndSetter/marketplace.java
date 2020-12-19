@@ -1,27 +1,73 @@
 package bitsindri.hncc.collegeapp.GetterAndSetter;
 
+import com.google.gson.annotations.SerializedName;
+
 public class marketplace {
-    String itemCategory;
-    int itemPrice;
+//    String itemCategory;
+//    int itemPrice;
 
-    public marketplace(String itemCategory, int itemPrice) {
-        this.itemCategory = itemCategory;
-        this.itemPrice = itemPrice;
+
+    @SerializedName("name")
+    private String name;
+
+    @SerializedName("batch")
+    private String batch;
+
+
+    @SerializedName("price")
+    private String price;
+
+    @SerializedName("category")
+    private String category;
+
+    @SerializedName("description")
+    private String description;
+
+    @SerializedName("img_url")
+    private String img_url;
+
+    public String getName() {
+        return name;
     }
 
-    public String getItemCategory() {
-        return itemCategory;
+    public String getBatch() {
+        return batch;
     }
 
-    public void setItemCategory(String itemCategory) {
-        this.itemCategory = itemCategory;
+    public String getPrice() {
+        return price;
     }
 
-    public int getItemPrice() {
-        return itemPrice;
+    public String getCategory() {
+        return category;
     }
 
-    public void setItemPrice(int itemPrice) {
-        this.itemPrice = itemPrice;
+    public String getDescription() {
+        return description;
     }
+
+    public String getImg_url() {
+        return img_url;
+    }
+//
+//    public marketplace(String itemCategory, int itemPrice) {
+//        this.itemCategory = itemCategory;
+//        this.itemPrice = itemPrice;
+//    }
+//
+//    public String getItemCategory() {
+//        return itemCategory;
+//    }
+//
+//    public void setItemCategory(String itemCategory) {
+//        this.itemCategory = itemCategory;
+//    }
+//
+//    public int getItemPrice() {
+//        return itemPrice;
+//    }
+//
+//    public void setItemPrice(int itemPrice) {
+//        this.itemPrice = itemPrice;
+//    }
 }
