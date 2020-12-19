@@ -45,19 +45,19 @@ public class Telephone_Directory extends Fragment implements TelephoneAdapter.ca
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        recyclerView=(RecyclerView)getActivity().findViewById(R.id.tel_RecyclerView);
+        recyclerView = getActivity().findViewById(R.id.tel_RecyclerView);
 
         data = new ArrayList<>();
-        data.add(new PhoneNumber(R.drawable.profilepic,"user","0866-2410978"));
-        data.add(new PhoneNumber(R.drawable.profilepic,"user","0866-2410978"));
-        data.add(new PhoneNumber(R.drawable.profilepic,"user","0866-2410978"));
-        data.add(new PhoneNumber(R.drawable.profilepic,"user","0866-2410978"));
-        data.add(new PhoneNumber(R.drawable.profilepic,"user","0866-2410978"));
-        data.add(new PhoneNumber(R.drawable.profilepic,"user","0866-2410978"));
-        data.add(new PhoneNumber(R.drawable.profilepic,"user","0866-2410978"));
-        data.add(new PhoneNumber(R.drawable.profilepic,"user","0866-2410978"));
-        data.add(new PhoneNumber(R.drawable.profilepic,"user","0866-2410978"));
-        data.add(new PhoneNumber(R.drawable.profilepic,"user","0866-2410978"));
+        data.add(new PhoneNumber(R.drawable.profilepic,"User Name 1","9876543210"));
+        data.add(new PhoneNumber(R.drawable.profilepic,"User Name 2","9876543210"));
+        data.add(new PhoneNumber(R.drawable.profilepic,"User Name 3","9876543210"));
+        data.add(new PhoneNumber(R.drawable.profilepic,"User Name 4","9876543210"));
+        data.add(new PhoneNumber(R.drawable.profilepic,"User Name 5","9876543210"));
+        data.add(new PhoneNumber(R.drawable.profilepic,"User Name 6","9876543210"));
+        data.add(new PhoneNumber(R.drawable.profilepic,"User Name 7","9876543210"));
+        data.add(new PhoneNumber(R.drawable.profilepic,"User Name 8","9876543210"));
+        data.add(new PhoneNumber(R.drawable.profilepic,"User Name 9","9876543210"));
+        data.add(new PhoneNumber(R.drawable.profilepic,"User Name 10","9876543210"));
 
 
 
@@ -80,4 +80,5 @@ public class Telephone_Directory extends Fragment implements TelephoneAdapter.ca
         Intent i = new Intent(Intent.ACTION_DIAL, u);
         startActivity(i);
     }
+
 }
