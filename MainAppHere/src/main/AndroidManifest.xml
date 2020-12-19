@@ -87,6 +87,7 @@
         <activity android:name=".activities.sellingItemActivity" />
         <activity android:name=".activities.IntroQuestion">
 
+
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
 
@@ -96,7 +97,11 @@
         </activity>
         <activity
             android:name=".activities.MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"></activity>
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
 
         <meta-data
             android:name="preloaded_fonts"

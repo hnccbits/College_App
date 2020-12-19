@@ -28,7 +28,7 @@ import bitsindri.hncc.collegeapp.R;
 
 public class AddAchievementActivity extends AppCompatActivity {
 
-    Button add_achievement;
+    Button add_achievement_image_button;
     Button add_achievement_button;
     ImageView achievement_image;
     public int PERMISSION_CODE = 1000;
@@ -41,7 +41,7 @@ public class AddAchievementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_achievement);
 
-        add_achievement= findViewById(R.id.add_achievement);
+        add_achievement_image_button= findViewById(R.id.add_achievement_image_button);
         achievement_image = findViewById(R.id.achievement_image);
         add_achievement_button = findViewById(R.id.add_achievement_button);
         achievement_edit_text = findViewById(R.id.achievement_edit_text);
@@ -59,7 +59,7 @@ public class AddAchievementActivity extends AppCompatActivity {
 
         });
 
-        add_achievement.setOnClickListener(v -> {
+        add_achievement_image_button.setOnClickListener(v -> {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
                 if (checkSelfPermission(android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED
